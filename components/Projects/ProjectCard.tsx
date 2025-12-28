@@ -1,3 +1,11 @@
+/*
+ * @Author: 孝扬
+ * @Date: 2025-12-27 11:30:25
+ * @LastEditors: 孝扬
+ * @LastEditTime: 2025-12-27 15:16:00
+ * @Version: V1.0
+ * @Description:
+ */
 "use client";
 
 import React, { useState } from "react";
@@ -31,7 +39,7 @@ const ProjectCard = ({
         transition={{
           duration: 0.2,
           type: "spring",
-          stiffness: 400,
+          stiffness: 500,
           damping: 25,
         }}
       >

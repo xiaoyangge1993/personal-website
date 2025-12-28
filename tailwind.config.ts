@@ -25,7 +25,7 @@ const config: Config = {
         },
       },
       animation: {
-        "spin-slow": "spin 4s linear infinite",
+        "spin-slow": "spin 2.67s linear infinite",
         shimmer: "shimmer 4.3s linear infinite",
       },
     },

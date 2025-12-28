@@ -75,23 +75,41 @@ export default function Skills() {
                 normalizedOffset += skills.length;
 
               const isActive = normalizedOffset === 0;
+              const absOffset = Math.abs(normalizedOffset);
 
               // Only show nearby cards
-              if (Math.abs(normalizedOffset) > 2) return null;
+              if (absOffset > 2) return null;
+
+              // Determine z-index based on layer (absOffset)
+              // Layer 1 (center, absOffset = 0): highest z-index
+              // Layer 2 (middle, absOffset = 1): medium z-index
+              // Layer 3 (outermost, absOffset = 2): lowest z-index
+              const getZIndex = () => {
+                if (absOffset === 0) return "z-30"; // First layer (center)
+                if (absOffset === 1) return "z-20"; // Second layer (middle)
+                return "z-10"; // Third layer (outermost)
+              };
+
+              // Determine 3D z depth based on layer
+              const getZDepth = () => {
+                if (absOffset === 0) return 100; // First layer (center)
+                if (absOffset === 1) return 0; // Second layer (middle)
+                return -100; // Third layer (outermost)
+              };
 
               return (
                 <motion.div
                   key={skill.name}
                   className={clsx(
                     "absolute w-[280px] md:w-[320px] rounded-2xl shadow-2xl cursor-pointer group",
-                    isActive ? "z-30" : "z-10"
+                    getZIndex()
                   )}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
-                    opacity: Math.abs(normalizedOffset) > 1 ? 0.5 : 1,
+                    opacity: absOffset > 1 ? 0.5 : 1,
                     scale: isActive ? 1.1 : 0.9,
                     x: normalizedOffset * 220, // Spacing
-                    z: isActive ? 100 : -100, // Depth
+                    z: getZDepth(), // Depth based on layer
                     rotateY: normalizedOffset * -25, // Rotation
                   }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} // Fast-out, Slow-in

@@ -6,6 +6,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
 import ProjectCard from "./ProjectCard";
+import { useParticles } from "@/contexts/ParticlesContext";
 
 const projects = [
   {
@@ -53,6 +54,7 @@ const projects = [
 
 export default function Projects() {
   const [init, setInit] = useState(false);
+  const { particlesEnabled } = useParticles();
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -68,7 +70,7 @@ export default function Projects() {
       className="relative py-20 bg-slate-900 overflow-hidden"
     >
       {/* Particle Background */}
-      {init && (
+      {init && particlesEnabled && (
         <div className="absolute inset-0 z-0">
           <Particles
             id="tsparticles"
