@@ -38,7 +38,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
   const wireVariants = {
     rest: { height: 0, opacity: 0 },
     hover: {
-      height: 140, // Increased height to reach outside card
+      height: 182, // Increased height by 30% (140 * 1.3 = 182)
       opacity: 1,
       transition: { duration: 0.2, ease: "easeOut", delay: 0.1 },
     },
@@ -114,24 +114,35 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
             />
           </div>
 
-          {/* Wire & Link - Standing up from center */}
+          {/* Wire - Starting from ripple center, aligned with ripple origin */}
+          {/* Ripple center is at top-1/2 left-1/2 with -translate-x-1/2 -translate-y-1/2 */}
+          {/* Wire needs to start from the same point, so use translate(-50%, -53%) to align bottom with center point */}
           <motion.div
             className="absolute top-1/2 left-1/2 w-0.5 bg-gradient-to-t from-orange-500 to-transparent flex flex-col justify-end items-center origin-bottom"
             variants={wireVariants}
             style={{
-              transform: "translateX(-50%) rotateX(-25deg) translateY(-100%)", // Move up to grow upwards, rotate back to stand
+              transform:
+                "translate(-50%, -53%) rotateX(-25deg) translateY(-50%)", // Start from center point, rotate, then extend upward
             }}
-          >
-            {/* Link Box - At the top of the wire (Outside card) */}
-            <motion.div
-              className="absolute -top-12 bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2"
-              variants={linkVariants}
-            >
-              <ExternalLink size={12} className="text-orange-400" />
-              {link}
-            </motion.div>
-          </motion.div>
+          />
         </div>
+      </motion.div>
+
+      {/* Link Box - Outside card's 3D transform space, positioned relative to outer container */}
+      {/* Card center is at pt-24 (96px) + card height/2 (110px) = 206px, link is 182px above = 44px */}
+      <motion.div
+        className="absolute top-[44px] left-0 right-0 flex justify-center pointer-events-auto z-30"
+        variants={linkVariants}
+      >
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2 hover:border-orange-500 transition-colors cursor-pointer"
+        >
+          <ExternalLink size={12} className="text-orange-400" />
+          {link}
+        </a>
       </motion.div>
     </motion.div>
   );

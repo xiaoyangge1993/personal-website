@@ -12,7 +12,7 @@ const ParticlesContext = createContext<ParticlesContextType | undefined>(
 );
 
 export function ParticlesProvider({ children }: { children: ReactNode }) {
-  const [particlesEnabled, setParticlesEnabled] = useState(true);
+  const [particlesEnabled, setParticlesEnabled] = useState(false);
 
   const toggleParticles = () => {
     setParticlesEnabled((prev) => !prev);
@@ -32,4 +32,3 @@ export function useParticles() {
   }
   return context;
 }
-

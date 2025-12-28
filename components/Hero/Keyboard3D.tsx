@@ -59,27 +59,30 @@ const Key = ({
           clearcoatRoughness={0.1}
           reflectivity={1}
         />
-        {label && (
-          <Html
-            position={[0, 0.26, 0]}
-            transform
-            rotation={[-Math.PI / 2, 0, 0]}
-            className="pointer-events-none"
-            style={{
-              pointerEvents: "none",
-              userSelect: "none",
-            }}
-          >
-            <div
-              className={`text-xs font-bold transition-colors duration-200 ${
-                hovered || isPressed ? "text-orange-500" : "text-slate-400"
-              }`}
-            >
-              {label}
-            </div>
-          </Html>
-        )}
       </RoundedBox>
+      {/* Move Html outside RoundedBox to prevent event interference */}
+      {label && (
+        <Html
+          position={[0, 0.26, 0]}
+          transform
+          rotation={[-Math.PI / 2, 0, 0]}
+          occlude={false}
+          zIndexRange={[0, 0]}
+          className="pointer-events-none"
+          style={{
+            pointerEvents: "none",
+            userSelect: "none",
+          }}
+        >
+          <div
+            className={`text-xs font-bold transition-colors duration-200 ${
+              hovered || isPressed ? "text-orange-500" : "text-slate-400"
+            }`}
+          >
+            {label}
+          </div>
+        </Html>
+      )}
     </group>
   );
 };

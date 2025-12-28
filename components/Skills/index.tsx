@@ -54,7 +54,7 @@ export default function Skills() {
     <section id="skills" className="py-20 overflow-hidden perspective-1000">
       <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="text-4xl font-bold text-center text-slate-100 mb-20"
+          className="text-4xl font-bold text-center text-slate-100"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -143,7 +143,7 @@ export default function Skills() {
                           <span>Proficiency</span>
                           <span>{skill.level}%</span>
                         </div>
-                        <div className="w-full h-3 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
                           <motion.div
                             className={clsx("h-full rounded-full", skill.color)}
                             initial={{ width: 0 }}
