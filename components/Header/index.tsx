@@ -8,26 +8,63 @@
  */
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Github, Linkedin, Sparkles } from "lucide-react";
+import { Github, Linkedin, Sparkles, Languages } from "lucide-react";
 import Link from "next/link";
 import clsx from "clsx";
 import { useParticles } from "@/contexts/ParticlesContext";
-
-const navItems = [
-  // { name: 'About', href: '#hero' },
-  { name: "Experience", href: "#experience" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Works", href: "#works" },
-  { name: "Articles", href: "#articles" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useIntro } from "@/contexts/IntroContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
+  const { t, locale, toggleLanguage } = useLanguage();
+  const { setLogoRect, isAnimationComplete } = useIntro();
+  const logoRef = useRef<HTMLAnchorElement>(null);
+
+  // Scroll Spy Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["experience", "skills", "projects", "works", "articles"];
+      const scrollPosition = window.scrollY + 100; // Offset for header height
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(`#${section}`);
+            return;
+          }
+        }
+      }
+      setActiveSection("");
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (logoRef.current) {
+      const updateRect = () => {
+        if (logoRef.current) {
+          setLogoRect(logoRef.current.getBoundingClientRect());
+        }
+      };
+      // Force update after mount to ensure layout is stable
+      setTimeout(updateRect, 100);
+      window.addEventListener("resize", updateRect);
+      return () => window.removeEventListener("resize", updateRect);
+    }
+  }, [setLogoRect]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -36,6 +73,14 @@ export default function Header() {
       setIsScrolled(false);
     }
   });
+
+  const navItems = [
+    { name: t.header.nav.experience, href: "#experience" },
+    { name: t.header.nav.skills, href: "#skills" },
+    { name: t.header.nav.projects, href: "#projects" },
+    { name: t.header.nav.works, href: "#works" },
+    { name: t.header.nav.articles, href: "#articles" },
+  ];
 
   return (
     <motion.header
@@ -50,8 +95,12 @@ export default function Header() {
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo / Name */}
         <Link
+          ref={logoRef}
           href="/"
-          className="text-xl font-bold text-slate-100 tracking-tight"
+          className={clsx(
+            "text-xl font-bold tracking-tight transition-colors duration-500",
+            isAnimationComplete ? "text-primary" : "text-slate-100"
+          )}
         >
           Kevin Xiao
         </Link>
@@ -62,16 +111,38 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-slate-300 hover:text-primary transition-colors relative group"
+              className={clsx(
+                "text-sm font-medium transition-colors relative group",
+                activeSection === item.href
+                  ? "text-primary"
+                  : "text-slate-300 hover:text-primary"
+              )}
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+              <span
+                className={clsx(
+                  "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
+                  activeSection === item.href ? "w-full" : "w-0 group-hover:w-full"
+                )}
+              />
             </Link>
           ))}
         </nav>
 
         {/* Social Icons & Particles Toggle */}
         <div className="flex items-center space-x-4">
+          {/* Language Toggle */}
+          <button
+            onClick={toggleLanguage}
+            className="text-slate-300 hover:text-primary transition-colors flex items-center gap-1"
+            aria-label="Toggle Language"
+          >
+            <Languages size={20} />
+            <span className="text-sm font-medium uppercase">{locale}</span>
+          </button>
+
+          <div className="w-px h-4 bg-slate-700 mx-2" />
+
           {/* Particles Toggle Switch */}
           <div className="flex items-center space-x-2">
             <Sparkles
@@ -87,7 +158,7 @@ export default function Header() {
                 "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900",
                 particlesEnabled ? "bg-primary" : "bg-slate-700"
               )}
-              aria-label="Toggle particles animation"
+              aria-label={t.header.toggle_particles}
             >
               <span
                 className={clsx(

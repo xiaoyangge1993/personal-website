@@ -3,8 +3,11 @@
 import React from 'react';
 import { Github, Linkedin, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -16,7 +19,7 @@ export default function Footer() {
         {/* Left: Info */}
         <div className="text-center md:text-left">
           <h3 className="text-xl font-bold mb-1">Kevin Xiao</h3>
-          <p className="text-slate-400 text-sm">© 2024 All Rights Reserved.</p>
+          <p className="text-slate-400 text-sm">{t.footer.rights}</p>
           <p className="text-slate-500 text-xs mt-1">ICP-12345678</p>
         </div>
 
@@ -32,7 +35,7 @@ export default function Footer() {
           whileHover={{ y: -5 }}
           whileTap={{ y: -50, opacity: 0, transition: { duration: 0.5 } }}
           className="bg-transparent border border-slate-700 p-3 rounded-full shadow-lg hover:border-slate-500 transition-colors"
-          title="Back to Top"
+          title={t.footer.back_to_top}
         >
           <Rocket size={24} className="text-white" />
         </motion.button>

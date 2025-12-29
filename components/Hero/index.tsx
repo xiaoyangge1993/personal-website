@@ -1,13 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useIntro } from "@/contexts/IntroContext";
 
 // Dynamically import the 3D component to avoid SSR issues with Three.js
 const Keyboard3D = dynamic(() => import("./Keyboard3D"), { ssr: false });
 
 export default function Hero() {
+  const { t } = useLanguage();
+  const { setKeyboardRect } = useIntro();
+  const keyboardContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (keyboardContainerRef.current) {
+      const updateRect = () => {
+        if (keyboardContainerRef.current) {
+          setKeyboardRect(keyboardContainerRef.current.getBoundingClientRect());
+        }
+      };
+      // Force update after mount to ensure layout is stable
+      setTimeout(updateRect, 100);
+      window.addEventListener("resize", updateRect);
+      return () => window.removeEventListener("resize", updateRect);
+    }
+  }, [setKeyboardRect]);
+
   return (
     <section
       id="hero"
@@ -34,33 +54,32 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-left"
         >
-          <motion.span
+          {/* <motion.span
             className="text-primary font-semibold text-lg mb-2 block"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            Frontend Engineer
-          </motion.span>
+            {t.hero.role}
+          </motion.span> */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-bold text-white mb-6 !leading-[1.2]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Building <br />
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(90deg,#FB923C_0%,#ea580c_40%,rgba(255,255,255,0.6)_50%,#ea580c_60%,#FB923C_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
-              Digital Experiences
+            {t.hero.title_prefix} <br />
+            <span className="inline-block mt-3 text-transparent bg-clip-text bg-[linear-gradient(90deg,#FB923C_0%,#ea580c_40%,rgba(255,255,255,0.6)_50%,#ea580c_60%,#FB923C_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
+              {t.hero.title_highlight}
             </span>
           </motion.h1>
           <motion.p
-            className="text-slate-600 text-lg md:text-xl mb-8 max-w-lg"
+            className="text-slate-400 text-lg md:text-xl mb-8 max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            I'm Kevin Xiao, a passionate developer crafting responsive,
-            interactive, and user-friendly web applications.
+            {t.hero.description}
           </motion.p>
 
           <motion.button
@@ -71,12 +90,13 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
-            View My Work
+            {t.hero.cta}
           </motion.button>
         </motion.div>
 
         {/* Right: 3D Keyboard */}
         <motion.div
+          ref={keyboardContainerRef}
           initial={{ opacity: 0, scale: 1.2 }}
           animate={{ opacity: 1, scale: 1.5 }}
           transition={{ duration: 1, delay: 0.2 }}

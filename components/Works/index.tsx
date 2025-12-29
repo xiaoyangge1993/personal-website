@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface WorkCardProps {
   title: string;
@@ -148,25 +149,10 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
   );
 };
 
-const works = [
-  {
-    title: "3D Animated Pin",
-    description: "Interactive 3D pin component with physics-based animations.",
-    link: "http://demo.pin.com",
-  },
-  {
-    title: "Virtual Gallery",
-    description: "Immersive WebGL art gallery experience.",
-    link: "http://gallery.art",
-  },
-  {
-    title: "Space Traveler",
-    description: "Scroll-based storytelling journey through the solar system.",
-    link: "http://space.io",
-  },
-];
-
 export default function Works() {
+  const { t } = useLanguage();
+  const works = t.works.items;
+
   return (
     <section id="works" className="py-20">
       <div className="container mx-auto px-6">
@@ -176,7 +162,7 @@ export default function Works() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Creative Works
+          {t.works.title}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

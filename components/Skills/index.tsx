@@ -4,43 +4,30 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const skills = [
-  {
-    name: "React & Next.js",
-    description:
-      "Building modern, server-rendered applications with the latest features.",
-    level: 95,
-    color: "bg-blue-500",
-  },
-  {
-    name: "TypeScript",
-    description: "Ensuring type safety and scalable codebases.",
-    level: 90,
-    color: "bg-blue-600",
-  },
-  {
-    name: "Tailwind CSS",
-    description: "Rapidly building custom user interfaces.",
-    level: 95,
-    color: "bg-cyan-500",
-  },
-  {
-    name: "Node.js",
-    description: "Developing robust backend services and APIs.",
-    level: 85,
-    color: "bg-green-500",
-  },
-  {
-    name: "Three.js / R3F",
-    description: "Creating immersive 3D web experiences.",
-    level: 80,
-    color: "bg-orange-500",
-  },
+const skillColors = [
+  "bg-blue-500",
+  "bg-blue-600",
+  "bg-cyan-500",
+  "bg-green-500",
+  "bg-orange-500",
 ];
+
+const skillHexColors = [
+  "#3b82f6", // blue-500
+  "#2563eb", // blue-600
+  "#06b6d4", // cyan-500
+  "#22c55e", // green-500
+  "#f97316", // orange-500
+];
+
+const skillLevels = [95, 90, 95, 85, 80];
 
 export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(2); // Start in middle
+  const { t } = useLanguage();
+  const skills = t.skills.items;
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % skills.length);
@@ -59,10 +46,10 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Tech Stack
+          {t.skills.title}
         </motion.h2>
 
-        <div className="relative h-[400px] flex justify-center items-center perspective-1000">
+        <div className="relative h-[480px] flex justify-center items-center perspective-1000">
           <AnimatePresence initial={false} mode="popLayout">
             {skills.map((skill, index) => {
               // Calculate relative position
@@ -97,32 +84,61 @@ export default function Skills() {
                 return -100; // Third layer (outermost)
               };
 
+              const currentLevel = skillLevels[index];
+              const currentColor = skillColors[index];
+              const currentHexColor = skillHexColors[index];
+
               return (
                 <motion.div
                   key={skill.name}
                   className={clsx(
-                    "absolute w-[280px] md:w-[320px] rounded-2xl shadow-2xl cursor-pointer group",
+                    "absolute w-[280px] md:w-[320px] rounded-2xl shadow-2xl cursor-grab active:cursor-grabbing group",
                     getZIndex()
                   )}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
                     opacity: absOffset > 1 ? 0.5 : 1,
-                    scale: isActive ? 1.1 : 0.9,
-                    x: normalizedOffset * 220, // Spacing
+                    scale: isActive ? 1.32 : 1.08, // Scaled by 1.2x (1.1*1.2, 0.9*1.2)
+                    x: normalizedOffset * 260, // Spacing scaled by ~1.2x (220 -> 260)
                     z: getZDepth(), // Depth based on layer
                     rotateY: normalizedOffset * -25, // Rotation
                   }}
+                  whileHover={{ scale: isActive ? 1.38 : 1.14 }} // Hover scaled by 1.2x
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.1}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    const swipeThreshold = 50;
+                    if (offset.x < -swipeThreshold) {
+                      nextSlide();
+                    } else if (offset.x > swipeThreshold) {
+                      prevSlide();
+                    }
+                  }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }} // Fast-out, Slow-in
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => {
+                    // Only handle click if not dragging (handled by framer motion usually, but explicit check if needed)
+                    // For now, rely on standard behavior or just set active
+                    setActiveIndex(index);
+                  }}
                   style={{
                     transformStyle: "preserve-3d",
                   }}
                 >
-                  {/* Meteor Border Container - Visible on hover */}
-                  <div className="absolute inset-[-2px] rounded-2xl overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Meteor Border Container - Always visible on active card */}
+                  <div
+                    className={clsx(
+                      "absolute inset-[-2px] rounded-2xl overflow-hidden transition-opacity duration-300",
+                      isActive ? "opacity-100" : "opacity-0"
+                    )}
+                  >
                     <div
-                      className="absolute inset-[-50%] w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#fb923c_360deg)] animate-spin-slow"
-                      style={{ top: "-50%", left: "-50%" }}
+                      className="absolute inset-[-50%] w-[200%] h-[200%] animate-spin-slow"
+                      style={{
+                        top: "-50%",
+                        left: "-50%",
+                        background: `conic-gradient(from 0deg, transparent 0 300deg, ${currentHexColor} 360deg)`,
+                      }}
                     />
                   </div>
 
@@ -140,15 +156,18 @@ export default function Skills() {
 
                       <div>
                         <div className="flex justify-between text-sm font-semibold mb-1 text-slate-300">
-                          <span>Proficiency</span>
-                          <span>{skill.level}%</span>
+                          <span>{t.skills.proficiency}</span>
+                          <span>{currentLevel}%</span>
                         </div>
                         <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
                           <motion.div
-                            className={clsx("h-full rounded-full", skill.color)}
+                            className={clsx(
+                              "h-full rounded-full",
+                              currentColor
+                            )}
                             initial={{ width: 0 }}
                             animate={{
-                              width: isActive ? `${skill.level}%` : "0%",
+                              width: isActive ? `${currentLevel}%` : "0%",
                             }}
                             transition={{ duration: 0.8, delay: 0.1 }}
                           />

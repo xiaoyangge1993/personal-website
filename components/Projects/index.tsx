@@ -7,54 +7,22 @@ import { loadSlim } from "@tsparticles/slim";
 import type { Container, Engine } from "@tsparticles/engine";
 import ProjectCard from "./ProjectCard";
 import { useParticles } from "@/contexts/ParticlesContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const projects = [
-  {
-    title: "Nacos Config",
-    description:
-      "A centralized configuration management system for microservices.",
-    highlights: [
-      "Real-time config push",
-      "High availability cluster",
-      "Multi-tenant support",
-    ],
-    color: "bg-blue-500",
-  },
-  {
-    title: "E-Commerce",
-    description: "Full-featured online shopping platform with dashboard.",
-    highlights: ["Next.js App Router", "Stripe Integration", "Admin Dashboard"],
-    color: "bg-orange-500",
-  },
-  {
-    title: "Task Master",
-    description: "Collaborative project management tool for teams.",
-    highlights: ["Real-time sockets", "Kanban board", "Team analytics"],
-    color: "bg-purple-500",
-  },
-  {
-    title: "AI Chat",
-    description: "Intelligent chatbot interface powered by LLMs.",
-    highlights: ["Streaming responses", "Markdown support", "Chat history"],
-    color: "bg-green-500",
-  },
-  {
-    title: "Crypto Dash",
-    description: "Real-time cryptocurrency tracking dashboard.",
-    highlights: ["WebSocket data", "Interactive charts", "Portfolio tracking"],
-    color: "bg-indigo-500",
-  },
-  {
-    title: "Travel Log",
-    description: "Social platform for sharing travel experiences.",
-    highlights: ["Map integration", "Photo gallery", "Social feed"],
-    color: "bg-rose-500",
-  },
+const projectColors = [
+  "bg-blue-500",
+  "bg-orange-500",
+  "bg-purple-500",
+  "bg-green-500",
+  "bg-indigo-500",
+  "bg-rose-500",
 ];
 
 export default function Projects() {
   const [init, setInit] = useState(false);
   const { particlesEnabled } = useParticles();
+  const { t } = useLanguage();
+  const projects = t.projects.items;
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -158,7 +126,7 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Selected Projects
+          {t.projects.title}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -170,7 +138,7 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <ProjectCard {...project} />
+              <ProjectCard {...project} color={projectColors[index]} />
             </motion.div>
           ))}
         </div>

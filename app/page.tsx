@@ -9,8 +9,11 @@ import Works from "@/components/Works";
 import Articles from "@/components/Articles";
 import Footer from "@/components/Footer";
 import { ParticlesProvider } from "@/contexts/ParticlesContext";
+import { LanguageProvider } from "@/contexts/LanguageContext";
+import { IntroProvider } from "@/contexts/IntroContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import IntroOverlay from "@/components/IntroOverlay";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -24,30 +27,35 @@ export default function Home() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   return (
-    <ParticlesProvider>
-      <main
-        ref={containerRef}
-        className="relative overflow-hidden bg-background min-h-screen"
-      >
-        {/* Global Parallax Background Decorations */}
-        <motion.div
-          style={{ y: y1 }}
-          className="fixed top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none"
-        />
-        <motion.div
-          style={{ y: y2 }}
-          className="fixed bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none"
-        />
+    <LanguageProvider>
+      <ParticlesProvider>
+        <IntroProvider>
+          <main
+            ref={containerRef}
+            className="relative overflow-hidden bg-background min-h-screen"
+          >
+            {/* Global Parallax Background Decorations */}
+            <motion.div
+              style={{ y: y1 }}
+              className="fixed top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none"
+            />
+            <motion.div
+              style={{ y: y2 }}
+              className="fixed bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10 pointer-events-none"
+            />
 
-        <Header />
-        <Hero />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Works />
-        <Articles />
-        <Footer />
-      </main>
-    </ParticlesProvider>
+            <Header />
+            <Hero />
+            <Experience />
+            <Skills />
+            <Projects />
+            <Works />
+            <Articles />
+            <Footer />
+            <IntroOverlay />
+          </main>
+        </IntroProvider>
+      </ParticlesProvider>
+    </LanguageProvider>
   );
 }

@@ -2,40 +2,18 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const articles = [
-  {
-    title: "Understanding React Server Components",
-    summary:
-      "A deep dive into the architecture and benefits of RSC in Next.js 13+.",
-    color: "bg-blue-100",
-  },
-  {
-    title: "Mastering Tailwind CSS Grid",
-    summary:
-      "Tips and tricks for building complex layouts with utility classes.",
-    color: "bg-teal-100",
-  },
-  {
-    title: "The Future of Web Animation",
-    summary:
-      "Exploring the capabilities of Framer Motion and View Transitions API.",
-    color: "bg-purple-100",
-  },
-  {
-    title: "Optimizing Web Performance",
-    summary: "Practical guide to improving Core Web Vitals and loading speed.",
-    color: "bg-orange-100",
-  },
-  {
-    title: "TypeScript Best Practices",
-    summary:
-      "Writing clean, maintainable, and type-safe code in large projects.",
-    color: "bg-indigo-100",
-  },
+const articleColors = [
+  "bg-blue-100",
+  "bg-teal-100",
+  "bg-purple-100",
+  "bg-orange-100",
+  "bg-indigo-100",
 ];
 
 const ArticleCard = ({ title, summary, color }: any) => {
+  const { t } = useLanguage();
   return (
     <motion.div
       className="rounded-xl shadow-md overflow-hidden cursor-pointer h-full border border-slate-700"
@@ -62,13 +40,18 @@ const ArticleCard = ({ title, summary, color }: any) => {
           {summary}
         </p>
 
-        <div className="mt-4 text-primary font-medium text-sm">Read more →</div>
+        <div className="mt-4 text-primary font-medium text-sm">
+          {t.articles.read_more}
+        </div>
       </div>
     </motion.div>
   );
 };
 
 export default function Articles() {
+  const { t } = useLanguage();
+  const articles = t.articles.items;
+
   return (
     <section id="articles" className="py-20">
       <div className="container mx-auto px-6">
@@ -78,7 +61,7 @@ export default function Articles() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Latest Thoughts
+          {t.articles.title}
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -90,7 +73,7 @@ export default function Articles() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <ArticleCard {...article} />
+              <ArticleCard {...article} color={articleColors[index]} />
             </motion.div>
           ))}
         </div>

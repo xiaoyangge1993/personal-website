@@ -4,6 +4,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { RoundedBox, Float, ContactShadows, Html } from "@react-three/drei";
 import { Color } from "three";
+import { useIntro } from "@/contexts/IntroContext";
 
 const Key = ({
   position,
@@ -93,6 +94,7 @@ const KeyboardModel = () => {
   const row3 = "ZXCVBNM".split("");
 
   const [activeKey, setActiveKey] = useState<string | null>(null);
+  const { setTypingDone } = useIntro();
 
   useEffect(() => {
     const text = "KEVIN XIAO";
@@ -100,11 +102,7 @@ const KeyboardModel = () => {
 
     const typeNextChar = () => {
       if (currentIndex >= text.length) {
-        // Optional: Loop animation or stop
-        setTimeout(() => {
-          currentIndex = 0;
-          typeNextChar();
-        }, 3000); // Wait 3 seconds before repeating
+        setTypingDone(true);
         return;
       }
 
@@ -123,10 +121,10 @@ const KeyboardModel = () => {
     };
 
     // Start typing after initial delay
-    const startTimeout = setTimeout(typeNextChar, 1000);
+    const startTimeout = setTimeout(typeNextChar, 1500);
 
     return () => clearTimeout(startTimeout);
-  }, []);
+  }, [setTypingDone]);
 
   return (
     <group rotation={[0.4, -0.2, 0]}>
@@ -173,8 +171,12 @@ const KeyboardModel = () => {
 
 export default function Keyboard3D() {
   return (
-    <div className="w-full h-[200px] md:h-[300px]">
-      <Canvas camera={{ position: [0, 10, 12], fov: 45 }}>
+    <div className="w-full h-[200px] md:h-[300px] relative">
+      <Canvas
+        camera={{ position: [0, 10, 12], fov: 45 }}
+        style={{ width: "100%", height: "100%" }}
+        resize={{ scroll: false, debounce: 0 }}
+      >
         <ambientLight intensity={1} />
 
         {/* Main Key Light */}

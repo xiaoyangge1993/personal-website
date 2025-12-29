@@ -37,10 +37,10 @@ const ProjectCard = ({
         className="relative w-full h-full duration-500 preserve-3d"
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{
-          duration: 0.2,
+          duration: 0.1,
           type: "spring",
-          stiffness: 500,
-          damping: 25,
+          stiffness: 800,
+          damping: 20,
         }}
       >
         {/* Front Face */}

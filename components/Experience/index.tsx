@@ -4,38 +4,9 @@ import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import { Briefcase } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Clock3D = dynamic(() => import("./Clock3D"), { ssr: false });
-
-const experiences = [
-  {
-    company: "ByteDance",
-    role: "Senior Frontend Engineer",
-    period: "2022 - Present",
-    description:
-      "Leading the development of internal tools and platforms. Optimized performance by 40%.",
-  },
-  {
-    company: "Alibaba",
-    role: "Frontend Developer",
-    period: "2020 - 2022",
-    description:
-      "Contributed to e-commerce core business logic. Implemented complex UI components.",
-  },
-  {
-    company: "Tencent",
-    role: "Junior Developer",
-    period: "2018 - 2020",
-    description:
-      "Developed mini-programs and responsive web pages. Collaborated with design teams.",
-  },
-  {
-    company: "Startup Inc.",
-    role: "Intern",
-    period: "2017 - 2018",
-    description: "Assisted in building the MVP using React and Node.js.",
-  },
-];
 
 const ExperienceCard = ({ exp }: any) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -98,6 +69,8 @@ const ExperienceCard = ({ exp }: any) => {
 };
 
 export default function Experience() {
+  const { t } = useLanguage();
+
   return (
     <section id="experience" className="py-20 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -107,7 +80,7 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          My Journey
+          {t.experience.title}
         </motion.h2>
 
         <div className="flex flex-col md:flex-row items-center gap-12">
@@ -127,7 +100,7 @@ export default function Experience() {
             <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-800" />
 
             <div className="space-y-12">
-              {experiences.map((exp, index) => (
+              {t.experience.jobs.map((exp, index) => (
                 <motion.div
                   key={index}
                   className="relative pl-12"
