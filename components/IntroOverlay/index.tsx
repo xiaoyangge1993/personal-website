@@ -123,7 +123,7 @@ export default function IntroOverlay() {
               }
             }}
             style={{
-              fontSize: "80px",
+              fontSize: "56px",
               position: "absolute",
               whiteSpace: "nowrap",
               fontFamily: "var(--font-inter), sans-serif",

@@ -19,38 +19,11 @@ import { useIntro } from "@/contexts/IntroContext";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
   const { setLogoRect, isAnimationComplete } = useIntro();
   const logoRef = useRef<HTMLAnchorElement>(null);
-
-  // Scroll Spy Logic
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["experience", "skills", "projects", "works", "articles"];
-      const scrollPosition = window.scrollY + 100; // Offset for header height
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (
-            scrollPosition >= offsetTop &&
-            scrollPosition < offsetTop + offsetHeight
-          ) {
-            setActiveSection(`#${section}`);
-            return;
-          }
-        }
-      }
-      setActiveSection("");
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     if (logoRef.current) {
@@ -111,20 +84,10 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={clsx(
-                "text-sm font-medium transition-colors relative group",
-                activeSection === item.href
-                  ? "text-primary"
-                  : "text-slate-300 hover:text-primary"
-              )}
+              className="text-sm font-medium transition-colors relative group text-slate-300 hover:text-primary"
             >
               {item.name}
-              <span
-                className={clsx(
-                  "absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300",
-                  activeSection === item.href ? "w-full" : "w-0 group-hover:w-full"
-                )}
-              />
+              <span className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
             </Link>
           ))}
         </nav>

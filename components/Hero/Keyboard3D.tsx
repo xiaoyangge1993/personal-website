@@ -127,7 +127,7 @@ const KeyboardModel = () => {
   }, [setTypingDone]);
 
   return (
-    <group rotation={[0.4, -0.2, 0]}>
+    <group rotation={[0.4, -0.2, 0]} position={[-0.5, 0, 0]}>
       {/* Keys Row 1 */}
       {row1.map((char, i) => (
         <Key

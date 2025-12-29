@@ -3,6 +3,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
 
@@ -13,6 +14,14 @@ export default function Hero() {
   const { t } = useLanguage();
   const { setKeyboardRect } = useIntro();
   const keyboardContainerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (keyboardContainerRef.current) {
@@ -63,13 +72,13 @@ export default function Hero() {
             {t.hero.role}
           </motion.span> */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold text-white mb-6 !leading-[1.2]"
+            className="text-3xl sm:text-4xl md:text-7xl font-bold text-white mb-6 !leading-[1.2]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
             {t.hero.title_prefix} <br />
-            <span className="inline-block mt-3 text-transparent bg-clip-text bg-[linear-gradient(90deg,#FB923C_0%,#ea580c_40%,rgba(255,255,255,0.6)_50%,#ea580c_60%,#FB923C_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
+            <span className="inline-block mt-3 text-transparent bg-clip-text bg-[linear-gradient(90deg,#FB923C_0%,#ea580c_40%,#ffffff_50%,#ea580c_60%,#FB923C_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
               {t.hero.title_highlight}
             </span>
           </motion.h1>
@@ -82,23 +91,42 @@ export default function Hero() {
             {t.hero.description}
           </motion.p>
 
-          <motion.button
+          <motion.a
+            href="#works"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-primary text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-orange-200 transition-shadow"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-orange-200 transition-all hover:brightness-110"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
           >
             {t.hero.cta}
-          </motion.button>
+            <ArrowRight size={20} />
+          </motion.a>
+
+          {/* Roles Module */}
+          <motion.div
+            className="mt-12 flex flex-wrap gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            {t.hero.roles.map((role, index) => (
+              <div
+                key={index}
+                className="px-6 py-2 rounded-full border border-slate-700 text-slate-300 text-sm font-medium bg-slate-800/50 backdrop-blur-sm hover:border-primary hover:text-primary transition-colors cursor-default"
+              >
+                {role}
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Right: 3D Keyboard */}
         <motion.div
           ref={keyboardContainerRef}
-          initial={{ opacity: 0, scale: 1.2 }}
-          animate={{ opacity: 1, scale: 1.5 }}
+          initial={{ opacity: 0, scale: 1.0 }}
+          animate={{ opacity: 1, scale: isMobile ? 1.2 : 1.5 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="relative h-full flex justify-center items-center"
         >

@@ -16,6 +16,7 @@ export const zh = {
     description:
       "我是 Kevin Xiao，一名热衷于打造响应式、交互性强且用户友好的 Web 应用的开发者。",
     cta: "查看我的作品",
+    roles: ["全栈工程师", "UI 设计师", "3D 动画师"],
   },
   experience: {
     title: "我的旅程",
@@ -24,22 +25,25 @@ export const zh = {
         company: "字节跳动",
         role: "高级前端工程师",
         period: "2022 - 至今",
-        description:
-          "主导内部工具和平台的开发。优化系统性能提升 40%。",
+        description: "主导内部工具和平台的开发。优化系统性能提升 40%。",
       },
       {
         company: "阿里巴巴",
         role: "前端开发工程师",
         period: "2020 - 2022",
-        description:
-          "参与电商核心业务逻辑开发。实现了复杂的 UI 组件。",
+        description: "参与电商核心业务逻辑开发。实现了复杂的 UI 组件。",
       },
       {
         company: "腾讯",
         role: "初级开发工程师",
         period: "2018 - 2020",
-        description:
-          "开发小程序和响应式网页。与设计团队紧密合作。",
+        description: "开发小程序和响应式网页。与设计团队紧密合作。",
+      },
+      {
+        company: "百度",
+        role: "软件工程师",
+        period: "2018",
+        description: "参与搜索引擎相关工具的开发，优化前端性能。",
       },
       {
         company: "初创公司",
@@ -54,8 +58,7 @@ export const zh = {
     items: [
       {
         name: "React & Next.js",
-        description:
-          "使用最新特性构建现代化的服务端渲染应用。",
+        description: "使用最新特性构建现代化的服务端渲染应用。",
       },
       {
         name: "TypeScript",
@@ -81,22 +84,13 @@ export const zh = {
     items: [
       {
         title: "Nacos 配置中心",
-        description:
-          "面向微服务的集中式配置管理系统。",
-        highlights: [
-          "实时配置推送",
-          "高可用集群",
-          "多租户支持",
-        ],
+        description: "面向微服务的集中式配置管理系统。",
+        highlights: ["实时配置推送", "高可用集群", "多租户支持"],
       },
       {
         title: "电子商务平台",
         description: "功能齐全的在线购物平台和仪表盘。",
-        highlights: [
-          "Next.js App Router",
-          "Stripe 支付集成",
-          "管理后台",
-        ],
+        highlights: ["Next.js App Router", "Stripe 支付集成", "管理后台"],
       },
       {
         title: "任务管理大师",
@@ -111,11 +105,7 @@ export const zh = {
       {
         title: "加密货币看板",
         description: "实时加密货币追踪仪表盘。",
-        highlights: [
-          "WebSocket 数据",
-          "交互式图表",
-          "投资组合追踪",
-        ],
+        highlights: ["WebSocket 数据", "交互式图表", "投资组合追踪"],
       },
       {
         title: "旅行日志",
@@ -129,8 +119,7 @@ export const zh = {
     items: [
       {
         title: "3D 动画图钉",
-        description:
-          "具有物理动画效果的交互式 3D 图钉组件。",
+        description: "具有物理动画效果的交互式 3D 图钉组件。",
         link: "http://demo.pin.com",
       },
       {
@@ -140,8 +129,7 @@ export const zh = {
       },
       {
         title: "太空旅行者",
-        description:
-          "基于滚动的太阳系叙事之旅。",
+        description: "基于滚动的太阳系叙事之旅。",
         link: "http://space.io",
       },
     ],
@@ -152,28 +140,23 @@ export const zh = {
     items: [
       {
         title: "深入理解 React Server Components",
-        summary:
-          "深入探讨 Next.js 13+ 中 RSC 的架构和优势。",
+        summary: "深入探讨 Next.js 13+ 中 RSC 的架构和优势。",
       },
       {
         title: "精通 Tailwind CSS Grid",
-        summary:
-          "使用工具类构建复杂布局的技巧和窍门。",
+        summary: "使用工具类构建复杂布局的技巧和窍门。",
       },
       {
         title: "Web 动画的未来",
-        summary:
-          "探索 Framer Motion 和 View Transitions API 的能力。",
+        summary: "探索 Framer Motion 和 View Transitions API 的能力。",
       },
       {
         title: "Web 性能优化",
-        summary:
-          "提高 Core Web Vitals 和加载速度的实用指南。",
+        summary: "提高 Core Web Vitals 和加载速度的实用指南。",
       },
       {
         title: "TypeScript 最佳实践",
-        summary:
-          "在大型项目中编写整洁、可维护且类型安全的代码。",
+        summary: "在大型项目中编写整洁、可维护且类型安全的代码。",
       },
     ],
   },

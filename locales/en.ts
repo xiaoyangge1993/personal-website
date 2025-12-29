@@ -16,6 +16,7 @@ export const en = {
     description:
       "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly web applications.",
     cta: "View My Work",
+    roles: ["Full Stack Developer", "UI Designer", "3D Animator"],
   },
   experience: {
     title: "My Journey",
@@ -40,6 +41,13 @@ export const en = {
         period: "2018 - 2020",
         description:
           "Developed mini-programs and responsive web pages. Collaborated with design teams.",
+      },
+      {
+        company: "Baidu",
+        role: "Software Engineer",
+        period: "2018",
+        description:
+          "Participated in the development of search engine related tools and optimized frontend performance.",
       },
       {
         company: "Startup Inc.",
