@@ -4,6 +4,14 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiThreedotjs,
+} from "react-icons/si";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const skillColors = [
@@ -24,6 +32,14 @@ const skillHexColors = [
 
 const skillLevels = [95, 90, 95, 85, 80];
 
+const skillIcons = [
+  SiReact, // React & Next.js
+  SiTypescript, // TypeScript
+  SiTailwindcss, // Tailwind CSS
+  SiNodedotjs, // Node.js
+  SiThreedotjs, // Three.js / R3F
+];
+
 export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(2); // Start in middle
   const { t } = useLanguage();
@@ -41,7 +57,7 @@ export default function Skills() {
     <section id="skills" className="py-20 overflow-hidden perspective-1000">
       <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="text-4xl font-bold text-center text-slate-100"
+          className="text-4xl md:text-5xl font-bold text-center text-slate-100 font-artistic mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -87,6 +103,7 @@ export default function Skills() {
               const currentLevel = skillLevels[index];
               const currentColor = skillColors[index];
               const currentHexColor = skillHexColors[index];
+              const Icon = skillIcons[index];
 
               return (
                 <motion.div
@@ -143,8 +160,13 @@ export default function Skills() {
                   </div>
 
                   {/* Inner Card Content */}
-                  <div className="relative bg-slate-800 rounded-2xl p-6 h-full border border-slate-700">
-                    <div className="h-full flex flex-col justify-between">
+                  <div className="relative bg-slate-800 rounded-2xl p-6 h-full border border-slate-700 overflow-hidden">
+                    {/* Background Icon */}
+                    <div className="absolute top-[-10px] right-[-10px] opacity-[0.08] pointer-events-none transform rotate-12">
+                      <Icon size={140} className="text-white blur-[1px]" />
+                    </div>
+
+                    <div className="h-full flex flex-col justify-between relative z-10">
                       <div>
                         <h3 className="text-2xl font-bold text-white mb-2">
                           {skill.name}
@@ -195,6 +217,37 @@ export default function Skills() {
           >
             <ChevronRight size={32} />
           </button>
+        </div>
+
+        {/* Carousel Indicators */}
+        <div className="flex justify-center mt-10">
+          <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-full px-4 py-2 flex items-center gap-2">
+            {skills.map((_, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div
+                  key={index}
+                  className="w-5 h-5 flex items-center justify-center cursor-pointer"
+                  onClick={() => setActiveIndex(index)}
+                >
+                  <motion.div
+                    className="rounded-full"
+                    initial={false}
+                    animate={{
+                      width: "8px",
+                      height: "8px",
+                      backgroundColor: isActive
+                        ? skillHexColors[index]
+                        : "#64748b",
+                      scale: isActive ? 1.8 : 1,
+                    }}
+                    whileHover={{ scale: 1.8 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

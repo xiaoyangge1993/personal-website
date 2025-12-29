@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-inter)"],
+        artistic: ["var(--font-playfair)", "serif"],
+      },
       colors: {
         primary: "#FB923C",
         secondary: "#334155",
