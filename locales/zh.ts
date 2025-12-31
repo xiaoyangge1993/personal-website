@@ -1,6 +1,7 @@
 export const zh = {
   header: {
     nav: {
+      about: "关于我",
       experience: "工作经历",
       skills: "技术栈",
       projects: "项目经验",
@@ -17,6 +18,56 @@ export const zh = {
       "我是 Kevin Xiao，一名热衷于打造响应式、交互性强且用户友好的 Web 应用的开发者。",
     cta: "查看我的作品",
     roles: ["全栈工程师", "UI 设计师", "3D 动画师"],
+  },
+  about: {
+    title: "关于我",
+    profile: {
+      name_label: "用户姓名",
+      name_value: "赵思",
+      role_label: "职业",
+      role_value: "全栈工程师",
+      age_label: "年龄",
+      age_value: "35 岁",
+      education_label: "学历",
+      education_value: "本科",
+      phone_label: "电话",
+      phone_value: "17679282831",
+      wechat_label: "微信",
+      wechat_value: "xiaoyangngo",
+      email_label: "邮箱",
+      email_value: "xiaoxiaoyang271@gmail.com",
+    },
+    bio: {
+      title: "关于我",
+      description:
+        "HALO，我叫赵思，毕业于景德镇陶瓷大学本科学历，本人拥有较强的接受能力，能快速适应工作环境。兴趣爱好比较广泛，会积极参与各类活动，同时团队精神和责任感也比较好！本人为人诚恳、能吃苦耐劳、敢于面对挑战、做事认真负责。也善于沟通交流、性格开朗也好相处。",
+    },
+    hobbies: [
+      {
+        title: "摄影",
+        subtitle: "捕捉美好瞬间",
+        description:
+          "我喜欢旅行，通过镜头捕捉世界的美丽。从城市景观到自然风光，摄影帮助我从不同的角度看待事物。",
+      },
+      {
+        title: "3D 建模",
+        subtitle: "数字艺术",
+        description:
+          "创建 3D 模型和动画是我最喜欢的消遣之一。它让我能够结合技术技能和艺术创造力，构建沉浸式的数字世界。",
+      },
+      {
+        title: "阅读",
+        subtitle: "持续学习",
+        description:
+          "我是一个热心的读者，尤其是技术博客、科幻小说和哲学书籍。阅读保持我的思维敏锐，并为我的项目激发新的想法。",
+      },
+      {
+        title: "徒步旅行",
+        subtitle: "亲近自然",
+        description:
+          "到户外去，在山里徒步旅行是我充电的方式。它教会我坚持不懈，并让我欣赏大自然的宁静。",
+      },
+    ],
   },
   experience: {
     title: "我的旅程",

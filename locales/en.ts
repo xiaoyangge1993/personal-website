@@ -1,6 +1,7 @@
 export const en = {
   header: {
     nav: {
+      about: "About",
       experience: "Experience",
       skills: "Skills",
       projects: "Projects",
@@ -17,6 +18,56 @@ export const en = {
       "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly web applications.",
     cta: "View My Work",
     roles: ["Full Stack Developer", "UI Designer", "3D Animator"],
+  },
+  about: {
+    title: "About Me",
+    profile: {
+      name_label: "Name",
+      name_value: "Kevin Xiao",
+      role_label: "Role",
+      role_value: "Full Stack Engineer",
+      age_label: "Age",
+      age_value: "28",
+      education_label: "Education",
+      education_value: "Bachelor's Degree",
+      phone_label: "Phone",
+      phone_value: "+1 (123) 456-7890",
+      wechat_label: "WeChat",
+      wechat_value: "kevin_xiao_dev",
+      email_label: "Email",
+      email_value: "kevin.xiao@example.com",
+    },
+    bio: {
+      title: "ABOUT ME",
+      description:
+        "Hi, I'm Kevin Xiao, a passionate Full Stack Engineer with a strong background in frontend development and 3D web experiences. I graduated with a Bachelor's degree in Computer Science. I am a quick learner, adaptable, and thrive in collaborative environments. I enjoy tackling complex challenges and am dedicated to delivering high-quality solutions. Outside of work, I have a wide range of interests and enjoy exploring new technologies.",
+    },
+    hobbies: [
+      {
+        title: "Photography",
+        subtitle: "Capturing Moments",
+        description:
+          "I love traveling and capturing the beauty of the world through my lens. From urban landscapes to natural scenery, photography helps me see things from different perspectives.",
+      },
+      {
+        title: "3D Modeling",
+        subtitle: "Digital Art",
+        description:
+          "Creating 3D models and animations is one of my favorite pastimes. It allows me to combine technical skills with artistic creativity to build immersive digital worlds.",
+      },
+      {
+        title: "Reading",
+        subtitle: "Continuous Learning",
+        description:
+          "I am an avid reader, especially of tech blogs, science fiction, and philosophy. Reading keeps my mind sharp and inspires new ideas for my projects.",
+      },
+      {
+        title: "Hiking",
+        subtitle: "Nature & Fitness",
+        description:
+          "Getting outdoors and hiking in the mountains is my way of recharging. It teaches me perseverance and allows me to appreciate the tranquility of nature.",
+      },
+    ],
   },
   experience: {
     title: "My Journey",
