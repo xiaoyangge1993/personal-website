@@ -32,11 +32,22 @@ const ExperienceCard = ({ exp }: any) => {
 
     x.set(mouseXPct);
     y.set(mouseYPct);
+
+    // Update glow position (relative to card)
+    const glowX = e.clientX - rect.left;
+    const glowY = e.clientY - rect.top;
+    ref.current.style.setProperty("--glow-x", `${glowX}px`);
+    ref.current.style.setProperty("--glow-y", `${glowY}px`);
   };
 
   const handleMouseLeave = () => {
     x.set(0);
     y.set(0);
+    // Hide glow on leave
+    if (ref.current) {
+      ref.current.style.setProperty("--glow-x", "-9999px");
+      ref.current.style.setProperty("--glow-y", "-9999px");
+    }
   };
 
   return (
@@ -49,17 +60,31 @@ const ExperienceCard = ({ exp }: any) => {
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-slate-700 cursor-pointer perspective-1000"
+      className="group bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-slate-700 cursor-pointer perspective-1000 relative overflow-hidden"
     >
-      <div style={{ transform: "translateZ(20px)" }}>
+      {/* Glow Effect Layer */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(
+            600px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+            rgba(251, 146, 60, 0.15),
+            transparent 40%
+          )`,
+        }}
+      />
+
+      <div style={{ transform: "translateZ(20px)" }} className="relative z-10">
         <div className="flex items-center gap-2 mb-2">
           <Briefcase size={18} className="text-primary" />
           <span className="text-sm font-semibold text-slate-300">
             {exp.period}
           </span>
         </div>
-        <h3 className="text-xl font-bold text-white">{exp.company}</h3>
-        <p className="text-primary font-medium mb-2">{exp.role}</p>
+        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+          {exp.role}
+        </h3>
+        <p className="text-white font-medium mb-2 opacity-80">{exp.company}</p>
         <p className="text-slate-300 text-sm leading-relaxed">
           {exp.description}
         </p>
