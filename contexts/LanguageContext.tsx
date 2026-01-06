@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { en } from "@/locales/en";
 import { zh } from "@/locales/zh";
 
@@ -19,6 +19,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocale] = useState<Locale>("en");
+
+  useEffect(() => {
+    // Detect system language
+    const systemLang = navigator.language.toLowerCase();
+    if (systemLang.startsWith("zh")) {
+      setLocale("zh");
+    } else {
+      setLocale("en");
+    }
+  }, []);
 
   const toggleLanguage = () => {
     setLocale((prev) => (prev === "en" ? "zh" : "en"));
