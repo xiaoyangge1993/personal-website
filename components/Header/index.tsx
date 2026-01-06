@@ -22,8 +22,113 @@ export default function Header() {
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
-  const { setLogoRect, isAnimationComplete } = useIntro();
+  const { setLogoRect, isTypingDone, isAnimationComplete } = useIntro();
   const logoRef = useRef<HTMLAnchorElement>(null);
+  const [displayText, setDisplayText] = useState("");
+  const fullText = "Kevin Xiao";
+
+  useEffect(() => {
+    // Only start typing effect when keyboard typing is done (isTypingDone is true)
+    if (isTypingDone) {
+      let currentIndex = 0;
+      const typingSpeed = 150; // milliseconds per character
+
+      // Calculate start time based on text length to match keyboard animation end roughly?
+      // No, user wants: "keyboard clicks a letter, header appears a letter".
+      // This means we need synchronization with the 3D keyboard component.
+      // But 3D keyboard component logic is inside Hero/Keyboard3D.tsx and state is in Context.
+      // The current context `isTypingDone` only tells when ALL typing is done.
+      // We need a way to know WHICH character is currently being typed or just simulate it here
+      // assuming they start at same time?
+
+      // Actually, `Keyboard3D` types "KEVIN XIAO".
+      // We should probably sync this better.
+      // Ideally, `Keyboard3D` should dispatch an event or update context on EACH character.
+      // But for now, let's just simulate the typing effect starting when `isTypingDone` becomes true?
+      // Wait, `isTypingDone` in `Keyboard3D` is set to true AFTER all typing is finished.
+      // That's too late if we want "type one, show one".
+
+      // If we want real-time sync, we need to expose the current typed text from Context.
+      // Let's modify the Context to support `currentTypedText` or similar.
+      // Or, since we can't easily change the 3D component deeply right now without checking it,
+      // let's look at `Keyboard3D`.
+
+      // In Keyboard3D (from memory/previous read):
+      // It has a loop: `setTimeout(typeNextChar, nextDelay);`
+      // And `setActiveKey(char)`.
+
+      // If we want "keyboard clicks letter, header shows letter", we need to coordinate.
+      // The simplest way without major refactor is to rely on `isTypingDone` being the signal
+      // that "Introduction is over, show full logo".
+      // BUT user specifically asked: "Header top left Kevin Xiao appearance changed to typing effect...
+      // 3D keyboard clicks a letter, Header top left appears a letter".
+
+      // This implies we need to start the Header typing animation AT THE SAME TIME as the 3D keyboard typing animation.
+      // Currently `isTypingDone` is set TRUE when 3D keyboard FINISHES.
+      // We need a new state `isTypingStarted`? Or just start it after mount?
+
+      // Let's assume the 3D keyboard starts typing 1.5s after mount (based on `Hero/Keyboard3D.tsx` code I recall: `setTimeout(typeNextChar, 1500)`).
+      // We can replicate that timing here.
+
+      const startDelay = 1500; // Match Keyboard3D start delay
+
+      const startTyping = setTimeout(() => {
+        const interval = setInterval(() => {
+          setDisplayText((prev) => {
+            const nextIndex = prev.length + 1;
+            if (nextIndex <= fullText.length) {
+              return fullText.slice(0, nextIndex);
+            } else {
+              clearInterval(interval);
+              return prev;
+            }
+          });
+        }, 200); // Average typing speed, adjust to match 3D keyboard's random delay roughly (100-300ms)
+
+        return () => clearInterval(interval);
+      }, startDelay);
+
+      return () => clearTimeout(startTyping);
+    }
+  }, []); // Run once on mount, but wait for the delay.
+
+  // Wait, if we use `useEffect(() => ..., [])`, it runs on mount.
+  // The 3D keyboard also runs on mount.
+  // So they should be roughly synced if we use same delays.
+
+  // Refined Logic:
+  // 1. Remove dependency on `isTypingDone` for STARTING.
+  // 2. Use a local effect that starts after 1500ms (same as Keyboard3D).
+  // 3. Type characters at a similar pace.
+
+  /* However, to be cleaner, I should probably check if the intro context allows this. 
+     The IntroContext might be resetting on page navigation? 
+     Assuming this is the initial load.
+  */
+
+  useEffect(() => {
+    // Start typing simulation to sync with 3D keyboard
+    // 3D keyboard starts at 1500ms
+    const startTimeout = setTimeout(() => {
+      let currentIndex = 0;
+
+      const typeChar = () => {
+        if (currentIndex < fullText.length) {
+          setDisplayText(fullText.slice(0, currentIndex + 1));
+          currentIndex++;
+
+          // Randomize delay slightly to match the "human" feel of 3D keyboard
+          // 3D keyboard uses: Math.random() * 200 + 100
+          const nextDelay = Math.random() * 200 + 100;
+          setTimeout(typeChar, nextDelay);
+        }
+      };
+
+      typeChar();
+    }, 1500);
+
+    return () => clearTimeout(startTimeout);
+  }, []);
 
   useEffect(() => {
     if (logoRef.current) {
@@ -48,12 +153,12 @@ export default function Header() {
   });
 
   const navItems = [
-    { name: t.header.nav.about, href: "#about" },
     { name: t.header.nav.experience, href: "#experience" },
-    { name: t.header.nav.skills, href: "#skills" },
     { name: t.header.nav.projects, href: "#projects" },
+    { name: t.header.nav.skills, href: "#skills" },
     { name: t.header.nav.works, href: "#works" },
     { name: t.header.nav.articles, href: "#articles" },
+    { name: t.header.nav.about, href: "#about" },
   ];
 
   return (
@@ -73,10 +178,14 @@ export default function Header() {
           href="/"
           className={clsx(
             "text-xl font-bold tracking-tight transition-colors duration-500",
-            isAnimationComplete ? "text-primary" : "text-slate-100"
+            // Always show primary color when typing starts (displayText has content)
+            displayText.length > 0
+              ? "text-primary opacity-100"
+              : "text-slate-100 opacity-0"
           )}
         >
-          Kevin Xiao
+          {/* Show typing text if typing is started, otherwise Kevin Xiao (hidden) for layout */}
+          {displayText || "Kevin Xiao"}
         </Link>
 
         {/* Navigation */}

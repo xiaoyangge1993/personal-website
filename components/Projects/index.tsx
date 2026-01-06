@@ -121,7 +121,7 @@ export default function Projects() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-16 font-artistic"
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-32 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

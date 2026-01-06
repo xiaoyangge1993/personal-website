@@ -62,7 +62,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
 
   return (
     <motion.div
-      className="relative pt-24 group perspective-1000"
+      className="relative pt-32 group perspective-1000"
       initial="rest"
       whileHover="hover"
     >
@@ -157,7 +157,7 @@ export default function Works() {
     <section id="works" className="py-20">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-slate-100 mb-16 font-artistic"
+          className="text-4xl md:text-5xl font-bold text-center text-slate-100 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

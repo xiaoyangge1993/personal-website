@@ -11,7 +11,7 @@ const Key = ({
   label,
   width = 1,
   depth = 1,
-  color = "#f8f9fa",
+  color = "#1e293b", // Slate-800 for dark blue-black look
   forceActive = false,
 }: any) => {
   const mesh = useRef<any>(null);
@@ -28,7 +28,7 @@ const Key = ({
       mesh.current.position.y += (targetY - mesh.current.position.y) * 0.3;
 
       // Hover color transition - subtle warmth on hover or active
-      const targetColor = new Color(hovered || isPressed ? "#e0f2fe" : color);
+      const targetColor = new Color(hovered || isPressed ? "#334155" : color);
       mesh.current.material.color.lerp(targetColor, 0.15);
 
       // Emissive glow on hover or active
@@ -54,10 +54,10 @@ const Key = ({
         <meshPhysicalMaterial
           color={color}
           emissiveIntensity={0.2}
-          metalness={0.8} // High metalness for premium feel
-          roughness={0.2} // Low roughness for gloss
-          clearcoat={1} // Clearcoat for ceramic/glass look
-          clearcoatRoughness={0.1}
+          metalness={0.9} // Increased metalness for metallic look
+          roughness={0.1} // Reduced roughness for shinier surface
+          clearcoat={1}
+          clearcoatRoughness={0.05} // Smoother clearcoat for high gloss
           reflectivity={1}
         />
       </RoundedBox>

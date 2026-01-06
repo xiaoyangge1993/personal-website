@@ -90,8 +90,15 @@ export default function Clock3D() {
   return (
     <div className="w-full h-[400px]">
       <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
+        <ambientLight intensity={1.5} />
+        <pointLight position={[10, 10, 10]} intensity={2} />
+        <spotLight
+          position={[0, 10, 10]}
+          angle={0.3}
+          penumbra={1}
+          intensity={2}
+          color="#ffffff"
+        />
         <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
           <ClockModel />
         </Float>

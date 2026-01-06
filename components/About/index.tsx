@@ -31,7 +31,7 @@ export default function About() {
               <h2 className="text-4xl font-bold text-slate-100 mb-2 font-artistic">
                 {bio.title}
               </h2>
-              <p className="text-primary uppercase tracking-widest text-sm mb-6">
+              <p className="text-slate-500 uppercase tracking-widest text-sm mb-6">
                 ABOUT ME
               </p>
               <p className="text-slate-300 leading-loose text-lg">

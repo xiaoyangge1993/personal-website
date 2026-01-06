@@ -57,7 +57,7 @@ export default function Skills() {
     <section id="skills" className="py-20 overflow-hidden perspective-1000">
       <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-slate-100 font-artistic mb-12"
+          className="text-4xl md:text-5xl font-bold text-center text-slate-100 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -220,7 +220,7 @@ export default function Skills() {
         </div>
 
         {/* Carousel Indicators */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center">
           <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-full px-4 py-2 flex items-center gap-2">
             {skills.map((_, index) => {
               const isActive = index === activeIndex;

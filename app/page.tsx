@@ -14,7 +14,6 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { IntroProvider } from "@/contexts/IntroContext";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import IntroOverlay from "@/components/IntroOverlay";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -48,13 +47,12 @@ export default function Home() {
             <Header />
             <Hero />
             <Experience />
-            <Skills />
             <Projects />
+            <Skills />
             <Works />
             <Articles />
             <About />
             <Footer />
-            <IntroOverlay />
           </main>
         </IntroProvider>
       </ParticlesProvider>
