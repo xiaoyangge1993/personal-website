@@ -68,7 +68,7 @@ const ExperienceCard = ({ exp }: any) => {
         style={{
           background: `radial-gradient(
             600px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-            rgba(251, 146, 60, 0.15),
+            rgba(29, 245, 234, 0.15),
             transparent 40%
           )`,
         }}

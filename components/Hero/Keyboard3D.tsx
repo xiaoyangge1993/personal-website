@@ -28,12 +28,12 @@ const Key = ({
       mesh.current.position.y += (targetY - mesh.current.position.y) * 0.3;
 
       // Hover color transition - subtle warmth on hover or active
-      const targetColor = new Color(hovered || isPressed ? "#fff7ed" : color);
+      const targetColor = new Color(hovered || isPressed ? "#e0f2fe" : color);
       mesh.current.material.color.lerp(targetColor, 0.15);
 
       // Emissive glow on hover or active
       const targetEmissive = new Color(
-        hovered || isPressed ? "#fb923c" : "#000000"
+        hovered || isPressed ? "#1df5ea" : "#000000"
       );
       mesh.current.material.emissive.lerp(targetEmissive, 0.1);
     }
@@ -77,7 +77,7 @@ const Key = ({
         >
           <div
             className={`text-xs font-bold transition-colors duration-200 ${
-              hovered || isPressed ? "text-orange-500" : "text-slate-400"
+              hovered || isPressed ? "text-[#1df5ea]" : "text-slate-400"
             }`}
           >
             {label}
@@ -193,7 +193,7 @@ export default function Keyboard3D() {
         <pointLight
           position={[-10, 0, -5]}
           intensity={1}
-          color="#fb923c"
+          color="#1df5ea"
           distance={20}
         />
 
@@ -201,7 +201,7 @@ export default function Keyboard3D() {
         <pointLight
           position={[10, 0, -5]}
           intensity={0.5}
-          color="#38bdf8"
+          color="#0ea5e9"
           distance={20}
         />
 
@@ -216,7 +216,7 @@ export default function Keyboard3D() {
           scale={30}
           blur={3}
           far={4}
-          color="#fb923c"
+          color="#1df5ea"
         />
       </Canvas>
     </div>

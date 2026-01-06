@@ -79,10 +79,10 @@ export default function IntroOverlay() {
               z: 0,
               translateX: "-50%",
               translateY: "-50%",
-              color: "#fb923c",
+              color: "#1df5ea",
               fontWeight: "bold",
               filter: "blur(10px)",
-              textShadow: "0 0 20px rgba(251, 146, 60, 0.5)", // Orange glow
+              textShadow: "0 0 20px rgba(29, 245, 234, 0.5)", // Cyan glow
             }}
             animate={
               stage === "appear"
@@ -95,7 +95,7 @@ export default function IntroOverlay() {
                     rotateY: 0,
                     z: 50, // Float up slightly in 3D
                     filter: "blur(0px)",
-                    textShadow: "0 0 40px rgba(251, 146, 60, 0.8)",
+                    textShadow: "0 0 40px rgba(29, 245, 234, 0.8)",
                     transition: {
                       duration: 1.2,
                       type: "spring",
@@ -112,7 +112,7 @@ export default function IntroOverlay() {
                     rotateY: 0,
                     z: 0,
                     filter: "blur(0px)",
-                    textShadow: "0 0 0px rgba(251, 146, 60, 0)",
+                    textShadow: "0 0 0px rgba(29, 245, 234, 0)",
                     transition: { duration: 0.8, ease: "easeInOut" },
                   }
             }

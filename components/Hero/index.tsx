@@ -78,7 +78,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
           >
             {t.hero.title_prefix} <br />
-            <span className="inline-block mt-3 text-transparent bg-clip-text bg-[linear-gradient(90deg,#FB923C_0%,#ea580c_40%,#ffffff_50%,#ea580c_60%,#FB923C_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
+            <span className="inline-block mt-3 text-transparent bg-clip-text bg-[linear-gradient(90deg,#1df5ea_0%,#0ea5e9_40%,#ffffff_50%,#0ea5e9_60%,#1df5ea_100%)] bg-[length:200%_auto] animate-shimmer whitespace-nowrap">
               {t.hero.title_highlight}
             </span>
           </motion.h1>
@@ -93,12 +93,16 @@ export default function Hero() {
 
           <motion.a
             href="#works"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-orange-200 transition-all hover:brightness-110"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-cyan-500 text-white px-8 py-4 rounded-full font-bold shadow-lg transition-all hover:brightness-110"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              default: { duration: 0.1 }, // Fast scale reset
+              opacity: { delay: 0.5, duration: 0.5 }, // Slow initial fade-in
+              y: { delay: 0.5, duration: 0.5 }, // Slow initial slide-up
+            }}
           >
             {t.hero.cta}
             <ArrowRight size={20} />

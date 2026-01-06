@@ -101,7 +101,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
                 key={i}
                 custom={i}
                 variants={rippleVariants}
-                className="absolute rounded-full border border-orange-500/50 bg-orange-500/20 shadow-[0_0_15px_rgba(251,146,60,0.5)]"
+                className="absolute rounded-full border border-primary/50 bg-primary/20 shadow-[0_0_15px_rgba(29,245,234,0.5)]"
                 style={{ width: 80, height: 80 }} // Doubled size
               />
             ))}
@@ -111,7 +111,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
                 rest: { scale: 0, opacity: 0 },
                 hover: { scale: 1, opacity: 1 },
               }}
-              className="absolute w-2 h-2 bg-orange-500 rounded-full shadow-[0_0_10px_#fb923c]"
+              className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#1df5ea]"
             />
           </div>
 
@@ -119,7 +119,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
           {/* Ripple center is at top-1/2 left-1/2 with -translate-x-1/2 -translate-y-1/2 */}
           {/* Wire needs to start from the same point, so use translate(-50%, -53%) to align bottom with center point */}
           <motion.div
-            className="absolute top-1/2 left-1/2 w-0.5 bg-gradient-to-t from-orange-500 to-transparent flex flex-col justify-end items-center origin-bottom"
+            className="absolute top-1/2 left-1/2 w-0.5 bg-gradient-to-t from-primary to-transparent flex flex-col justify-end items-center origin-bottom"
             variants={wireVariants}
             style={{
               transform:
@@ -139,9 +139,9 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2 hover:border-orange-500 transition-colors cursor-pointer"
+          className="bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2 hover:border-primary transition-colors cursor-pointer"
         >
-          <ExternalLink size={12} className="text-orange-400" />
+          <ExternalLink size={12} className="text-primary" />
           {link}
         </a>
       </motion.div>

@@ -13,7 +13,7 @@ const config: Config = {
         artistic: ["var(--font-playfair)", "serif"],
       },
       colors: {
-        primary: "#FB923C",
+        primary: "#1df5ea",
         secondary: "#334155",
         background: "#0f172a", // Dark blue-grey
       },
