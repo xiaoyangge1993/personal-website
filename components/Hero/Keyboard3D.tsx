@@ -171,9 +171,9 @@ const KeyboardModel = () => {
 
 export default function Keyboard3D() {
   return (
-    <div className="w-full h-[200px] md:h-[300px] relative">
+    <div className="w-full h-full relative">
       <Canvas
-        camera={{ position: [0, 10, 12], fov: 45 }}
+        camera={{ position: [0, 8, 10], fov: 45 }} // Moved camera closer (was [0, 10, 12]) to simulate scale=1.2-1.5 effect naturally
         style={{ width: "100%", height: "100%" }}
         resize={{ scroll: false, debounce: 0 }}
       >

@@ -27,12 +27,10 @@ export default function ProfileCard() {
       {/* Info Section */}
       <div className="space-y-6">
         <div>
-          <h3 className="text-2xl font-bold text-white">
-            {profile.name_label}: {profile.name_value}
+          <h3 className="text-2xl font-bold text-primary">
+            {profile.name_value}
           </h3>
-          <p className="text-primary font-medium mt-1">
-            {profile.role_label}: {profile.role_value}
-          </p>
+          <p className=" font-medium mt-1">{profile.role_value}</p>
         </div>
 
         <div className="space-y-2 text-slate-300">

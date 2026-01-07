@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[50vh] flex items-center pt-20 overflow-hidden bg-background"
+      className="relative h-[80vh] min-h-[600px] flex items-center pt-20 overflow-hidden bg-background"
     >
       {/* Grid Background */}
       <div
@@ -129,12 +129,15 @@ export default function Hero() {
         {/* Right: 3D Keyboard */}
         <motion.div
           ref={keyboardContainerRef}
-          initial={{ opacity: 0, scale: 1.0 }}
-          animate={{ opacity: 1, scale: isMobile ? 1.2 : 1.5 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative h-full flex justify-center items-center"
+          className="relative h-[400px] w-full flex justify-center items-center overflow-visible"
         >
-          <Keyboard3D />
+          {/* Fixed container to prevent canvas resize on window resize */}
+          <div className="w-[600px] h-[400px] flex-shrink-0">
+            <Keyboard3D />
+          </div>
         </motion.div>
       </div>
     </section>

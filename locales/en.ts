@@ -22,9 +22,7 @@ export const en = {
   about: {
     title: "About Me",
     profile: {
-      name_label: "Name",
       name_value: "Kevin Xiao",
-      role_label: "Role",
       role_value: "Full Stack Engineer",
       age_label: "Age",
       age_value: "28",
@@ -44,8 +42,8 @@ export const en = {
     },
     hobbies: [
       {
-        title: "Photography",
-        subtitle: "Capturing Moments",
+        title: "UI Design",
+        subtitle: "First Job",
         description:
           "I love traveling and capturing the beauty of the world through my lens. From urban landscapes to natural scenery, photography helps me see things from different perspectives.",
       },
@@ -56,7 +54,13 @@ export const en = {
           "Creating 3D models and animations is one of my favorite pastimes. It allows me to combine technical skills with artistic creativity to build immersive digital worlds.",
       },
       {
-        title: "Reading",
+        title: "Ping Pong",
+        subtitle: "Continuous Learning",
+        description:
+          "I am an avid reader, especially of tech blogs, science fiction, and philosophy. Reading keeps my mind sharp and inspires new ideas for my projects.",
+      },
+      {
+        title: "Swimming",
         subtitle: "Continuous Learning",
         description:
           "I am an avid reader, especially of tech blogs, science fiction, and philosophy. Reading keeps my mind sharp and inspires new ideas for my projects.",
