@@ -40,7 +40,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen lg:h-[80vh] lg:min-h-[600px] flex items-center pt-32 lg:pt-20 pb-12 lg:pb-0 overflow-hidden bg-background"
+      className="relative min-h-screen lg:h-[50vh] lg:min-h-[600px] flex items-center pt-32 lg:pt-20 pb-12 lg:pb-0 overflow-hidden bg-background"
     >
       {/* Grid Background */}
       <div
