@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import type { Container, Engine } from "@tsparticles/engine";
 import ProjectCard from "./ProjectCard";
 import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -23,6 +22,12 @@ export default function Projects() {
   const { particlesEnabled } = useParticles();
   const { t } = useLanguage();
   const projects = t.projects.items;
+
+  // Ref for the container to measure width
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // State to control scrolling
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -121,7 +126,7 @@ export default function Projects() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-32 font-artistic"
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-16 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -129,18 +134,36 @@ export default function Projects() {
           {t.projects.title}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <ProjectCard {...project} color={projectColors[index]} />
-            </motion.div>
-          ))}
+        {/* Infinite Horizontal Scroll Container */}
+        <div
+          className="w-full overflow-hidden mask-fade-sides relative"
+          ref={containerRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <motion.div
+            className="flex gap-8 w-max"
+            animate={{
+              x: isPaused ? undefined : ["0%", "-50%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40, // Slow speed
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Render projects twice to create seamless loop */}
+            {[...projects, ...projects].map((project, index) => (
+              <ProjectCard
+                key={`${index}-${project.title}`}
+                {...project}
+                color={projectColors[index % projects.length]}
+              />
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

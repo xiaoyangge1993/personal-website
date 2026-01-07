@@ -147,6 +147,7 @@ export const en = {
           "High availability cluster",
           "Multi-tenant support",
         ],
+        techStack: ["Java", "Spring Boot", "MySQL", "React"],
       },
       {
         title: "E-Commerce",
@@ -156,16 +157,19 @@ export const en = {
           "Stripe Integration",
           "Admin Dashboard",
         ],
+        techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
       },
       {
         title: "Task Master",
         description: "Collaborative project management tool for teams.",
         highlights: ["Real-time sockets", "Kanban board", "Team analytics"],
+        techStack: ["React", "Socket.io", "Node.js", "MongoDB"],
       },
       {
         title: "AI Chat",
         description: "Intelligent chatbot interface powered by LLMs.",
         highlights: ["Streaming responses", "Markdown support", "Chat history"],
+        techStack: ["OpenAI API", "Python", "FastAPI", "Vue.js"],
       },
       {
         title: "Crypto Dash",
@@ -175,11 +179,13 @@ export const en = {
           "Interactive charts",
           "Portfolio tracking",
         ],
+        techStack: ["React", "D3.js", "Redux", "Firebase"],
       },
       {
         title: "Travel Log",
         description: "Social platform for sharing travel experiences.",
         highlights: ["Map integration", "Photo gallery", "Social feed"],
+        techStack: ["Flutter", "Google Maps API", "Dart", "AWS"],
       },
     ],
   },
