@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -42,8 +42,16 @@ const skillIcons = [
 
 export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(2); // Start in middle
+  const [isMobile, setIsMobile] = useState(false);
   const { t } = useLanguage();
   const skills = t.skills.items;
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % skills.length);
@@ -52,6 +60,16 @@ export default function Skills() {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + skills.length) % skills.length);
   };
+
+  // Auto-play on mobile
+  useEffect(() => {
+    if (isMobile) {
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
 
   return (
     <section id="skills" className="py-20 overflow-hidden perspective-1000">
@@ -115,12 +133,26 @@ export default function Skills() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{
                     opacity: absOffset > 1 ? 0.5 : 1,
-                    scale: isActive ? 1.32 : 1.08, // Scaled by 1.2x (1.1*1.2, 0.9*1.2)
-                    x: normalizedOffset * 260, // Spacing scaled by ~1.2x (220 -> 260)
+                    scale: isActive
+                      ? isMobile
+                        ? 1.1
+                        : 1.32
+                      : isMobile
+                      ? 0.9
+                      : 1.08, // Smaller scale on mobile
+                    x: normalizedOffset * (isMobile ? 180 : 260), // Reduced spacing on mobile
                     z: getZDepth(), // Depth based on layer
                     rotateY: normalizedOffset * -25, // Rotation
                   }}
-                  whileHover={{ scale: isActive ? 1.38 : 1.14 }} // Hover scaled by 1.2x
+                  whileHover={{
+                    scale: isActive
+                      ? isMobile
+                        ? 1.15
+                        : 1.38
+                      : isMobile
+                      ? 0.95
+                      : 1.14,
+                  }}
                   drag="x"
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={0.1}
@@ -203,24 +235,28 @@ export default function Skills() {
           </AnimatePresence>
 
           {/* Navigation Arrows - Vertically centered, at screen edges */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 md:-left-4 lg:-left-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
-            aria-label="Previous Skill"
-          >
-            <ChevronLeft size={32} />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 md:-right-4 lg:-right-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
-            aria-label="Next Skill"
-          >
-            <ChevronRight size={32} />
-          </button>
+          {!isMobile && (
+            <>
+              <button
+                onClick={prevSlide}
+                className="absolute left-0 md:-left-4 lg:-left-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                aria-label="Previous Skill"
+              >
+                <ChevronLeft size={32} />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="absolute right-0 md:-right-4 lg:-right-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                aria-label="Next Skill"
+              >
+                <ChevronRight size={32} />
+              </button>
+            </>
+          )}
         </div>
 
         {/* Carousel Indicators */}
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-[-70px] md:mt-0 relative z-50">
           <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-full px-4 py-2 flex items-center gap-2">
             {skills.map((_, index) => {
               const isActive = index === activeIndex;

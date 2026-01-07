@@ -60,11 +60,29 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
     },
   };
 
+  const [isMobile, setIsMobile] = React.useState(false);
+  const [isActive, setIsActive] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const handleInteraction = () => {
+    if (isMobile) {
+      setIsActive(!isActive);
+    }
+  };
+
   return (
     <motion.div
       className="relative pt-32 group perspective-1000"
       initial="rest"
-      whileHover="hover"
+      whileHover={!isMobile ? "hover" : undefined}
+      animate={isMobile && isActive ? "hover" : "rest"}
+      onClick={handleInteraction}
     >
       {/* Card */}
       <motion.div
