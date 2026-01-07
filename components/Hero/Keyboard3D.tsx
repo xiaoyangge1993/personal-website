@@ -170,10 +170,22 @@ const KeyboardModel = () => {
 };
 
 export default function Keyboard3D() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="w-full h-full relative">
       <Canvas
-        camera={{ position: [0, 8, 10], fov: 45 }} // Moved camera closer (was [0, 10, 12]) to simulate scale=1.2-1.5 effect naturally
+        camera={{
+          position: [0, isMobile ? 10 : 8, isMobile ? 12 : 10],
+          fov: 45,
+        }} // Moved camera further on mobile
         style={{ width: "100%", height: "100%" }}
         resize={{ scroll: false, debounce: 0 }}
       >
