@@ -28,7 +28,7 @@ const ProjectCard = ({
   techStack = [],
 }: ProjectCardProps) => {
   return (
-    <div className="relative w-[450px] h-[220px] flex-shrink-0">
+    <div className="relative w-[85vw] max-w-[450px] md:w-[450px] h-[220px] flex-shrink-0">
       <div className="w-full h-full bg-slate-800 rounded-xl shadow-lg p-5 flex flex-col border border-slate-700 hover:border-primary/50 transition-colors">
         <div className="flex items-start gap-4 mb-2">
           <div

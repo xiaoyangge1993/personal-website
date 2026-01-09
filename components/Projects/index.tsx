@@ -136,7 +136,7 @@ export default function Projects() {
 
         {/* Infinite Horizontal Scroll Container */}
         <div
-          className="w-full overflow-hidden mask-fade-sides relative"
+          className="w-full overflow-hidden mask-fade-sides relative px-6 md:mx-0 md:px-0"
           ref={containerRef}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
