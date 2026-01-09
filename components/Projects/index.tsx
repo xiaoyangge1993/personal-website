@@ -126,7 +126,7 @@ export default function Projects() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-16 font-artistic"
+          className="text-4xl md:text-5xl font-bold text-center text-white mb-32 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -141,18 +141,10 @@ export default function Projects() {
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <motion.div
-            className="flex gap-8 w-max"
-            animate={{
-              x: isPaused ? undefined : ["0%", "-50%"],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40, // Slow speed
-                ease: "linear",
-              },
+          <div
+            className="flex gap-8 w-max animate-scroll"
+            style={{
+              animationPlayState: isPaused ? "paused" : "running",
             }}
           >
             {/* Render projects twice to create seamless loop */}
@@ -163,7 +155,7 @@ export default function Projects() {
                 color={projectColors[index % projects.length]}
               />
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

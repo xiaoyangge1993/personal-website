@@ -153,7 +153,7 @@ export default function Header() {
   });
 
   const navItems = [
-    { name: t.header.nav.experience, href: "#experience" },
+    // { name: t.header.nav.experience, href: "#experience" },
     { name: t.header.nav.projects, href: "#projects" },
     { name: t.header.nav.skills, href: "#skills" },
     { name: t.header.nav.works, href: "#works" },
