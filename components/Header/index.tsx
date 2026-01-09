@@ -17,8 +17,12 @@ import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
 
+import MobileMenuButton from "./MobileMenuButton";
+import MobileMenuDrawer from "./MobileMenuDrawer";
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
@@ -172,12 +176,12 @@ export default function Header() {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo / Name */}
+        {/* Logo / Name - Ensure higher z-index to stay above drawer */}
         <Link
           ref={logoRef}
           href="/"
           className={clsx(
-            "text-xl font-bold tracking-tight transition-colors duration-500",
+            "text-xl font-bold tracking-tight transition-colors duration-500 relative z-[10000]",
             // Always show primary color when typing starts (displayText has content)
             displayText.length > 0
               ? "text-primary opacity-100"
@@ -188,7 +192,7 @@ export default function Header() {
           {displayText || "Kevin Xiao"}
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item) => (
             <Link
@@ -202,8 +206,8 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Social Icons & Particles Toggle */}
-        <div className="flex items-center space-x-4">
+        {/* Desktop Utilities */}
+        <div className="hidden md:flex items-center space-x-4">
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
@@ -259,6 +263,19 @@ export default function Header() {
             <Linkedin size={20} />
           </a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <MobileMenuButton
+          isOpen={isMobileMenuOpen}
+          toggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
+
+        {/* Mobile Menu Drawer */}
+        <MobileMenuDrawer
+          isOpen={isMobileMenuOpen}
+          navItems={navItems}
+          onClose={() => setIsMobileMenuOpen(false)}
+        />
       </div>
     </motion.header>
   );
