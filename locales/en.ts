@@ -8,6 +8,7 @@ export const en = {
       works: "Works",
       articles: "Articles",
       resources: "Resources",
+      studio: "Studio",
     },
     toggle_particles: "Toggle particles animation",
   },
@@ -327,6 +328,20 @@ export const en = {
         category: "Community",
       },
     ],
+  },
+  studio: {
+    title: "My Studio",
+    subtitle: "Professional Web Development Services",
+    cooperation: {
+      title: "Cooperation Guide",
+      content: [
+        "We are a remote team and do not support on-site requirements. We do not accept any government or public institution projects, bidding projects, or second-hand/multi-hand outsourcing projects.",
+        "Your project must comply with laws and regulations. We do not accept any projects involving gray or black industries (e.g., web3, gambling, adult content, violence, VPNs, fraud, public web crawlers, etc.).",
+        "The studio provides high-quality services only. We do not engage in price wars or produce low-quality, cheap outsourcing or crowdsourcing work. Our minimum project fee is ¥10,000 CNY or $1,500 USD.",
+        "Our payment term is 4-4-2 (40% deposit to start, 40% interim payment, and 20% final payment upon launch).",
+        "Please clarify your project requirements first (if none, we can write the requirements document for a fee; detailed requirements are not necessary for small projects). This facilitates quick cooperation and avoids unnecessary disputes. If UI design or prototypes are needed, you can also entrust us to do them.",
+      ],
+    },
   },
   footer: {
     rights: "© 2024 All Rights Reserved.",

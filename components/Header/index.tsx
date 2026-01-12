@@ -164,6 +164,7 @@ export default function Header() {
     { name: t.header.nav.articles, href: "/#articles" },
     { name: t.header.nav.about, href: "/#about" },
     { name: t.header.nav.resources, href: "/resources" },
+    { name: t.header.nav.studio, href: "/studio" },
   ];
 
   return (
