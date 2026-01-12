@@ -23,7 +23,7 @@ export default function CooperationProcess() {
           {/* Central Timeline Line */}
           <div className="absolute left-1/2 top-10 bottom-0 w-0.5 bg-dashed border-l-2 border-slate-700 -translate-x-1/2 hidden md:block" />
 
-          <div className="space-y-0 relative">
+          <div className="space-y-[30px] md:space-y-0 relative">
             {steps.map((step, index) => {
               const isLeft = index % 2 === 0;
               const stepNumber = String(index + 1).padStart(2, "0");
@@ -83,7 +83,7 @@ export default function CooperationProcess() {
                       {/* Main Content Card */}
                       <div
                         className={clsx(
-                          "bg-white text-slate-800 p-6 pt-8 shadow-xl relative z-10 min-h-[140px] flex flex-col justify-center transition-transform duration-300 group-hover:-translate-y-1 w-[64%] mx-auto",
+                          "bg-white text-slate-800 p-6 pt-8 shadow-xl relative z-10 min-h-[140px] flex flex-col justify-center transition-transform duration-300 group-hover:-translate-y-1 w-[96%] md:w-[64%] mx-auto", // Mobile width 96% (increased by 50% from 64%)
                           isLeft ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0",
                           // Corner radius logic: one big corner
                           isLeft
@@ -99,7 +99,7 @@ export default function CooperationProcess() {
                       {/* Decorative Shadow/Layer underneath */}
                       <div
                         className={clsx(
-                          "absolute inset-0 bg-blue-500/20 translate-y-2 z-0 transition-transform duration-300 group-hover:translate-y-3 w-[64%] mx-auto",
+                          "absolute inset-0 bg-blue-500/20 translate-y-2 z-0 transition-transform duration-300 group-hover:translate-y-3 w-[96%] md:w-[64%] mx-auto", // Mobile width 96%
                           isLeft ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0",
                           isLeft
                             ? "rounded-xl rounded-bl-[40px] -translate-x-2"
@@ -109,12 +109,12 @@ export default function CooperationProcess() {
                     </div>
                   </div>
 
-                  {/* Spacer / Timeline Node */}
-                  <div className="w-full md:w-[8%] flex justify-center py-4 md:py-0 relative self-start mt-8">
+                  {/* Spacer / Timeline Node - Hidden on Mobile */}
+                  <div className="hidden md:flex w-full md:w-[8%] justify-center py-4 md:py-0 relative self-start mt-8">
                     <div className="w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900 shadow-[0_0_0_4px_rgba(59,130,246,0.3)] z-10 relative">
-                      {/* Connecting dashed line for mobile */}
+                      {/* Connecting dashed line for mobile - removed since timeline is hidden on mobile */}
                       {index !== steps.length - 1 && (
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-700 md:hidden h-[calc(100%+3rem)]" />
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-700 md:hidden h-[calc(100%+3rem)] hidden" />
                       )}
                     </div>
                   </div>
