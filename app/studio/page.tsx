@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import clsx from "clsx";
 
+import CooperationProcess from "@/components/Studio/CooperationProcess";
+
 function StudioContent() {
   const { t } = useLanguage();
   const { title, subtitle, cooperation } = t.studio;
@@ -49,7 +51,7 @@ function StudioContent() {
       </section>
 
       {/* Cooperation Guide - Receipt Style Card */}
-      <section className="py-16 px-6 bg-slate-950 flex-grow relative">
+      <section className="py-16 px-6 bg-slate-950 relative">
         <div className="container mx-auto max-w-3xl relative">
           {/* Printer Output Slot Effect */}
           <div className="relative w-full h-14 mx-auto -mb-7 z-20 px-4">
@@ -126,6 +128,9 @@ function StudioContent() {
           </motion.div>
         </div>
       </section>
+
+      {/* Cooperation Process Module */}
+      <CooperationProcess />
 
       <Footer />
     </div>

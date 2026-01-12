@@ -342,6 +342,51 @@ export const en = {
         "Please clarify your project requirements first (if none, we can write the requirements document for a fee; detailed requirements are not necessary for small projects). This facilitates quick cooperation and avoids unnecessary disputes. If UI design or prototypes are needed, you can also entrust us to do them.",
       ],
     },
+    process: {
+      title: "Cooperation Process",
+      steps: [
+        {
+          title: "Requirements",
+          content: "Contact us with requirements. We can write docs for a fee if needed (not needed for small projects).",
+        },
+        {
+          title: "Budget & Timeline",
+          content: "Client provides budget and timeline (preferred) to facilitate quick cooperation.",
+        },
+        {
+          title: "Feasibility",
+          content: "Project manager and developers confirm feasibility to start work.",
+        },
+        {
+          title: "UI Design",
+          content: "We can design UI/Prototypes if needed (direct coding for small projects).",
+        },
+        {
+          title: "Deposit",
+          content: "Pay 40% deposit. We set up exclusive group chat and repository.",
+        },
+        {
+          title: "Development",
+          content: "Iterative coding via private git repo and handling client tickets.",
+        },
+        {
+          title: "CI/CD",
+          content: "Auto build/deploy via Drone (or other tools for mobile apps).",
+        },
+        {
+          title: "Interim Payment",
+          content: "Client reviews progress and pays 40% interim payment.",
+        },
+        {
+          title: "Delivery",
+          content: "Deploy and deliver source code. Client pays 20% final payment upon confirmation.",
+        },
+        {
+          title: "Maintenance",
+          content: "Optional maintenance period. Fee is 20% of dev cost per year.",
+        },
+      ],
+    },
   },
   footer: {
     rights: "© 2024 All Rights Reserved.",
