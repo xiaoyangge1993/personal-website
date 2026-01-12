@@ -7,6 +7,7 @@ export const en = {
       projects: "Projects",
       works: "Works",
       articles: "Articles",
+      resources: "Resources",
     },
     toggle_particles: "Toggle particles animation",
   },
@@ -243,6 +244,87 @@ export const en = {
         title: "TypeScript Best Practices",
         summary:
           "Writing clean, maintainable, and type-safe code in large projects.",
+      },
+    ],
+  },
+  resources: {
+    title: "Resources Navigation",
+    subtitle: "Discover the tools and people that shape my perspective",
+    items: [
+      {
+        title: "React Documentation",
+        description: "Official documentation for React library.",
+        link: "https://react.dev",
+        category: "Documentation",
+      },
+      {
+        title: "Next.js Documentation",
+        description: "The React Framework for the Web.",
+        link: "https://nextjs.org/docs",
+        category: "Documentation",
+      },
+      {
+        title: "Tailwind CSS",
+        description:
+          "Rapidly build modern websites without ever leaving your HTML.",
+        link: "https://tailwindcss.com",
+        category: "Tool",
+      },
+      {
+        title: "Framer Motion",
+        description: "A production-ready motion library for React.",
+        link: "https://www.framer.com/motion/",
+        category: "Library",
+      },
+      {
+        title: "MDN Web Docs",
+        description: "Resources for developers, by developers.",
+        link: "https://developer.mozilla.org",
+        category: "Reference",
+      },
+      {
+        title: "Dan Abramov",
+        description: "Co-author of Redux and Create React App.",
+        link: "https://overreacted.io",
+        category: "Person",
+      },
+      {
+        title: "Josh W. Comeau",
+        description: "Interactive tutorials on React and CSS.",
+        link: "https://www.joshwcomeau.com",
+        category: "Person",
+      },
+      {
+        title: "Vercel",
+        description: "Develop. Preview. Ship. For the best frontend teams.",
+        link: "https://vercel.com",
+        category: "Platform",
+      },
+      {
+        title: "Three.js",
+        description: "JavaScript 3D library.",
+        link: "https://threejs.org",
+        category: "Library",
+      },
+      {
+        title: "Dribbble",
+        description:
+          "Discover the world’s top designers & creative professionals.",
+        link: "https://dribbble.com",
+        category: "Design",
+      },
+      {
+        title: "Awwwards",
+        description:
+          "Website Awards that recognize and promote the talent and effort of the best web designers.",
+        link: "https://www.awwwards.com",
+        category: "Design",
+      },
+      {
+        title: "Stack Overflow",
+        description: "Where Developers Learn, Share, & Build Careers.",
+        link: "https://stackoverflow.com",
+        category: "Community",
       },
     ],
   },
