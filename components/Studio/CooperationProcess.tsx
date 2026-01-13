@@ -47,34 +47,36 @@ export default function CooperationProcess() {
                       {/* Top Floating Title Bubble */}
                       <div
                         className={clsx(
-                          "absolute -top-8 z-20 flex items-center bg-amber-300 text-slate-900 px-6 py-3 rounded-full font-bold text-lg shadow-lg transform transition-transform group-hover:scale-105", // Increased text size to text-lg (approx double visual weight with bold)
-                          isLeft ? "-right-[20px]" : "-left-[20px]"
+                          "absolute -top-8 z-20 flex items-center px-6 py-3 rounded-full font-bold text-lg shadow-lg transform transition-transform group-hover:scale-105",
+                          isLeft
+                            ? "-right-[20px] bg-amber-300 text-slate-900"
+                            : "-left-[20px] bg-blue-500 text-slate-900" // Right side cards (blue) but dark text
                         )}
                       >
                         {/* Little triangle pointer for bubble */}
                         <div
                           className={clsx(
-                            "absolute top-1/2 -translate-y-1/2 w-0 h-0 border-y-[12px] border-y-transparent rounded-[4px]", // Added rounded corners
+                            "absolute top-1/2 -translate-y-1/2 w-0 h-0 border-y-[12px] border-y-transparent rounded-[4px]",
                             isLeft
-                              ? "left-0 -translate-x-[24px] border-r-[16px] border-r-amber-300" // Increased offset to 24px
-                              : "right-0 translate-x-[24px] border-l-[16px] border-l-amber-300" // Increased offset to 24px
+                              ? "left-0 -translate-x-[24px] border-r-[16px] border-r-amber-300"
+                              : "right-0 translate-x-[24px] border-l-[16px] border-l-blue-500" // Right side triangle (blue)
                           )}
                         />
                         {/* Step Number and Title - Dynamic Order */}
                         {isLeft ? (
                           <>
                             {step.title}
-                            <div className="w-px h-3 bg-amber-800/30 ml-2 mr-2" />
-                            <span className="font-black text-amber-800">
+                            <div className="w-px h-3 bg-slate-900/30 ml-2 mr-2" />
+                            <span className="font-black text-slate-900">
                               {stepNumber}
                             </span>
                           </>
                         ) : (
                           <>
-                            <span className="mr-2 font-black text-amber-800">
+                            <span className="mr-2 font-black text-slate-900">
                               {stepNumber}
                             </span>
-                            <div className="w-px h-3 bg-amber-800/30 mr-2" />
+                            <div className="w-px h-3 bg-slate-900/30 mr-2" />
                             {step.title}
                           </>
                         )}
