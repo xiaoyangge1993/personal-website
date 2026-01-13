@@ -403,6 +403,7 @@ export const zh = {
           ],
         },
       ],
+      customize_btn: "立即定制",
     },
   },
   footer: {

@@ -427,6 +427,7 @@ export const en = {
           ],
         },
       ],
+      customize_btn: "Customize Now",
     },
   },
   footer: {
