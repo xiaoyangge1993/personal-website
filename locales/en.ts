@@ -347,31 +347,38 @@ export const en = {
       steps: [
         {
           title: "Requirements",
-          content: "Contact us with requirements. We can write docs for a fee if needed (not needed for small projects).",
+          content:
+            "Contact us with requirements. We can write docs for a fee if needed (not needed for small projects).",
         },
         {
           title: "Budget & Timeline",
-          content: "Client provides budget and timeline (preferred) to facilitate quick cooperation.",
+          content:
+            "Client provides budget and timeline (preferred) to facilitate quick cooperation.",
         },
         {
           title: "Feasibility",
-          content: "Project manager and developers confirm feasibility to start work.",
+          content:
+            "Project manager and developers confirm feasibility to start work.",
         },
         {
           title: "UI Design",
-          content: "We can design UI/Prototypes if needed (direct coding for small projects).",
+          content:
+            "We can design UI/Prototypes if needed (direct coding for small projects).",
         },
         {
           title: "Deposit",
-          content: "Pay 40% deposit. We set up exclusive group chat and repository.",
+          content:
+            "Pay 40% deposit. We set up exclusive group chat and repository.",
         },
         {
           title: "Development",
-          content: "Iterative coding via private git repo and handling client tickets.",
+          content:
+            "Iterative coding via private git repo and handling client tickets.",
         },
         {
           title: "CI/CD",
-          content: "Auto build/deploy via Drone (or other tools for mobile apps).",
+          content:
+            "Auto build/deploy via Drone (or other tools for mobile apps).",
         },
         {
           title: "Interim Payment",
@@ -379,11 +386,45 @@ export const en = {
         },
         {
           title: "Delivery",
-          content: "Deploy and deliver source code. Client pays 20% final payment upon confirmation.",
+          content:
+            "Deploy and deliver source code. Client pays 20% final payment upon confirmation.",
         },
         {
           title: "Maintenance",
-          content: "Optional maintenance period. Fee is 20% of dev cost per year.",
+          content:
+            "Optional maintenance period. Fee is 20% of dev cost per year.",
+        },
+      ],
+    },
+    payment: {
+      title: "Payment Mode",
+      subtitle: "Flexible and transparent payment options",
+      cards: [
+        {
+          title: "Payment Methods",
+          items: [
+            "WeChat Pay (Enterprise)",
+            "Alipay Transfer",
+            "PayPal Transfer",
+            "Bank Transfer",
+          ],
+        },
+        {
+          title: "Invoicing",
+          items: [
+            "Support specialized VAT invoices for corporate accounts (tax difference borne by you)",
+            "Lower tax rates for general invoices to private accounts (individual business)",
+            "Invoicing not recommended for projects under 100k CNY",
+            "Contract signing depends on your needs; mandatory if invoicing",
+          ],
+        },
+        {
+          title: "4-4-2 Payment",
+          items: [
+            "40% deposit after confirming cooperation",
+            "40% interim payment during project mid-term",
+            "20% final payment upon launch/delivery. Maintenance: 1st year free, then 20% of dev cost/year",
+          ],
         },
       ],
     },

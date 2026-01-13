@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import clsx from "clsx";
 
 import CooperationProcess from "@/components/Studio/CooperationProcess";
+import PaymentMode from "@/components/Studio/PaymentMode";
 
 function StudioContent() {
   const { t } = useLanguage();
@@ -131,6 +132,9 @@ function StudioContent() {
 
       {/* Cooperation Process Module */}
       <CooperationProcess />
+
+      {/* Payment Mode Module */}
+      <PaymentMode />
 
       <Footer />
     </div>
