@@ -200,16 +200,16 @@ export default function Skills() {
 
                     <div className="h-full flex flex-col justify-between relative z-10">
                       <div>
-                        <h3 className="text-2xl font-bold text-white mb-2">
+                        <h3 className="text-xl font-bold text-white mb-2">
                           {skill.name}
                         </h3>
-                        <p className="text-slate-300 text-sm mb-4">
+                        <p className="text-slate-300 text-xs mb-4">
                           {skill.description}
                         </p>
                       </div>
 
                       <div>
-                        <div className="flex justify-between text-sm font-semibold mb-1 text-slate-300">
+                        <div className="flex justify-between text-xs font-semibold mb-1 text-slate-300">
                           <span>{t.skills.proficiency}</span>
                           <span>{currentLevel}%</span>
                         </div>

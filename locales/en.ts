@@ -17,7 +17,7 @@ export const en = {
     title_prefix: "Building",
     title_highlight: "Digital Experiences",
     description:
-      "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly web applications.",
+      "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly full-stack web applications.",
     cta: "View My Work",
     roles: ["Full Stack Developer", "UI Designer", "3D Animator"],
   },
@@ -30,8 +30,8 @@ export const en = {
       age_value: "28",
       education_label: "Education",
       education_value: "Bachelor's Degree",
-      phone_label: "Phone",
-      phone_value: "+1 (123) 456-7890",
+      // phone_label: "Phone",
+      // phone_value: "+1 (123) 456-7890",
       wechat_label: "WeChat",
       wechat_value: "kevin_xiao_dev",
       email_label: "Email",
@@ -40,38 +40,38 @@ export const en = {
     bio: {
       title: "ABOUT ME",
       description:
-        "Hi, I'm Kevin Xiao, a passionate Full Stack Engineer with a strong background in frontend development and 3D web experiences. I graduated with a Bachelor's degree in Computer Science. I am a quick learner, adaptable, and thrive in collaborative environments. I enjoy tackling complex challenges and am dedicated to delivering high-quality solutions. Outside of work, I have a wide range of interests and enjoy exploring new technologies.",
+        "Hello, I'm Kevin Xiao. I graduated from Jingdezhen Ceramic University with a bachelor's degree. I have 6 years of frontend development experience and 2 years of full-stack development experience. I am a pixel perfectionist, have a clean code obsession, and prioritize efficiency. Despite working in a small company with an ordinary degree, I managed to earn over 100,000 RMB through side projects introduced by colleagues and my own efforts. After being laid off at the end of last year, I decided to transition to full-time freelancing and established my personal studio on New Year's Day 2026. I welcome any business owners in need to contact me; I am dedicated to serving you.",
     },
     hobbies: [
       {
         title: "UI Design",
         subtitle: "First Job",
         description:
-          "I love traveling and capturing the beauty of the world through my lens. From urban landscapes to natural scenery, photography helps me see things from different perspectives.",
+          "I strayed into UI design for over a year, which perhaps laid the groundwork for my transition to coding. I successfully taught myself to code in my spare time, and in a flash, over 6 years have passed.",
       },
       {
         title: "3D Modeling",
         subtitle: "Digital Art",
         description:
-          "Creating 3D models and animations is one of my favorite pastimes. It allows me to combine technical skills with artistic creativity to build immersive digital worlds.",
+          "Disliking the inefficiency of traditional 2D hand-drawn animation, I delved into Maya animation software to create 3D animations. Luckily, my graduation project became the first 3D animation work in my school to win the first prize.",
       },
       {
         title: "Ping Pong",
         subtitle: "Continuous Learning",
         description:
-          "I am an avid reader, especially of tech blogs, science fiction, and philosophy. Reading keeps my mind sharp and inspires new ideas for my projects.",
+          "The charm of the national sport goes without saying. Also, due to my average physical constitution as a child, it smartly told me that a delicate sport like ping pong suits me. Friends interested in playing in Chengdu are welcome to meet up.",
       },
       {
         title: "Swimming",
         subtitle: "Continuous Learning",
         description:
-          "I am an avid reader, especially of tech blogs, science fiction, and philosophy. Reading keeps my mind sharp and inspires new ideas for my projects.",
+          "As a kid from a coastal city who couldn't swim, I finally learned with my wife's support. It has now become my daily exercise routine, regardless of the season.",
       },
       {
         title: "Hiking",
-        subtitle: "Nature & Fitness",
+        subtitle: "Close to Nature",
         description:
-          "Getting outdoors and hiking in the mountains is my way of recharging. It teaches me perseverance and allows me to appreciate the tranquility of nature.",
+          "I once fantasized about traveling the world after achieving financial freedom. Later, I discovered there are many ways to travel the world, such as becoming a travel vlogger 🐶",
       },
     ],
   },

@@ -17,7 +17,7 @@ export const zh = {
     title_prefix: "构建",
     title_highlight: "极致数字体验",
     description:
-      "我是 Kevin Xiao，一名热衷于打造响应式、交互性强且用户友好的 Web 应用的开发者。",
+      "我是 Kevin Xiao，一名热衷于打造响应式、交互性强且用户友好的 Web 应用的全栈开发者。",
     cta: "查看我的作品",
     roles: ["全栈工程师", "UI 设计师", "3D 动画师"],
   },
@@ -30,8 +30,8 @@ export const zh = {
       age_value: "32 岁",
       education_label: "学历",
       education_value: "本科",
-      phone_label: "电话",
-      phone_value: "17679282831",
+      // phone_label: "电话",
+      // phone_value: "17679282831",
       wechat_label: "微信",
       wechat_value: "xiaoyangngo",
       email_label: "邮箱",
@@ -40,38 +40,38 @@ export const zh = {
     bio: {
       title: "关于我",
       description:
-        "HALO，我是肖孝扬，毕业于景德镇陶瓷大学本科学历，本人拥有较强的接受能力，能快速适应工作环境。兴趣爱好比较广泛，会积极参与各类活动，同时团队精神和责任感也比较好！本人为人诚恳、能吃苦耐劳、敢于面对挑战、做事认真负责。也善于沟通交流、性格开朗也好相处。",
+        "你好，我是肖孝扬，毕业于景德镇陶瓷大学本科学历，6 年前端开发，2 年全栈开发，像素狂魔，代码洁癖，效率至上。普本小厂靠着同事介绍及自己努力副业接单收入破十万。去年底公司裁员，我决定转型全职接单，于 26 年元旦成立个人工作室，欢迎各位有需要的老板与我联系，竭诚为您服务。",
     },
     hobbies: [
       {
         title: "UI 设计",
         subtitle: "第一份工作",
         description:
-          "我喜欢旅行，通过镜头捕捉世界的美丽。从城市景观到自然风光，摄影帮助我从不同的角度看待事物。",
+          "误入歧途干了一年多的 UI 设计，可能是为了转码埋得伏笔吧，业余时间自学转码成功，一晃 6 年多过去了。",
       },
       {
         title: "3D 建模",
         subtitle: "数字艺术",
         description:
-          "创建 3D 模型和动画是我最喜欢的消遣之一。它让我能够结合技术技能和艺术创造力，构建沉浸式的数字世界。",
+          "因为不喜欢传统二维手绘动画这种低效的方式，钻研 Maya 动画软件制作三维动画，运气不错，竟成为我校首个拿下毕设一等奖的三维动画毕业作品。",
       },
       {
         title: "乒乓球",
         subtitle: "持续学习",
         description:
-          "我是一个热心的读者，尤其是技术博客、科幻小说和哲学书籍。阅读保持我的思维敏锐，并为我的项目激发新的想法。",
+          "国球的魅力不用多说，其实也是因为小时候身体素质一般，它聪明的告诉我打乒乓球这种细活适合你，有兴趣的朋友欢迎成都线下约球。",
       },
       {
         title: "游泳",
         subtitle: "持续学习",
         description:
-          "我是一个热心的读者，尤其是技术博客、科幻小说和哲学书籍。阅读保持我的思维敏锐，并为我的项目激发新的想法。",
+          "一个沿海城市的娃不会游泳，终于在我媳妇的托举下学会了，如今已然成为我的日常锻炼方式，不管春夏秋冬。",
       },
       {
         title: "徒步旅行",
         subtitle: "亲近自然",
         description:
-          "到户外去，在山里徒步旅行是我充电的方式。它教会我坚持不懈，并让我欣赏大自然的宁静。",
+          "曾经幻想自己哪天财务自由后可以去环游世界，后来发现实现环游世界的方式有很多种，比如旅游 up 主🐶",
       },
     ],
   },
@@ -114,24 +114,27 @@ export const zh = {
     title: "技术栈",
     items: [
       {
-        name: "React & Next.js",
-        description: "使用最新特性构建现代化的服务端渲染应用。",
+        name: "React & Next.js & ReactNative",
+        description:
+          "我擅长使用这套业界顶尖的技术栈，为您打造从高性能网站、复杂Web应用到原生级手机App的全套解决方案。它尤其适合追求极致用户体验、有复杂业务逻辑，并计划长期发展与规模化的项目。",
       },
       {
-        name: "TypeScript",
+        name: "TypeScript & JavaScript",
         description: "确保类型安全和代码库的可扩展性。",
+      },
+      {
+        name: "Node.js & Hono.js & Nest.js",
+        description:
+          "我能用这套技术，为您设计从‘轻量敏捷’到‘厚重稳健’的各种后台系统。无论是需要一个闪电般的API，还是要建造一个能承载百万用户的企业级数字地基，我都能提供专业、可靠的解决方案。",
+      },
+      {
+        name: "Vue & Nuxt.js & UniApp",
+        description:
+          "我擅长用一套高效的技术，同时为您打造官网、后台和各类小程序/App，帮您用更少的投入，覆盖更全的数字渠道。",
       },
       {
         name: "Tailwind CSS",
         description: "快速构建定制化的用户界面。",
-      },
-      {
-        name: "Node.js",
-        description: "开发健壮的后端服务和 API。",
-      },
-      {
-        name: "Three.js / R3F",
-        description: "创建沉浸式的 3D Web 体验。",
       },
     ],
     proficiency: "熟练度",
@@ -143,36 +146,40 @@ export const zh = {
         title: "Nacos 配置中心",
         description: "面向微服务的集中式配置管理系统。",
         highlights: ["实时配置推送", "高可用集群", "多租户支持"],
-        techStack: ["Java", "Spring Boot", "MySQL", "React"],
+        techStack: ["Nest.js", "Redis", "MongoDB", "React"],
       },
       {
-        title: "电子商务平台",
-        description: "功能齐全的在线购物平台和仪表盘。",
-        highlights: ["Next.js App Router", "Stripe 支付集成", "管理后台"],
-        techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+        title: "码尚定制",
+        description:
+          "为客户定制化的在线商城平台，提供男装个性化定制的商品和服务，跨 iOS、Android 和小程序。",
+        highlights: ["个性化定制", "电商", "跨平台"],
+        techStack: ["Vue", "UniApp", "微信小程序"],
       },
       {
-        title: "任务管理大师",
-        description: "面向团队的协作项目管理工具。",
-        highlights: ["实时 Socket 通信", "看板视图", "团队分析"],
-        techStack: ["React", "Socket.io", "Node.js", "MongoDB"],
+        title: "智慧路灯一体化平台",
+        description:
+          "一个集路灯管理、监控、智能控制于一体的平台，通过实时 Socket 通信实现路灯状态的实时监控和管理。",
+        highlights: ["实时 Socket 通信", "看板视图", "物联网"],
+        techStack: ["Vue3", "Socket.io", "Node.js", "MongoDB"],
       },
       {
-        title: "AI 聊天助手",
-        description: "基于大语言模型的智能聊天界面。",
+        title: "教学互动平台",
+        description:
+          "一个基于大语言模型的互动平台，教师可以实时与学生互动，回答问题、提供反馈。",
         highlights: ["流式响应", "Markdown 支持", "聊天记录"],
         techStack: ["OpenAI API", "Python", "FastAPI", "Vue.js"],
       },
       {
-        title: "加密货币看板",
-        description: "实时加密货币追踪仪表盘。",
+        title: "智慧大脑实时监控平台",
+        description:
+          "一个基于 React 的实时监控平台，展示智能设备的状态和性能指标。",
         highlights: ["WebSocket 数据", "交互式图表", "投资组合追踪"],
         techStack: ["React", "D3.js", "Redux", "Firebase"],
       },
       {
-        title: "旅行日志",
-        description: "分享旅行经历的社交平台。",
-        highlights: ["地图集成", "照片画廊", "社交动态流"],
+        title: "闪电定制官网",
+        description: "为客户定制化的企业官网，展示产品、服务和客户案例。",
+        highlights: ["企业官网", "形象展示", "SEO"],
         techStack: ["Flutter", "Google Maps API", "Dart", "AWS"],
       },
     ],

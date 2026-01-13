@@ -46,12 +46,12 @@ export default function ProfileCard() {
             </span>
             <span>{profile.education_value}</span>
           </div>
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <span className="font-semibold w-20 text-slate-400">
               {profile.phone_label}:
             </span>
             <span>{profile.phone_value}</span>
-          </div>
+          </div> */}
           <div className="flex items-center gap-2">
             <span className="font-semibold w-20 text-slate-400">
               {profile.wechat_label}:
