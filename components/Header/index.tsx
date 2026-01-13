@@ -9,10 +9,11 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Github, Linkedin, Sparkles, Languages } from "lucide-react";
-import Link from "next/link";
 import clsx from "clsx";
+
 import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
@@ -26,7 +27,7 @@ export default function Header() {
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
-  const { setLogoRect, isTypingDone, isAnimationComplete } = useIntro();
+  const { setLogoRect, isTypingDone } = useIntro();
   const logoRef = useRef<HTMLAnchorElement>(null);
   const [displayText, setDisplayText] = useState("");
   const fullText = "Kevin Xiao";

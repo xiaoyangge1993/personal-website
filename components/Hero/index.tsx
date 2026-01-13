@@ -1,14 +1,22 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
 
 // Dynamically import the 3D component to avoid SSR issues with Three.js
-const Keyboard3D = dynamic(() => import("./Keyboard3D"), { ssr: false });
+const Keyboard3D = dynamic(() => import("./Keyboard3D"), { 
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-12 h-12 border-4 border-slate-700 border-t-primary rounded-full animate-spin"></div>
+    </div>
+  )
+});
 
 export default function Hero() {
   const { t } = useLanguage();

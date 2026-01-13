@@ -2,13 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import clsx from "clsx";
+
 import { useLanguage, LanguageProvider } from "@/contexts/LanguageContext";
 import { ParticlesProvider } from "@/contexts/ParticlesContext";
 import { IntroProvider } from "@/contexts/IntroContext";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import clsx from "clsx";
-
 import CooperationProcess from "@/components/Studio/CooperationProcess";
 import PaymentMode from "@/components/Studio/PaymentMode";
 

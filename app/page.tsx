@@ -1,19 +1,23 @@
 "use client";
 
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Skills from "@/components/Skills";
-import Projects from "@/components/Projects";
-import Works from "@/components/Works";
-import Articles from "@/components/Articles";
-import Footer from "@/components/Footer";
+import { useRef } from "react";
+import dynamic from "next/dynamic";
+import { motion, useScroll, useTransform } from "framer-motion";
+
 import { ParticlesProvider } from "@/contexts/ParticlesContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { IntroProvider } from "@/contexts/IntroContext";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+
+// Dynamically load below-the-fold components
+const About = dynamic(() => import("@/components/About"));
+const Skills = dynamic(() => import("@/components/Skills"));
+const Projects = dynamic(() => import("@/components/Projects"));
+const Works = dynamic(() => import("@/components/Works"));
+const Articles = dynamic(() => import("@/components/Articles"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   const containerRef = useRef(null);
