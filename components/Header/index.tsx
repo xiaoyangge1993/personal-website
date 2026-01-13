@@ -32,31 +32,28 @@ export default function Header() {
   const fullText = "Kevin Xiao";
 
   useEffect(() => {
-    // Only start typing effect when keyboard typing is done (isTypingDone is true)
-    if (isTypingDone) {
-      // Start typing simulation to sync with 3D keyboard
-      // 3D keyboard starts at 1500ms
-      const startTimeout = setTimeout(() => {
-        let currentIndex = 0;
+    // Start typing simulation to sync with 3D keyboard
+    // 3D keyboard starts at 1500ms
+    const startTimeout = setTimeout(() => {
+      let currentIndex = 0;
 
-        const typeChar = () => {
-          if (currentIndex < fullText.length) {
-            setDisplayText(fullText.slice(0, currentIndex + 1));
-            currentIndex++;
+      const typeChar = () => {
+        if (currentIndex < fullText.length) {
+          setDisplayText(fullText.slice(0, currentIndex + 1));
+          currentIndex++;
 
-            // Randomize delay slightly to match the "human" feel of 3D keyboard
-            // 3D keyboard uses: Math.random() * 200 + 100
-            const nextDelay = Math.random() * 200 + 100;
-            setTimeout(typeChar, nextDelay);
-          }
-        };
+          // Randomize delay slightly to match the "human" feel of 3D keyboard
+          // 3D keyboard uses: Math.random() * 200 + 100
+          const nextDelay = Math.random() * 200 + 100;
+          setTimeout(typeChar, nextDelay);
+        }
+      };
 
-        typeChar();
-      }, 1500);
+      typeChar();
+    }, 1600);
 
-      return () => clearTimeout(startTimeout);
-    }
-  }, [isTypingDone]);
+    return () => clearTimeout(startTimeout);
+  }, []);
 
   useEffect(() => {
     if (logoRef.current) {
