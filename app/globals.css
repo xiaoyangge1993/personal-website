@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 15, 23, 42; /* #0f172a */
   --background-end-rgb: 15, 23, 42;
