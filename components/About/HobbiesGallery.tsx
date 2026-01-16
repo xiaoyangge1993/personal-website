@@ -94,13 +94,13 @@ export default function HobbiesGallery() {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
           >
-            <h3 className="text-2xl font-bold mb-1 text-white">
+            <h3 className="text-primary text-2xl font-bold mb-1">
               {hobbies[currentIndex].title}
             </h3>
-            <p className="text-primary text-sm font-medium mb-4 uppercase tracking-wider">
+            <p className="text-slate-300 text-sm font-medium mb-4 uppercase tracking-wider">
               {hobbies[currentIndex].subtitle}
             </p>
-            <p className="text-slate-300 leading-relaxed mb-6 text-justify">
+            <p className="text-slate-100 leading-relaxed mb-6 text-justify">
               {hobbies[currentIndex].description}
             </p>
           </motion.div>

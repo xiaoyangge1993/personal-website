@@ -9,13 +9,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
 
 // Dynamically import the 3D component to avoid SSR issues with Three.js
-const Keyboard3D = dynamic(() => import("./Keyboard3D"), { 
+const Keyboard3D = dynamic(() => import("./Keyboard3D"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-12 h-12 border-4 border-slate-700 border-t-primary rounded-full animate-spin"></div>
     </div>
-  )
+  ),
 });
 
 export default function Hero() {
@@ -48,7 +48,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen lg:h-[50vh] lg:min-h-[600px] flex items-center pt-32 lg:pt-20 pb-12 lg:pb-0 overflow-hidden bg-background"
+      className="relative min-h-screen lg:h-[50vh] lg:min-h-[600px] flex items-center pt-32 lg:pt-20 md:pb-12 lg:pb-0 overflow-hidden bg-background"
     >
       {/* Grid Background */}
       <div

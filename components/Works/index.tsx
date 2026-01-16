@@ -150,7 +150,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
       {/* Link Box - Outside card's 3D transform space, positioned relative to outer container */}
       {/* Adjusted top position to move it down */}
       <motion.div
-        className="absolute top-[80px] left-0 right-0 flex justify-center pointer-events-auto z-30"
+        className="absolute top-[-10px] md:top-[80px] left-0 right-0 flex justify-center pointer-events-auto z-30"
         variants={linkVariants}
       >
         <a

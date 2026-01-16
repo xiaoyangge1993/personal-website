@@ -11,7 +11,7 @@ export default function ProfileCard() {
 
   return (
     <motion.div
-      className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 shadow-xl h-full flex flex-col justify-between relative overflow-hidden border border-slate-700"
+      className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-6 shadow-xl h-full flex flex-col relative overflow-hidden border border-slate-700"
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
