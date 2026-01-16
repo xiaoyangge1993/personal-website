@@ -6,38 +6,40 @@ import clsx from "clsx";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   SiReact,
-  SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
   SiNodedotjs,
-  SiThreedotjs,
+  SiVuedotjs,
 } from "react-icons/si";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const skillColors = [
-  "bg-blue-500",
+  "bg-yellow-500",
   "bg-blue-600",
+  "bg-green-600",
+  "bg-red-500",
   "bg-cyan-500",
-  "bg-green-500",
-  "bg-orange-500",
+  "bg-indigo-500",
 ];
 
 const skillHexColors = [
-  "#3b82f6", // blue-500
+  "#eab308", // yellow-500
   "#2563eb", // blue-600
+  "#16a34a", // green-600
+  "#ef4444", // red-500
   "#06b6d4", // cyan-500
-  "#22c55e", // green-500
-  "#f97316", // orange-500
+  "#6366f1", // indigo-500
 ];
 
-const skillLevels = [95, 90, 95, 85, 80];
+const skillLevels = [95, 90, 85, 90, 95, 85];
 
 const skillIcons = [
   SiReact, // React & Next.js
   SiTypescript, // TypeScript
-  SiTailwindcss, // Tailwind CSS
   SiNodedotjs, // Node.js
-  SiThreedotjs, // Three.js / R3F
+  SiVuedotjs, // Vue & Nuxt.js
+  SiTailwindcss, // Tailwind CSS
+  SiReact, // ReactNative & UniApp (Using React icon as it's RN base)
 ];
 
 export default function Skills() {

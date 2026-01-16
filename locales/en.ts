@@ -120,23 +120,30 @@ export const en = {
       {
         name: "React & Next.js",
         description:
-          "Building modern, server-rendered applications with the latest features.",
+          "Building high-performance websites and complex web applications.",
       },
       {
-        name: "TypeScript",
+        name: "TypeScript & JavaScript",
         description: "Ensuring type safety and scalable codebases.",
+      },
+      {
+        name: "Node.js & Hono.js & Nest.js",
+        description:
+          "Designing backend systems ranging from 'lightweight and agile' to 'heavy and robust'.",
+      },
+      {
+        name: "Vue & Nuxt.js",
+        description:
+          "Rapidly building official websites, dashboards, and various mini-programs/apps.",
       },
       {
         name: "Tailwind CSS",
         description: "Rapidly building custom user interfaces.",
       },
       {
-        name: "Node.js",
-        description: "Developing robust backend services and APIs.",
-      },
-      {
-        name: "Three.js / R3F",
-        description: "Creating immersive 3D web experiences.",
+        name: "ReactNative & UniApp",
+        description:
+          "Creating native-grade, cross-platform mini-programs and mobile apps.",
       },
     ],
     proficiency: "Proficiency",

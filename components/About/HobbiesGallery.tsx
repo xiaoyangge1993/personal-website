@@ -100,7 +100,7 @@ export default function HobbiesGallery() {
             <p className="text-primary text-sm font-medium mb-4 uppercase tracking-wider">
               {hobbies[currentIndex].subtitle}
             </p>
-            <p className="text-slate-300 leading-relaxed mb-6">
+            <p className="text-slate-300 leading-relaxed mb-6 text-justify">
               {hobbies[currentIndex].description}
             </p>
           </motion.div>

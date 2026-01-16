@@ -56,7 +56,7 @@ export default function Articles() {
     <section id="articles" className="py-20">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-slate-100 mb-32 font-artistic"
+          className="text-4xl md:text-5xl font-bold text-center text-slate-100 mb-24 md:mb-32 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

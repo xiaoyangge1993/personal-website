@@ -114,9 +114,8 @@ export const zh = {
     title: "技术栈",
     items: [
       {
-        name: "React & Next.js & ReactNative",
-        description:
-          "我擅长使用这套业界顶尖的技术栈，为您打造从高性能网站、复杂Web应用到原生级手机App的全套解决方案。它尤其适合追求极致用户体验、有复杂业务逻辑，并计划长期发展与规模化的项目。",
+        name: "React & Next.js",
+        description: "打造高性能网站、复杂 Web 应用。",
       },
       {
         name: "TypeScript & JavaScript",
@@ -124,17 +123,19 @@ export const zh = {
       },
       {
         name: "Node.js & Hono.js & Nest.js",
-        description:
-          "我能用这套技术，为您设计从‘轻量敏捷’到‘厚重稳健’的各种后台系统。无论是需要一个闪电般的API，还是要建造一个能承载百万用户的企业级数字地基，我都能提供专业、可靠的解决方案。",
+        description: "设计从‘轻量敏捷’到‘厚重稳健’的各种后台系统。",
       },
       {
-        name: "Vue & Nuxt.js & UniApp",
-        description:
-          "我擅长用一套高效的技术，同时为您打造官网、后台和各类小程序/App，帮您用更少的投入，覆盖更全的数字渠道。",
+        name: "Vue & Nuxt.js",
+        description: "快速搭建官网、后台和各类小程序/App。",
       },
       {
         name: "Tailwind CSS",
         description: "快速构建定制化的用户界面。",
+      },
+      {
+        name: "ReactNative & UniApp",
+        description: "打造原生级、跨平台的小程序/App。",
       },
     ],
     proficiency: "熟练度",

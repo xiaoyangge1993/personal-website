@@ -34,7 +34,7 @@ export default function About() {
               <p className="text-slate-500 uppercase tracking-widest text-sm mb-6">
                 ABOUT ME
               </p>
-              <p className="text-slate-300 leading-loose text-lg">
+              <p className="text-slate-300 leading-loose text-lg text-justify">
                 {bio.description}
               </p>
             </motion.div>
