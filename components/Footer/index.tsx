@@ -43,7 +43,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white py-12 border-t border-slate-800 relative z-50">
+    <footer className="bg-slate-900 text-white py-12 border-t border-slate-800 relative">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left: Info */}
         <div className="text-center md:text-left">
@@ -65,7 +65,7 @@ export default function Footer() {
         {/* Right: Rocket */}
         <AnimatePresence>
           {showRocket && (
-            <div className="fixed bottom-[60px] right-[50px] z-[9999]">
+            <div className="fixed bottom-[60px] right-[50px] z-[9]">
               <motion.button
                 initial={{ scale: 0, opacity: 0 }}
                 animate={
