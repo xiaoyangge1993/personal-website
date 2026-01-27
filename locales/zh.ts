@@ -153,6 +153,7 @@ export const zh = {
         description: "面向微服务的集中式配置管理系统。",
         highlights: ["实时配置推送", "高可用集群", "多租户支持"],
         techStack: ["Nest.js", "Redis", "MongoDB", "React"],
+        img: "/images/project-class.png",
       },
       {
         title: "码尚定制",
@@ -160,6 +161,7 @@ export const zh = {
           "为客户定制化的在线商城平台，提供男装个性化定制的商品和服务，跨 iOS、Android 和小程序。",
         highlights: ["个性化定制", "电商", "跨平台"],
         techStack: ["Vue", "UniApp", "微信小程序"],
+        img: "/images/project-class.png",
       },
       {
         title: "智慧路灯一体化平台",
@@ -167,6 +169,7 @@ export const zh = {
           "一个集路灯管理、监控、智能控制于一体的平台，通过实时 Socket 通信实现路灯状态的实时监控和管理。",
         highlights: ["实时 Socket 通信", "看板视图", "物联网"],
         techStack: ["Vue3", "Socket.io", "Node.js", "MongoDB"],
+        img: "/images/project-class.png",
       },
       {
         title: "教学互动平台",
@@ -174,6 +177,7 @@ export const zh = {
           "一个基于大语言模型的互动平台，教师可以实时与学生互动，回答问题、提供反馈。",
         highlights: ["流式响应", "Markdown 支持", "聊天记录"],
         techStack: ["OpenAI API", "Python", "FastAPI", "Vue.js"],
+        img: "/images/project-class.png",
       },
       {
         title: "智慧大脑实时监控平台",
@@ -181,12 +185,14 @@ export const zh = {
           "一个基于 React 的实时监控平台，展示智能设备的状态和性能指标。",
         highlights: ["WebSocket 数据", "交互式图表", "投资组合追踪"],
         techStack: ["React", "D3.js", "Redux", "Firebase"],
+        img: "/images/project-bigscreen.png",
       },
       {
         title: "闪电定制官网",
         description: "为客户定制化的企业官网，展示产品、服务和客户案例。",
         highlights: ["企业官网", "形象展示", "SEO"],
         techStack: ["Flutter", "Google Maps API", "Dart", "AWS"],
+        img: "/images/project-fast.jpg",
       },
     ],
   },
