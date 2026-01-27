@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -51,9 +52,7 @@ export default function HobbiesGallery() {
             return (
               <motion.div
                 key={hobby.title} // Use title as key for stability
-                className={`absolute inset-0 rounded-3xl shadow-2xl border border-slate-700/50 ${
-                  hobbyImages[index % hobbyImages.length]
-                } flex items-center justify-center`}
+                className={`absolute inset-0 rounded-3xl shadow-2xl border border-slate-700/50 flex items-center justify-center overflow-hidden bg-slate-800`}
                 initial={{ opacity: 0, scale: 0.8, x: 50 }}
                 animate={{
                   opacity,
@@ -75,9 +74,15 @@ export default function HobbiesGallery() {
                 }}
               >
                 {/* Image Placeholder Content */}
-                <div className="text-4xl opacity-30 font-bold text-white font-artistic">
-                  {index + 1}
-                </div>
+                {hobby.img && (
+                  <Image
+                    src={hobby.img}
+                    alt={hobby.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 300px"
+                  />
+                )}
               </motion.div>
             );
           })}

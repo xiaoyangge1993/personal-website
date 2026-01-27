@@ -12,7 +12,7 @@ const articleColors = [
   "bg-indigo-100",
 ];
 
-const ArticleCard = ({ title, summary, color }: any) => {
+const ArticleCard = ({ title, summary, color, link }: any) => {
   const { t } = useLanguage();
   return (
     <motion.div
@@ -26,6 +26,11 @@ const ArticleCard = ({ title, summary, color }: any) => {
       }}
       initial={{ rotateX: 0, rotateY: 0 }}
       style={{ transformStyle: "preserve-3d" }}
+      onClick={() => {
+        if (link) {
+          window.open(link, "_blank", "noopener,noreferrer");
+        }
+      }}
     >
       {/* Cover Image Placeholder */}
       <div className={`h-40 w-full ${color} flex items-center justify-center`}>
