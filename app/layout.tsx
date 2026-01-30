@@ -103,6 +103,20 @@ export default function RootLayout({
       "UI/UX Design",
       "Node.js",
     ],
+    mainEntityOfPage: {
+      "@type": "ProfilePage",
+      "@id": "https://www.kevinxiao.dev",
+    },
+    sameAs: ["https://github.com", "https://linkedin.com"],
+  };
+
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Nacos Config",
+    operatingSystem: "Web",
+    applicationCategory: "DeveloperApplication",
+    description: "A centralized configuration management system for microservices.",
   };
 
   return (
@@ -111,6 +125,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppSchema) }}
         />
         {children}
       </body>

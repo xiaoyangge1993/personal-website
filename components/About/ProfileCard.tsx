@@ -22,9 +22,10 @@ export default function ProfileCard() {
       <div className="bg-slate-700 rounded-3xl h-80 w-full mb-8 flex items-center justify-center relative overflow-hidden border border-slate-600">
         <Image
           src="/images/my-avatar.jpg"
-          alt="Kevin Xiao"
+          alt="Kevin Xiao - Full Stack Engineer & UI Designer"
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, 384px"
           priority
         />
       </div>

@@ -123,6 +123,7 @@ export default function Header() {
               key={item.name}
               href={item.href}
               className="text-sm font-medium transition-colors relative group text-slate-300 hover:text-primary"
+              aria-label={`Navigate to ${item.name}`}
             >
               {item.name}
               <span className="absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 w-0 group-hover:w-full" />
@@ -175,6 +176,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-300 hover:text-primary transition-colors"
+            aria-label="Visit GitHub Profile"
           >
             <Github size={20} />
           </a>
@@ -183,6 +185,7 @@ export default function Header() {
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-300 hover:text-primary transition-colors"
+            aria-label="Visit LinkedIn Profile"
           >
             <Linkedin size={20} />
           </a>

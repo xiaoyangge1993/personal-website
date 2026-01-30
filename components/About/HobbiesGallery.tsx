@@ -77,7 +77,7 @@ export default function HobbiesGallery() {
                 {hobby.img && (
                   <Image
                     src={hobby.img}
-                    alt={hobby.title}
+                    alt={`${hobby.title} - ${hobby.subtitle}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 300px"

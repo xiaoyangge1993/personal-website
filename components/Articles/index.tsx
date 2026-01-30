@@ -49,7 +49,7 @@ const ArticleCard = ({ title, summary, color, link }: any) => {
           {t.articles.read_more}
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 };
 

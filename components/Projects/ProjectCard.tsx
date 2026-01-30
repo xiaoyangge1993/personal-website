@@ -93,7 +93,7 @@ const ProjectCard = ({
             >
               <Image
                 src={img}
-                alt={title}
+                alt={`${title} - Project Screenshot`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 450px"
