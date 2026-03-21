@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { User } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -18,10 +19,15 @@ export default function ProfileCard() {
       transition={{ duration: 0.6 }}
     >
       {/* Avatar Section */}
-      <div className="bg-slate-700 rounded-3xl h-64 w-full mb-8 flex items-center justify-center relative overflow-hidden border border-slate-600">
-        {/* Placeholder for avatar */}
-        <User size={64} className="text-slate-500" />
-        {/* <Image src="/avatar.jpg" alt="Avatar" layout="fill" objectFit="cover" /> */}
+      <div className="bg-slate-700 rounded-3xl h-80 w-full mb-8 flex items-center justify-center relative overflow-hidden border border-slate-600">
+        <Image
+          src="/images/my-avatar.jpg"
+          alt="Kevin Xiao - Full Stack Engineer & UI Designer"
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 384px"
+          priority
+        />
       </div>
 
       {/* Info Section */}

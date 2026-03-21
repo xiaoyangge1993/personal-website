@@ -54,30 +54,35 @@ export const en = {
         subtitle: "First Job",
         description:
           "I strayed into UI design for over a year, which perhaps laid the groundwork for my transition to coding. I successfully taught myself to code in my spare time, and in a flash, over 6 years have passed.",
+        img: "/images/ui-blue.png",
       },
       {
         title: "3D Modeling",
         subtitle: "Digital Art",
         description:
           "Disliking the inefficiency of traditional 2D hand-drawn animation, I delved into Maya animation software to create 3D animations. Luckily, my graduation project became the first 3D animation work in my school to win the first prize.",
+        img: "/images/3d-drink.jpg",
       },
       {
         title: "Ping Pong",
         subtitle: "Continuous Learning",
         description:
           "The charm of the national sport goes without saying. Also, due to my average physical constitution as a child, it smartly told me that a delicate sport like ping pong suits me. Friends interested in playing in Chengdu are welcome to meet up.",
+        img: "/images/shoot-sky.jpeg",
       },
       {
         title: "Swimming",
         subtitle: "Continuous Learning",
         description:
           "As a kid from a coastal city who couldn't swim, I finally learned with my wife's support. It has now become my daily exercise routine, regardless of the season.",
+        img: "/images/ui-yellow.png",
       },
       {
         title: "Hiking",
         subtitle: "Close to Nature",
         description:
           "I once fantasized about traveling the world after achieving financial freedom. Later, I discovered there are many ways to travel the world, such as becoming a travel vlogger 🐶",
+        img: "/images/shoot-fruit.jpeg",
       },
     ],
   },
@@ -167,6 +172,7 @@ export const en = {
           "Multi-tenant support",
         ],
         techStack: ["Java", "Spring Boot", "MySQL", "React"],
+        img: "/images/project-class.png",
       },
       {
         title: "E-Commerce",
@@ -177,18 +183,21 @@ export const en = {
           "Admin Dashboard",
         ],
         techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+        img: "/images/project-class.png",
       },
       {
         title: "Task Master",
         description: "Collaborative project management tool for teams.",
         highlights: ["Real-time sockets", "Kanban board", "Team analytics"],
         techStack: ["React", "Socket.io", "Node.js", "MongoDB"],
+        img: "/images/project-class.png",
       },
       {
         title: "AI Chat",
         description: "Intelligent chatbot interface powered by LLMs.",
         highlights: ["Streaming responses", "Markdown support", "Chat history"],
         techStack: ["OpenAI API", "Python", "FastAPI", "Vue.js"],
+        img: "/images/project-class.png",
       },
       {
         title: "Crypto Dash",
@@ -199,12 +208,14 @@ export const en = {
           "Portfolio tracking",
         ],
         techStack: ["React", "D3.js", "Redux", "Firebase"],
+        img: "/images/project-class.png",
       },
       {
         title: "Travel Log",
         description: "Social platform for sharing travel experiences.",
         highlights: ["Map integration", "Photo gallery", "Social feed"],
         techStack: ["Flutter", "Google Maps API", "Dart", "AWS"],
+        img: "/images/project-class.png",
       },
     ],
   },
@@ -235,29 +246,35 @@ export const en = {
     read_more: "Read more →",
     items: [
       {
-        title: "Understanding React Server Components",
+        title: "From Beginner to Master: The Rise of TypeScript!",
         summary:
-          "A deep dive into the architecture and benefits of RSC in Next.js 13+.",
+          "TypeScript is like a double-edged sword: used well, it helps you write more elegant and safe code; used poorly, it can drive you crazy.",
+        link: "https://juejin.cn/post/7598418891401379894",
       },
       {
-        title: "Mastering Tailwind CSS Grid",
+        title:
+          "React Component Encapsulation Best Practices: 6 Secrets to Save Your Hair",
         summary:
-          "Tips and tricks for building complex layouts with utility classes.",
+          "Following these best practices when encapsulating components in React can improve code quality, maintainability, and scalability.",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "The Future of Web Animation",
         summary:
           "Exploring the capabilities of Framer Motion and View Transitions API.",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "Optimizing Web Performance",
         summary:
           "Practical guide to improving Core Web Vitals and loading speed.",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "TypeScript Best Practices",
         summary:
           "Writing clean, maintainable, and type-safe code in large projects.",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
     ],
   },

@@ -149,11 +149,12 @@ export default function Projects() {
           >
             {/* Render projects twice to create seamless loop */}
             {[...projects, ...projects].map((project, index) => (
-              <ProjectCard
-                key={`${index}-${project.title}`}
-                {...project}
-                color={projectColors[index % projects.length]}
-              />
+              <article key={`${index}-${project.title}`}>
+                <ProjectCard
+                  {...project}
+                  color={projectColors[index % projects.length]}
+                />
+              </article>
             ))}
           </div>
         </div>

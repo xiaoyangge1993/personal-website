@@ -48,30 +48,35 @@ export const zh = {
         subtitle: "第一份工作",
         description:
           "误入歧途干了一年多的 UI 设计，可能是为了转码埋得伏笔吧，业余时间自学转码成功，一晃 6 年多过去了。",
+        img: "/images/ui-blue.png",
       },
       {
         title: "3D 建模",
         subtitle: "数字艺术",
         description:
           "因为不喜欢传统二维手绘动画这种低效的方式，钻研 Maya 动画软件制作三维动画，运气不错，竟成为我校首个拿下毕设一等奖的三维动画毕业作品。",
+        img: "/images/3d-drink.jpg",
       },
       {
         title: "乒乓球",
         subtitle: "持续学习",
         description:
           "国球的魅力不用多说，其实也是因为小时候身体素质一般，它聪明的告诉我打乒乓球这种细活适合你，有兴趣的朋友欢迎成都线下约球。",
+        img: "/images/shoot-sky.jpeg",
       },
       {
         title: "游泳",
         subtitle: "持续学习",
         description:
           "一个沿海城市的娃不会游泳，终于在我媳妇的托举下学会了，如今已然成为我的日常锻炼方式，不管春夏秋冬。",
+        img: "/images/ui-yellow.png",
       },
       {
         title: "徒步旅行",
         subtitle: "亲近自然",
         description:
           "曾经幻想自己哪天财务自由后可以去环游世界，后来发现实现环游世界的方式有很多种，比如旅游 up 主🐶",
+        img: "/images/shoot-fruit.jpeg",
       },
     ],
   },
@@ -148,6 +153,7 @@ export const zh = {
         description: "面向微服务的集中式配置管理系统。",
         highlights: ["实时配置推送", "高可用集群", "多租户支持"],
         techStack: ["Nest.js", "Redis", "MongoDB", "React"],
+        img: "/images/project-class.png",
       },
       {
         title: "码尚定制",
@@ -155,6 +161,7 @@ export const zh = {
           "为客户定制化的在线商城平台，提供男装个性化定制的商品和服务，跨 iOS、Android 和小程序。",
         highlights: ["个性化定制", "电商", "跨平台"],
         techStack: ["Vue", "UniApp", "微信小程序"],
+        img: "/images/project-class.png",
       },
       {
         title: "智慧路灯一体化平台",
@@ -162,6 +169,7 @@ export const zh = {
           "一个集路灯管理、监控、智能控制于一体的平台，通过实时 Socket 通信实现路灯状态的实时监控和管理。",
         highlights: ["实时 Socket 通信", "看板视图", "物联网"],
         techStack: ["Vue3", "Socket.io", "Node.js", "MongoDB"],
+        img: "/images/project-class.png",
       },
       {
         title: "教学互动平台",
@@ -169,6 +177,7 @@ export const zh = {
           "一个基于大语言模型的互动平台，教师可以实时与学生互动，回答问题、提供反馈。",
         highlights: ["流式响应", "Markdown 支持", "聊天记录"],
         techStack: ["OpenAI API", "Python", "FastAPI", "Vue.js"],
+        img: "/images/project-class.png",
       },
       {
         title: "智慧大脑实时监控平台",
@@ -176,12 +185,14 @@ export const zh = {
           "一个基于 React 的实时监控平台，展示智能设备的状态和性能指标。",
         highlights: ["WebSocket 数据", "交互式图表", "投资组合追踪"],
         techStack: ["React", "D3.js", "Redux", "Firebase"],
+        img: "/images/project-bigscreen.png",
       },
       {
         title: "闪电定制官网",
         description: "为客户定制化的企业官网，展示产品、服务和客户案例。",
         highlights: ["企业官网", "形象展示", "SEO"],
         techStack: ["Flutter", "Google Maps API", "Dart", "AWS"],
+        img: "/images/project-fast.jpg",
       },
     ],
   },
@@ -210,24 +221,31 @@ export const zh = {
     read_more: "阅读更多 →",
     items: [
       {
-        title: "深入理解 React Server Components",
-        summary: "深入探讨 Next.js 13+ 中 RSC 的架构和优势。",
+        title: "从小白到大佬：TypeScript 的逆袭之路！",
+        summary:
+          "TypeScript 就像一把双刃剑，用得好，它能帮你写出更优雅、更安全的代码；用得不好，它也能让你抓狂到想砸键盘。",
+        link: "https://juejin.cn/post/7598418891401379894",
       },
       {
-        title: "精通 Tailwind CSS Grid",
-        summary: "使用工具类构建复杂布局的技巧和窍门。",
+        title: "React 组件封装最佳实践：6 条让你少掉头发的秘诀",
+        summary:
+          "在 React 中封装组件时，遵循这些最佳实践可以提升代码质量、可维护性和可扩展性。",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "Web 动画的未来",
         summary: "探索 Framer Motion 和 View Transitions API 的能力。",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "Web 性能优化",
         summary: "提高 Core Web Vitals 和加载速度的实用指南。",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
       {
         title: "TypeScript 最佳实践",
         summary: "在大型项目中编写整洁、可维护且类型安全的代码。",
+        link: "https://juejin.cn/post/7596166721627684910",
       },
     ],
   },

@@ -158,6 +158,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
           target="_blank"
           rel="noopener noreferrer"
           className="bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2 hover:border-primary transition-colors cursor-pointer"
+          aria-label={`Visit project ${link}`}
         >
           <ExternalLink size={12} className="text-primary" />
           {link}
@@ -185,7 +186,7 @@ export default function Works() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {works.map((work, index) => (
-            <motion.div
+            <motion.article
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -193,7 +194,7 @@ export default function Works() {
               transition={{ delay: index * 0.2 }}
             >
               <WorkCard {...work} />
-            </motion.div>
+            </motion.article>
           ))}
         </div>
       </div>
