@@ -116,19 +116,19 @@ export default function Hero() {
             <ArrowRight size={20} />
           </motion.a>
 
-          {/* Roles Module */}
+          {/* Tags Module */}
           <motion.div
             className="mt-12 flex flex-wrap gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            {t.hero.roles.map((role, index) => (
+            {t.hero.tags.map((tag, index) => (
               <div
                 key={index}
                 className="px-6 py-2 rounded-full border border-slate-700 text-slate-300 text-sm font-medium bg-slate-800/50 backdrop-blur-sm hover:border-primary hover:text-primary transition-colors cursor-default"
               >
-                {role}
+                {tag}
               </div>
             ))}
           </motion.div>

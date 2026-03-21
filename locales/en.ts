@@ -19,7 +19,13 @@ export const en = {
     description:
       "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly full-stack web applications.",
     cta: "View My Work",
-    roles: ["Full Stack Developer", "UI Designer", "3D Animator"],
+    tags: [
+      "Full-Stack Development",
+      "UI Design",
+      "3D Animation",
+      "Clean Code",
+      "Efficiency First",
+    ],
   },
   about: {
     title: "About Me",
@@ -40,7 +46,7 @@ export const en = {
     bio: {
       title: "ABOUT ME",
       description:
-        "Hello, I'm Kevin Xiao. I graduated from Jingdezhen Ceramic University with a bachelor's degree. I have 6 years of frontend development experience and 2 years of full-stack development experience. I am a pixel perfectionist, have a clean code obsession, and prioritize efficiency. Despite working in a small company with an ordinary degree, I managed to earn over 100,000 RMB through side projects introduced by colleagues and my own efforts. After being laid off at the end of last year, I decided to transition to full-time freelancing and established my personal studio on New Year's Day 2026. I welcome any business owners in need to contact me; I am dedicated to serving you.",
+        "Hi, I'm Xiaoyang Xiao, a health-conscious programmer and remote worker who believes in long-term thinking and continuous learning. I graduated in 2017 with a bachelor's degree. I spent two years doing UI design, and because I was always holding a ruler and pixel-peeping with frontend teammates, one of them eventually said, 'If you're so good at it, you do it,' which pushed me to teach myself programming. I now have 7 years of frontend development experience, including 2 years in full-stack development. I also write occasionally, explore productivity tools, and take on freelance work to help support my family. I'm currently looking for new remote opportunities, and my spoken English is fluent, so referrals are very welcome.",
     },
     hobbies: [
       {
