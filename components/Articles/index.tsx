@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -49,7 +48,7 @@ const ArticleCard = ({ title, summary, color, link }: any) => {
           {t.articles.read_more}
         </div>
       </div>
-    </motion.article>
+    </motion.div>
   );
 };
 

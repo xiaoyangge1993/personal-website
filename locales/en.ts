@@ -19,13 +19,7 @@ export const en = {
     description:
       "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly full-stack web applications.",
     cta: "View My Work",
-    tags: [
-      "Full-Stack Development",
-      "UI Design",
-      "3D Animation",
-      "Clean Code",
-      "Efficiency First",
-    ],
+    tags: ["Full-Stack Development", "Clean Code", "Efficiency First"],
   },
   about: {
     title: "About Me",
@@ -46,7 +40,7 @@ export const en = {
     bio: {
       title: "ABOUT ME",
       description:
-        "Hi, I'm Xiaoyang Xiao, a health-conscious programmer and remote worker who believes in long-term thinking and continuous learning. I graduated in 2017 with a bachelor's degree. I spent two years doing UI design, and because I was always holding a ruler and pixel-peeping with frontend teammates, one of them eventually said, 'If you're so good at it, you do it,' which pushed me to teach myself programming. I now have 7 years of frontend development experience, including 2 years in full-stack development. I also write occasionally, explore productivity tools, and take on freelance work to help support my family. I'm currently looking for new remote opportunities, and my spoken English is fluent, so referrals are very welcome.",
+        "Hi, I'm Yufeng, an indie developer and remote worker committed to long-term thinking, healthy habits, and continuous learning. I graduated in 2017 with a bachelor's degree. I spent two years in UI design, and because I was always holding a ruler and pixel-peeping with frontend teammates, one of them eventually said, 'If you're so good at it, you do it,' which pushed me to teach myself programming. I now have 7 years of frontend development experience, including 2 years in full-stack development. I also write articles, explore productivity tools, and take on freelance work to help support my family. I'm currently looking for new remote opportunities, and my spoken English is fluent, so referrals are very welcome.",
     },
     hobbies: [
       {
@@ -259,22 +253,25 @@ export const en = {
         link: "https://juejin.cn/post/7596166721627684910",
       },
       {
-        title: "The Future of Web Animation",
+        title:
+          "Frontend Survival Guide: Without These 10 Tools, Coding Feels Like Working Barehanded",
         summary:
-          "Exploring the capabilities of Framer Motion and View Transitions API.",
-        link: "https://juejin.cn/post/7596166721627684910",
+          "After six years of battling in the ocean of code, I have found that programmers fall into two groups: those who use the right tools, and those who are still working late into the night.",
+        link: "https://juejin.cn/post/7601076694105079844",
       },
       {
-        title: "Optimizing Web Performance",
+        title:
+          "How Frontend Engineers Can Elegantly Get Started with Node.js and Build APIs",
         summary:
-          "Practical guide to improving Core Web Vitals and loading speed.",
-        link: "https://juejin.cn/post/7596166721627684910",
+          "As a frontend engineer, you have probably already mastered HTML, CSS, and JavaScript, and may even know frontend frameworks like React and Vue inside out.",
+        link: "https://juejin.cn/post/7606621855852871680",
       },
       {
-        title: "TypeScript Best Practices",
+        title:
+          "Astro Explained: A New Paradigm for Building High-Performance Content-Driven Websites",
         summary:
-          "Writing clean, maintainable, and type-safe code in large projects.",
-        link: "https://juejin.cn/post/7596166721627684910",
+          "Today we're going to talk about Astro, a frontend framework that can make your website fly. As a seasoned frontend technical writer and framework advocate, my goal is to help you understand the underlying ideas while also gaining practical skills through an easy and enjoyable read.",
+        link: "https://juejin.cn/post/7632961375514984448",
       },
     ],
   },
