@@ -32,11 +32,16 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        blink: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0" },
+        },
       },
       animation: {
         "spin-slow": "spin 2.67s linear infinite",
         shimmer: "shimmer 4.3s linear infinite",
         scroll: "scroll 40s linear infinite",
+        blink: "blink 1s step-end infinite",
       },
     },
   },

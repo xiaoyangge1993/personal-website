@@ -33,7 +33,7 @@ const Key = ({
 
       // Emissive glow on hover or active
       const targetEmissive = new Color(
-        hovered || isPressed ? "#1df5ea" : "#000000"
+        hovered || isPressed ? "#1df5ea" : "#000000",
       );
       mesh.current.material.emissive.lerp(targetEmissive, 0.1);
     }
@@ -64,7 +64,7 @@ const Key = ({
       {/* Move Html outside RoundedBox to prevent event interference */}
       {label && (
         <Html
-          position={[0, 0.26, 0]}
+          position={[0, 0.5, 0]}
           transform
           rotation={[-Math.PI / 2, 0, 0]}
           occlude={false}
@@ -76,9 +76,10 @@ const Key = ({
           }}
         >
           <div
-            className={`text-xs font-bold transition-colors duration-200 ${
+            className={`flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
               hovered || isPressed ? "text-[#1df5ea]" : "text-slate-400"
             }`}
+            style={{ lineHeight: 1 }}
           >
             {label}
           </div>
@@ -97,7 +98,7 @@ const KeyboardModel = () => {
   const { setTypingDone } = useIntro();
 
   useEffect(() => {
-    const text = "KEVIN XIAO";
+    const text = "YU FENG";
     let currentIndex = 0;
 
     const typeNextChar = () => {

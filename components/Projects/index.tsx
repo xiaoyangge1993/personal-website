@@ -144,7 +144,7 @@ export default function Projects() {
           <div
             className="flex gap-8 w-max animate-scroll"
             style={{
-              animationPlayState: isPaused ? "paused" : "running",
+              animationPlayState: isPaused ? "paused" : "paused",
             }}
           >
             {/* Render projects twice to create seamless loop */}

@@ -30,7 +30,7 @@ export default function Header() {
   const { setLogoRect, isTypingDone } = useIntro();
   const logoRef = useRef<HTMLAnchorElement>(null);
   const [displayText, setDisplayText] = useState("");
-  const fullText = "Kevin Xiao";
+  const fullText = "Yu Feng";
 
   useEffect(() => {
     // Start typing simulation to sync with 3D keyboard
@@ -105,15 +105,24 @@ export default function Header() {
           ref={logoRef}
           href="/"
           className={clsx(
-            "text-xl font-bold tracking-tight transition-colors duration-500 relative z-[10000]",
+            "text-xl font-bold tracking-tight transition-colors duration-500 relative z-[10000] flex items-center",
             // Always show primary color when typing starts (displayText has content)
             displayText.length > 0
               ? "text-primary opacity-100"
               : "text-slate-100 opacity-0"
           )}
         >
-          {/* Show typing text if typing is started, otherwise Kevin Xiao (hidden) for layout */}
-          {displayText || "Kevin Xiao"}
+          {/* Show typing text if typing is started, otherwise Yu Feng (hidden) for layout */}
+          {displayText || "Yu Feng"}
+          {/* Blinking cursor - hidden once typing is complete */}
+          <span
+            className={clsx(
+              "w-0.5 h-6 ml-1 rounded-full bg-primary transition-opacity duration-300",
+              displayText.length > 0 && displayText.length < fullText.length
+                ? "animate-blink opacity-100"
+                : "opacity-0"
+            )}
+          />
         </Link>
 
         {/* Desktop Navigation */}
