@@ -8,10 +8,10 @@ export default function CooperationProcess() {
   const { title, steps } = t.studio.process;
 
   return (
-    <section className="py-20 px-6 bg-slate-900 overflow-hidden relative">
+    <section className="py-20 px-6 bg-background overflow-hidden relative">
       <div className="container mx-auto">
         <motion.h2
-          className="text-3xl md:text-5xl font-bold text-center text-white mb-20 font-artistic"
+          className="section-heading text-3xl md:text-5xl font-bold text-center text-foreground mb-20 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,7 +21,7 @@ export default function CooperationProcess() {
 
         <div className="relative max-w-5xl mx-auto">
           {/* Central Timeline Line */}
-          <div className="absolute left-1/2 top-10 bottom-0 w-0.5 bg-dashed border-l-2 border-slate-700 -translate-x-1/2 hidden md:block" />
+          <div className="absolute left-1/2 top-10 bottom-0 w-0.5 bg-dashed border-l-2 border-subtle -translate-x-1/2 hidden md:block" />
 
           <div className="space-y-[30px] md:space-y-0 relative">
             {steps.map((step, index) => {
@@ -113,10 +113,10 @@ export default function CooperationProcess() {
 
                   {/* Spacer / Timeline Node - Hidden on Mobile */}
                   <div className="hidden md:flex w-full md:w-[8%] justify-center py-4 md:py-0 relative self-start mt-8">
-                    <div className="w-4 h-4 rounded-full bg-blue-500 border-4 border-slate-900 shadow-[0_0_0_4px_rgba(59,130,246,0.3)] z-10 relative">
+                    <div className="w-4 h-4 rounded-full bg-blue-500 border-4 border-background shadow-[0_0_0_4px_rgba(59,130,246,0.3)] z-10 relative">
                       {/* Connecting dashed line for mobile - removed since timeline is hidden on mobile */}
                       {index !== steps.length - 1 && (
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-700 md:hidden h-[calc(100%+3rem)] hidden" />
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-0.5 h-full bg-foreground/20 md:hidden h-[calc(100%+3rem)] hidden" />
                       )}
                     </div>
                   </div>

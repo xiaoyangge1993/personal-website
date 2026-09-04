@@ -88,19 +88,19 @@ export default function TechStack({ stack }: TechStackProps) {
     <div className="flex flex-wrap gap-2 mt-4">
       {stack.map((tech) => {
         const Icon = iconMap[tech];
-        const color = colorMap[tech] || "#cbd5e1"; // Default to slate-300 if no color
+        const color = colorMap[tech] || "var(--text-muted)";
 
         return (
           <div
             key={tech}
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700/50 text-xs font-medium transition-colors hover:border-slate-600"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-subtle border border-subtle text-xs font-medium transition-colors hover:border-primary/40"
           >
             {Icon ? (
               <Icon size={14} style={{ color: color }} />
             ) : (
-              <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-foreground-muted" />
             )}
-            <span className="text-slate-300">{tech}</span>
+            <span className="text-foreground-secondary">{tech}</span>
           </div>
         );
       })}

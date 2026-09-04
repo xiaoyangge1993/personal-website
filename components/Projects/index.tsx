@@ -7,6 +7,7 @@ import { loadSlim } from "@tsparticles/slim";
 import ProjectCard from "./ProjectCard";
 import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const projectColors = [
   "bg-blue-500",
@@ -21,6 +22,8 @@ export default function Projects() {
   const [init, setInit] = useState(false);
   const { particlesEnabled } = useParticles();
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const particleColor = theme === "light" ? "#171717" : "#ffffff";
   const projects = t.projects.items;
 
   // Ref for the container to measure width
@@ -40,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-20 bg-slate-900 overflow-hidden"
+      className="relative py-20 bg-background overflow-hidden"
     >
       {/* Particle Background */}
       {init && particlesEnabled && (
@@ -80,10 +83,10 @@ export default function Projects() {
               },
               particles: {
                 color: {
-                  value: "#ffffff",
+                  value: particleColor,
                 },
                 links: {
-                  color: "#ffffff",
+                  color: particleColor,
                   distance: 150,
                   enable: true,
                   opacity: 0.1,
@@ -126,7 +129,7 @@ export default function Projects() {
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-white mb-24 md:mb-32 font-artistic"
+          className="section-heading text-4xl md:text-5xl font-bold text-center text-foreground mb-24 md:mb-32 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

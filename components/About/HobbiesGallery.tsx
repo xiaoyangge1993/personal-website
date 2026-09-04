@@ -52,7 +52,7 @@ export default function HobbiesGallery() {
             return (
               <motion.div
                 key={hobby.title} // Use title as key for stability
-                className={`absolute inset-0 rounded-3xl shadow-2xl border border-slate-700/50 flex items-center justify-center overflow-hidden bg-slate-800`}
+                className={`absolute inset-0 rounded-3xl shadow-card border border-subtle flex items-center justify-center overflow-hidden bg-surface`}
                 initial={{ opacity: 0, scale: 0.8, x: 50 }}
                 animate={{
                   opacity,
@@ -90,7 +90,7 @@ export default function HobbiesGallery() {
       </div>
 
       {/* Text Info */}
-      <div className="flex-1 flex flex-col justify-center text-slate-100">
+      <div className="flex-1 flex flex-col justify-center text-foreground">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -102,10 +102,10 @@ export default function HobbiesGallery() {
             <h3 className="text-primary text-2xl font-bold mb-1">
               {hobbies[currentIndex].title}
             </h3>
-            <p className="text-slate-300 text-sm font-medium mb-4 uppercase tracking-wider">
+            <p className="text-foreground-secondary text-sm font-medium mb-4 uppercase tracking-wider">
               {hobbies[currentIndex].subtitle}
             </p>
-            <p className="text-slate-100 leading-relaxed mb-6 text-justify">
+            <p className="text-foreground leading-relaxed mb-6 text-justify">
               {hobbies[currentIndex].description}
             </p>
           </motion.div>
@@ -115,7 +115,7 @@ export default function HobbiesGallery() {
         <div className="flex gap-4">
           <button
             onClick={prevSlide}
-            className="p-3 rounded-full bg-slate-700/50 border border-slate-600 hover:bg-slate-600 hover:border-primary/50 transition-all text-white hover:text-primary group"
+            className="p-3 rounded-full bg-subtle border border-subtle hover:bg-foreground/10 hover:border-primary/50 transition-all text-foreground hover:text-primary group"
             aria-label="Previous Hobby"
           >
             <ArrowLeft
@@ -125,7 +125,7 @@ export default function HobbiesGallery() {
           </button>
           <button
             onClick={nextSlide}
-            className="p-3 rounded-full bg-slate-700/50 border border-slate-600 hover:bg-slate-600 hover:border-primary/50 transition-all text-white hover:text-primary group"
+            className="p-3 rounded-full bg-subtle border border-subtle hover:bg-foreground/10 hover:border-primary/50 transition-all text-foreground hover:text-primary group"
             aria-label="Next Hobby"
           >
             <ArrowRight

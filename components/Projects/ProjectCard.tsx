@@ -39,7 +39,7 @@ const ProjectCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-full h-full bg-slate-800 rounded-xl shadow-lg p-5 flex flex-col border border-slate-700 group-hover:border-primary/50 transition-colors relative overflow-hidden">
+      <div className="w-full h-full bg-surface rounded-xl shadow-soft p-5 flex flex-col border border-subtle group-hover:border-primary/50 group-hover:-translate-y-0.5 group-hover:shadow-card-hover transition-all duration-300 relative overflow-hidden">
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex items-start gap-4">
@@ -52,10 +52,10 @@ const ProjectCard = ({
               {title.charAt(0)}
             </div>
             <div>
-              <h3 className="text-lg font-bold text-white leading-tight">
+              <h3 className="text-lg font-bold text-foreground leading-tight">
                 {title}
               </h3>
-              <p className="text-slate-400 text-xs mt-1 line-clamp-2">
+              <p className="text-foreground-muted text-xs mt-1 line-clamp-2">
                 {description}
               </p>
             </div>

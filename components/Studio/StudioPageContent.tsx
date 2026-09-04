@@ -18,7 +18,7 @@ function StudioContent() {
   const { title, subtitle, cooperation } = t.studio;
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-primary/30 flex flex-col">
+    <div className="min-h-screen bg-background text-foreground-secondary font-sans selection:bg-primary/30 flex flex-col">
       <Header />
 
       {/* Spacer for fixed header */}
@@ -26,7 +26,7 @@ function StudioContent() {
 
       {/* Hero Banner */}
       <section className="relative py-20 px-6 overflow-hidden flex-shrink-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-slate-900 to-slate-950 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-br from-subtle via-background to-background z-0" />
 
         {/* Abstract shapes/bg */}
         <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl -translate-y-1/3 -translate-x-1/4" />
@@ -34,7 +34,7 @@ function StudioContent() {
 
         <div className="container mx-auto relative z-10 text-center">
           <motion.h1
-            className="text-4xl md:text-6xl font-bold text-white mb-6 font-artistic"
+            className="section-heading text-4xl md:text-6xl font-bold text-foreground mb-6 font-artistic"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -42,7 +42,7 @@ function StudioContent() {
             {title}
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-foreground-muted max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -53,18 +53,18 @@ function StudioContent() {
       </section>
 
       {/* Cooperation Guide - Receipt Style Card */}
-      <section className="py-16 px-6 bg-slate-950 relative">
+      <section className="py-16 px-6 bg-background relative">
         <div className="container mx-auto max-w-3xl relative">
           {/* Printer Output Slot Effect */}
           <div className="relative w-full h-14 mx-auto -mb-7 z-20 px-4">
             {/* Outer lighter rectangle */}
-            <div className="absolute inset-0 bg-slate-700 rounded-full shadow-xl border-b border-slate-600" />
+            <div className="absolute inset-0 bg-foreground/20 rounded-full shadow-soft border-b border-subtle" />
             {/* Inner darker rectangle (the hole) */}
-            <div className="absolute inset-x-2 top-2 bottom-2 bg-slate-950 rounded-full shadow-[inset_0_2px_8px_rgba(0,0,0,0.8)] border border-slate-800" />
+            <div className="absolute inset-x-2 top-2 bottom-2 bg-background rounded-full shadow-[inset_0_2px_8px_rgba(0,0,0,0.35)] border border-subtle" />
           </div>
 
           <motion.div
-            className="relative bg-slate-800 text-slate-200 p-8 md:p-12 shadow-2xl mx-auto border-x border-slate-700 rounded-b-3xl w-[90%] z-30"
+            className="relative bg-surface text-foreground-secondary p-8 md:p-12 shadow-card mx-auto border-x border-subtle rounded-b-3xl w-[90%] z-30"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -74,25 +74,25 @@ function StudioContent() {
             {/* Removed top jagged edge, now it comes out of printer slot */}
 
             {/* Side Cutouts - Matching bg color to simulate holes */}
-            <div className="absolute top-[124px] -left-3 w-6 h-6 rounded-full bg-slate-950 z-10" />
-            <div className="absolute top-[124px] -right-3 w-6 h-6 rounded-full bg-slate-950 z-10" />
+            <div className="absolute top-[124px] -left-3 w-6 h-6 rounded-full bg-background z-10" />
+            <div className="absolute top-[124px] -right-3 w-6 h-6 rounded-full bg-background z-10" />
 
-            <div className="absolute bottom-[212px] -left-3 w-6 h-6 rounded-full bg-slate-950 z-10" />
-            <div className="absolute bottom-[212px] -right-3 w-6 h-6 rounded-full bg-slate-950 z-10" />
+            <div className="absolute bottom-[212px] -left-3 w-6 h-6 rounded-full bg-background z-10" />
+            <div className="absolute bottom-[212px] -right-3 w-6 h-6 rounded-full bg-background z-10" />
 
             {/* Receipt Header */}
-            <div className="text-center border-b-2 border-dashed border-slate-600 pb-6 mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2 text-white">
+            <div className="text-center border-b-2 border-dashed border-subtle pb-6 mb-6">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-2 text-foreground">
                 {cooperation.title}
               </h2>
-              <div className="text-slate-400 text-sm font-mono">
+              <div className="text-foreground-muted text-sm font-mono">
                 {new Date().toLocaleDateString()} • REF: #COOP-2024
               </div>
             </div>
 
             {/* Content List - Fixed height for alignment */}
             <div className="h-[500px] overflow-y-auto pr-2 custom-scrollbar">
-              <ul className="space-y-6 font-mono text-sm md:text-base leading-relaxed text-slate-300">
+              <ul className="space-y-6 font-mono text-sm md:text-base leading-relaxed text-foreground-secondary">
                 {cooperation.content.map((item, index) => (
                   <li key={index} className="flex gap-4 items-start">
                     <span className="font-bold min-w-[24px] text-primary">
@@ -105,11 +105,11 @@ function StudioContent() {
             </div>
 
             {/* Receipt Footer */}
-            <div className="mt-10 pt-6 border-t-2 border-dashed border-slate-600 text-center">
+            <div className="mt-10 pt-6 border-t-2 border-dashed border-subtle text-center">
               <div className="inline-block border-2 border-primary text-primary px-4 py-2 font-bold text-lg transform -rotate-2">
                 APPROVED
               </div>
-              <p className="mt-4 text-xs text-slate-500 uppercase tracking-widest">
+              <p className="mt-4 text-xs text-foreground-muted uppercase tracking-widest">
                 Kevin Xiao Studio
               </p>
 
@@ -118,7 +118,7 @@ function StudioContent() {
                 {[...Array(40)].map((_, i) => (
                   <div
                     key={i}
-                    className="bg-slate-400"
+                    className="bg-foreground-muted"
                     style={{
                       width: Math.random() > 0.5 ? "2px" : "4px",
                       height: "100%",

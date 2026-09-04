@@ -11,11 +11,11 @@ export default function PaymentMode() {
   const { title, subtitle, cards, customize_btn } = t.studio.payment;
 
   return (
-    <section className="py-20 px-6 bg-slate-950 relative">
+    <section className="py-20 px-6 bg-background relative">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <motion.h2
-            className="text-3xl md:text-5xl font-bold text-white mb-4 font-artistic"
+            className="section-heading text-3xl md:text-5xl font-bold text-foreground mb-4 font-artistic"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -23,7 +23,7 @@ export default function PaymentMode() {
             {title}
           </motion.h2>
           <motion.p
-            className="text-lg text-slate-400"
+            className="text-lg text-foreground-muted"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -37,7 +37,7 @@ export default function PaymentMode() {
           {cards.map((card, index) => (
             <motion.div
               key={index}
-              className="relative bg-gradient-to-b from-slate-800 to-slate-900 rounded-3xl p-8 border border-slate-700 shadow-xl overflow-hidden group hover:border-slate-600 transition-colors"
+              className="relative bg-gradient-to-b from-surface to-subtle rounded-3xl p-8 border border-subtle shadow-card overflow-hidden group hover:border-primary/30 hover:-translate-y-0.5 transition-all"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -46,7 +46,7 @@ export default function PaymentMode() {
               {/* Decorative top gradient/glow - Removed border effect */}
               {/* <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-300 opacity-50" /> */}
 
-              <h3 className="text-2xl font-bold text-white mb-8 border-b border-slate-700 pb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-8 border-b border-subtle pb-4">
                 {card.title}
               </h3>
 
@@ -57,7 +57,7 @@ export default function PaymentMode() {
                       className="text-amber-400 flex-shrink-0 mt-1"
                       size={20}
                     />
-                    <span className="text-slate-300 text-sm leading-relaxed">
+                    <span className="text-foreground-secondary text-sm leading-relaxed">
                       {item}
                     </span>
                   </li>
@@ -74,7 +74,7 @@ export default function PaymentMode() {
         <div className="mt-16 flex justify-center">
           <Link href="/#about">
             <motion.button
-              className="relative group px-10 py-5 bg-slate-900 rounded-full text-white font-bold text-lg overflow-hidden shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-shadow duration-300"
+              className="relative group px-10 py-5 bg-surface rounded-[var(--radius-button)] text-foreground font-bold text-lg overflow-hidden shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-shadow duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -83,15 +83,15 @@ export default function PaymentMode() {
               whileTap={{ scale: 0.95 }}
             >
               {/* Animated Border Flow Effect */}
-              <div className="absolute inset-[-4px] rounded-full overflow-hidden">
+              <div className="absolute inset-[-4px] rounded-[var(--radius-button)] overflow-hidden">
                 <div className="absolute inset-[-50%] w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#f59e0b_360deg)] animate-spin-slow" />
               </div>
 
               {/* Inner Background */}
-              <div className="absolute inset-[2px] bg-slate-900 rounded-full z-10" />
+              <div className="absolute inset-[2px] bg-surface rounded-[var(--radius-button)] z-10" />
 
               {/* Button Content */}
-              <span className="relative z-20 flex items-center gap-2 text-amber-50">
+              <span className="relative z-20 flex items-center gap-2 text-foreground">
                 {customize_btn}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-amber-400" />
               </span>

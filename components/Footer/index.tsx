@@ -43,13 +43,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 text-white py-12 border-t border-slate-800 relative">
+    <footer className="bg-background text-foreground py-12 border-t border-subtle relative">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left: Info */}
         <div className="text-center md:text-left">
           <h3 className="text-xl font-bold mb-1">Kevin Xiao</h3>
-          <p className="text-slate-400 text-sm">{t.footer.rights}</p>
-          <p className="text-slate-500 text-xs mt-1">ICP-12345678</p>
+          <p className="text-foreground-muted text-sm">{t.footer.rights}</p>
+          <p className="text-foreground-muted/80 text-xs mt-1">ICP-12345678</p>
         </div>
 
         {/* Center: Social */}
@@ -91,10 +91,10 @@ export default function Footer() {
                 exit={{ scale: 0, opacity: 0 }}
                 onClick={scrollToTop}
                 whileHover={{ y: -5 }}
-                className="bg-transparent border border-slate-700 p-3 rounded-full shadow-lg hover:border-slate-500 transition-colors relative z-10 group"
+                className="bg-transparent border border-subtle p-3 rounded-full shadow-soft hover:border-primary/50 transition-colors relative z-10 group"
                 title={t.footer.back_to_top}
               >
-                <Rocket size={24} className="text-white relative z-10" />
+                <Rocket size={24} className="text-foreground relative z-10" />
 
                 {/* Engine flame effect */}
                 {isLaunching && (

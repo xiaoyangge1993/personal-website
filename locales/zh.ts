@@ -11,6 +11,7 @@ export const zh = {
       studio: "工作室",
     },
     toggle_particles: "切换粒子动画",
+    toggle_theme: "切换外观主题",
   },
   hero: {
     role: "前端工程师",

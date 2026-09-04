@@ -12,6 +12,7 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme, getAccentHex } from "@/contexts/ThemeContext";
 
 const skillColors = [
   "bg-yellow-500",
@@ -46,6 +47,7 @@ export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(2); // Start in middle
   const [isMobile, setIsMobile] = useState(false);
   const { t } = useLanguage();
+  const { theme } = useTheme();
   const skills = t.skills.items;
 
   useEffect(() => {
@@ -77,7 +79,7 @@ export default function Skills() {
     <section id="skills" className="py-20 overflow-hidden perspective-1000">
       <div className="container mx-auto px-6 relative">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-slate-100 font-artistic"
+          className="section-heading text-4xl md:text-5xl font-bold text-center text-foreground font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -122,14 +124,16 @@ export default function Skills() {
 
               const currentLevel = skillLevels[index];
               const currentColor = skillColors[index];
-              const currentHexColor = skillHexColors[index];
+              const currentHexColor =
+                theme === "light" ? getAccentHex() : skillHexColors[index];
               const Icon = skillIcons[index];
 
               return (
                 <motion.div
                   key={skill.name}
                   className={clsx(
-                    "absolute w-[280px] md:w-[320px] rounded-2xl shadow-2xl cursor-grab active:cursor-grabbing group",
+                    "absolute w-[280px] md:w-[320px] rounded-2xl cursor-grab active:cursor-grabbing group",
+                    isActive ? "shadow-card-hover" : "shadow-soft",
                     getZIndex()
                   )}
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -194,31 +198,34 @@ export default function Skills() {
                   </div>
 
                   {/* Inner Card Content */}
-                  <div className="relative bg-slate-800 rounded-2xl p-6 h-full border border-slate-700 overflow-hidden">
+                  <div className={clsx(
+                    "relative bg-surface rounded-2xl p-6 h-full overflow-hidden",
+                    isActive ? "border border-primary/40" : "border border-subtle"
+                  )}>
                     {/* Background Icon */}
                     <div className="absolute top-[-10px] right-[-10px] opacity-[0.08] pointer-events-none transform rotate-12">
-                      <Icon size={140} className="text-white blur-[1px]" />
+                      <Icon size={140} className="text-foreground blur-[1px]" />
                     </div>
 
                     <div className="h-full flex flex-col justify-between relative z-10">
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">
+                        <h3 className="text-xl font-bold text-foreground mb-2">
                           {skill.name}
                         </h3>
-                        <p className="text-slate-300 text-xs mb-4">
+                        <p className="text-foreground-secondary text-xs mb-4">
                           {skill.description}
                         </p>
                       </div>
 
                       <div>
-                        <div className="flex justify-between text-xs font-semibold mb-1 text-slate-300">
+                        <div className="flex justify-between text-xs font-semibold mb-1 text-foreground-secondary">
                           <span>{t.skills.proficiency}</span>
                           <span>{currentLevel}%</span>
                         </div>
-                        <div className="w-full h-2 bg-slate-700 rounded-full overflow-hidden">
+                        <div className="w-full h-2 bg-subtle rounded-full overflow-hidden">
                           <motion.div
                             className={clsx(
-                              "h-full rounded-full",
+                              "skill-bar-fill h-full rounded-full",
                               currentColor
                             )}
                             initial={{ width: 0 }}
@@ -241,14 +248,14 @@ export default function Skills() {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute left-0 md:-left-4 lg:-left-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                className="absolute left-0 md:-left-4 lg:-left-12 z-40 p-3 rounded-full border border-subtle hover:bg-surface/80 text-foreground-muted hover:text-foreground transition-all transform hover:scale-110"
                 aria-label="Previous Skill"
               >
                 <ChevronLeft size={32} />
               </button>
               <button
                 onClick={nextSlide}
-                className="absolute right-0 md:-right-4 lg:-right-12 z-40 p-3 rounded-full border border-slate-700 hover:bg-slate-800/50 text-slate-400 hover:text-white transition-all transform hover:scale-110"
+                className="absolute right-0 md:-right-4 lg:-right-12 z-40 p-3 rounded-full border border-subtle hover:bg-surface/80 text-foreground-muted hover:text-foreground transition-all transform hover:scale-110"
                 aria-label="Next Skill"
               >
                 <ChevronRight size={32} />
@@ -259,7 +266,7 @@ export default function Skills() {
 
         {/* Carousel Indicators */}
         <div className="flex justify-center mt-[-70px] md:mt-0 relative z-50">
-          <div className="bg-slate-800/80 backdrop-blur-sm border border-slate-700 rounded-full px-4 py-2 flex items-center gap-2">
+          <div className="bg-surface/80 backdrop-blur-sm border border-subtle rounded-full px-4 py-2 flex items-center gap-2">
             {skills.map((_, index) => {
               const isActive = index === activeIndex;
               return (
@@ -275,8 +282,10 @@ export default function Skills() {
                       width: "8px",
                       height: "8px",
                       backgroundColor: isActive
-                        ? skillHexColors[index]
-                        : "#64748b",
+                        ? theme === "light"
+                          ? getAccentHex()
+                          : skillHexColors[index]
+                        : "rgb(var(--text-muted-rgb))",
                       scale: isActive ? 1.8 : 1,
                     }}
                     whileHover={{ scale: 1.8 }}

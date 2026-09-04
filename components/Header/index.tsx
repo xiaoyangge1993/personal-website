@@ -11,12 +11,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Github, Linkedin, Sparkles, Languages } from "lucide-react";
+import { Github, Linkedin, Sparkles, Languages, Sun, Moon } from "lucide-react";
 import clsx from "clsx";
 
 import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useIntro } from "@/contexts/IntroContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 import MobileMenuButton from "./MobileMenuButton";
 import MobileMenuDrawer from "./MobileMenuDrawer";
@@ -27,6 +28,7 @@ export default function Header() {
   const { scrollY } = useScroll();
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const { setLogoRect, isTypingDone } = useIntro();
   const logoRef = useRef<HTMLAnchorElement>(null);
   const [displayText, setDisplayText] = useState("");
@@ -93,7 +95,7 @@ export default function Header() {
     <motion.header
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent",
-        isScrolled ? "backdrop-blur-md py-4" : "py-6"
+        isScrolled ? "backdrop-blur-md py-4 bg-background/70" : "py-6"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -109,7 +111,7 @@ export default function Header() {
             // Always show primary color when typing starts (displayText has content)
             displayText.length > 0
               ? "text-primary opacity-100"
-              : "text-slate-100 opacity-0"
+              : "text-foreground opacity-0"
           )}
         >
           {/* Show typing text if typing is started, otherwise Yu Feng (hidden) for layout */}
@@ -131,7 +133,7 @@ export default function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium transition-colors relative group text-slate-300 hover:text-primary"
+              className="text-sm font-medium transition-colors relative group text-foreground-secondary hover:text-primary"
               aria-label={`Navigate to ${item.name}`}
             >
               {item.name}
@@ -145,14 +147,22 @@ export default function Header() {
           {/* Language Toggle */}
           <button
             onClick={toggleLanguage}
-            className="text-slate-300 hover:text-primary transition-colors flex items-center gap-1"
+            className="text-foreground-secondary hover:text-primary transition-colors flex items-center gap-1"
             aria-label="Toggle Language"
           >
             <Languages size={20} />
             <span className="text-sm font-medium uppercase">{locale}</span>
           </button>
 
-          <div className="w-px h-4 bg-slate-700 mx-2" />
+          <button
+            onClick={toggleTheme}
+            className="text-foreground-secondary hover:text-primary transition-colors"
+            aria-label={t.header.toggle_theme}
+          >
+            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
+          <div className="w-px h-4 bg-foreground/15 mx-2" />
 
           {/* Particles Toggle Switch */}
           <div className="flex items-center space-x-2">
@@ -160,14 +170,14 @@ export default function Header() {
               size={16}
               className={clsx(
                 "transition-colors",
-                particlesEnabled ? "text-primary" : "text-slate-500"
+                particlesEnabled ? "text-primary" : "text-foreground-muted"
               )}
             />
             <button
               onClick={toggleParticles}
               className={clsx(
-                "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900",
-                particlesEnabled ? "bg-primary" : "bg-slate-700"
+                "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background",
+                particlesEnabled ? "bg-primary" : "bg-foreground/20"
               )}
               aria-label={t.header.toggle_particles}
             >
@@ -184,7 +194,7 @@ export default function Header() {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-300 hover:text-primary transition-colors"
+            className="text-foreground-secondary hover:text-primary transition-colors"
             aria-label="Visit GitHub Profile"
           >
             <Github size={20} />
@@ -193,7 +203,7 @@ export default function Header() {
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-300 hover:text-primary transition-colors"
+            className="text-foreground-secondary hover:text-primary transition-colors"
             aria-label="Visit LinkedIn Profile"
           >
             <Linkedin size={20} />

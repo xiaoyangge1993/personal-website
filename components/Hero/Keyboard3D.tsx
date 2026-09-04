@@ -1,18 +1,20 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { RoundedBox, Float, ContactShadows, Html } from "@react-three/drei";
 import { Color } from "three";
 import { useIntro } from "@/contexts/IntroContext";
+import { useTheme, getAccentHex } from "@/contexts/ThemeContext";
 
 const Key = ({
   position,
   label,
   width = 1,
   depth = 1,
-  color = "#1e293b", // Slate-800 for dark blue-black look
+  color = "#1e293b",
   forceActive = false,
+  accent = "#1df5ea",
 }: any) => {
   const mesh = useRef<any>(null);
   const [hovered, setHover] = useState(false);
@@ -33,7 +35,7 @@ const Key = ({
 
       // Emissive glow on hover or active
       const targetEmissive = new Color(
-        hovered || isPressed ? "#1df5ea" : "#000000",
+        hovered || isPressed ? accent : "#000000",
       );
       mesh.current.material.emissive.lerp(targetEmissive, 0.1);
     }
@@ -77,7 +79,7 @@ const Key = ({
         >
           <div
             className={`flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
-              hovered || isPressed ? "text-[#1df5ea]" : "text-slate-400"
+              hovered || isPressed ? "text-primary" : "text-slate-400"
             }`}
             style={{ lineHeight: 1 }}
           >
@@ -89,7 +91,7 @@ const Key = ({
   );
 };
 
-const KeyboardModel = () => {
+const KeyboardModel = ({ accent }: { accent: string }) => {
   const row1 = "QWERTYUIOP".split("");
   const row2 = "ASDFGHJKL".split("");
   const row3 = "ZXCVBNM".split("");
@@ -136,6 +138,7 @@ const KeyboardModel = () => {
           label={char}
           position={[(i - 4.5) * 1.2, 0, -1.8]}
           forceActive={activeKey === char}
+          accent={accent}
         />
       ))}
 
@@ -146,6 +149,7 @@ const KeyboardModel = () => {
           label={char}
           position={[(i - 4) * 1.2 - 0.2, 0, -0.6]}
           forceActive={activeKey === char}
+          accent={accent}
         />
       ))}
 
@@ -156,6 +160,7 @@ const KeyboardModel = () => {
           label={char}
           position={[(i - 3) * 1.2 - 0.4, 0, 0.6]}
           forceActive={activeKey === char}
+          accent={accent}
         />
       ))}
 
@@ -165,6 +170,7 @@ const KeyboardModel = () => {
         width={6}
         label=""
         forceActive={activeKey === " "}
+        accent={accent}
       />
     </group>
   );
@@ -172,6 +178,12 @@ const KeyboardModel = () => {
 
 export default function Keyboard3D() {
   const [isMobile, setIsMobile] = useState(false);
+  const { theme } = useTheme();
+  const [accent, setAccent] = useState("#1df5ea");
+
+  useLayoutEffect(() => {
+    setAccent(getAccentHex());
+  }, [theme]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
@@ -206,7 +218,7 @@ export default function Keyboard3D() {
         <pointLight
           position={[-10, 0, -5]}
           intensity={1}
-          color="#1df5ea"
+          color={accent}
           distance={20}
         />
 
@@ -214,12 +226,12 @@ export default function Keyboard3D() {
         <pointLight
           position={[10, 0, -5]}
           intensity={0.5}
-          color="#0ea5e9"
+          color={theme === "light" ? accent : "#0ea5e9"}
           distance={20}
         />
 
         <Float speed={2} rotationIntensity={0.2} floatIntensity={0.4}>
-          <KeyboardModel />
+          <KeyboardModel accent={accent} />
         </Float>
 
         {/* Soft Shadow to ground it without a physical base */}
@@ -229,7 +241,7 @@ export default function Keyboard3D() {
           scale={30}
           blur={3}
           far={4}
-          color="#1df5ea"
+          color={accent}
         />
       </Canvas>
     </div>

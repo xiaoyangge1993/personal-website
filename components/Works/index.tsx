@@ -9,9 +9,57 @@ interface WorkCardProps {
   title: string;
   description: string;
   link: string;
+  variant?: number;
 }
 
-const WorkCard = ({ title, description, link }: WorkCardProps) => {
+const WorkWireframe = ({ variant = 0 }: { variant?: number }) => {
+  const common = {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1,
+    className: "text-foreground opacity-[0.08]",
+  };
+
+  if (variant === 1) {
+    return (
+      <svg viewBox="0 0 200 140" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden>
+        <g {...common}>
+          <path d="M30 110 L100 30 L170 110" />
+          <path d="M50 110 L100 50 L150 110" />
+          <line x1="20" y1="110" x2="180" y2="110" />
+          <line x1="100" y1="30" x2="100" y2="110" />
+        </g>
+      </svg>
+    );
+  }
+
+  if (variant === 2) {
+    return (
+      <svg viewBox="0 0 200 140" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden>
+        <g {...common}>
+          <ellipse cx="100" cy="70" rx="70" ry="28" />
+          <ellipse cx="100" cy="70" rx="45" ry="16" />
+          <circle cx="100" cy="70" r="6" />
+          <path d="M100 70 L165 42" />
+          <circle cx="165" cy="42" r="3" />
+        </g>
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 200 140" className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden>
+      <g {...common}>
+        <circle cx="100" cy="38" r="10" />
+        <path d="M100 48 L100 88" />
+        <path d="M88 62 L100 48 L112 62" />
+        <circle cx="100" cy="96" r="4" />
+      </g>
+    </svg>
+  );
+};
+
+const WorkCard = ({ title, description, link, variant = 0 }: WorkCardProps) => {
   // Variants for coordinated animations
   const cardVariants = {
     rest: { rotateX: 0, y: 0 },
@@ -86,7 +134,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
     >
       {/* Card */}
       <motion.div
-        className="relative bg-slate-800/60 backdrop-blur-sm h-[220px] rounded-xl shadow-lg border border-slate-700 p-8 cursor-pointer overflow-visible z-10"
+        className="relative bg-surface/90 backdrop-blur-sm h-[220px] rounded-xl shadow-soft border border-subtle p-8 cursor-pointer overflow-visible z-10"
         variants={cardVariants}
         style={{
           transformOrigin: "bottom center",
@@ -97,12 +145,13 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
           className="relative z-10"
           style={{ transform: "translateZ(30px)" }}
         >
-          <h3 className="text-2xl font-bold text-white mb-3">{title}</h3>
-          <p className="text-slate-300 leading-relaxed">{description}</p>
+          <h3 className="text-2xl font-bold text-foreground mb-3">{title}</h3>
+          <p className="text-foreground-secondary leading-relaxed">{description}</p>
         </div>
 
         {/* Background Decorative Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-700 to-slate-800 opacity-50 pointer-events-none rounded-xl overflow-hidden" />
+        <div className="absolute inset-0 bg-gradient-to-br from-subtle to-surface opacity-50 pointer-events-none rounded-xl overflow-hidden" />
+        <WorkWireframe variant={variant} />
 
         {/* --- 3D Effects Inside Card (To follow perspective) --- */}
         <div
@@ -119,7 +168,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
                 key={i}
                 custom={i}
                 variants={rippleVariants}
-                className="absolute rounded-full border border-primary/50 bg-primary/20 shadow-[0_0_15px_rgba(29,245,234,0.5)]"
+                className="absolute rounded-full border border-primary/50 bg-primary/20 shadow-[0_0_15px_rgb(var(--accent-primary-rgb)/0.35)]"
                 style={{ width: 80, height: 80 }} // Doubled size
               />
             ))}
@@ -129,7 +178,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
                 rest: { scale: 0, opacity: 0 },
                 hover: { scale: 1, opacity: 1 },
               }}
-              className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#1df5ea]"
+              className="absolute w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_rgb(var(--accent-primary-rgb)/0.7)]"
             />
           </div>
 
@@ -157,7 +206,7 @@ const WorkCard = ({ title, description, link }: WorkCardProps) => {
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-slate-900 px-4 py-1.5 rounded-full shadow-xl border border-slate-700 text-xs text-white font-mono whitespace-nowrap flex items-center gap-2 hover:border-primary transition-colors cursor-pointer"
+          className="bg-background px-4 py-1.5 rounded-full shadow-soft border border-subtle text-xs text-foreground font-mono whitespace-nowrap flex items-center gap-2 hover:border-primary transition-colors cursor-pointer"
           aria-label={`Visit project ${link}`}
         >
           <ExternalLink size={12} className="text-primary" />
@@ -176,7 +225,7 @@ export default function Works() {
     <section id="works" className="py-20">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl mb-24 md:mb-0 md:text-5xl font-bold text-center text-slate-100 font-artistic"
+          className="section-heading text-4xl mb-24 md:mb-0 md:text-5xl font-bold text-center text-foreground font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -193,7 +242,7 @@ export default function Works() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <WorkCard {...work} />
+              <WorkCard {...work} variant={index} />
             </motion.article>
           ))}
         </div>

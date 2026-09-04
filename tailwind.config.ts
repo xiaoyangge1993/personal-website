@@ -14,9 +14,30 @@ const config: Config = {
         artistic: ["var(--font-playfair)", "serif"],
       },
       colors: {
-        primary: "#1df5ea",
-        secondary: "#334155",
-        background: "#0f172a", // Dark blue-grey
+        primary: "rgb(var(--accent-primary-rgb) / <alpha-value>)",
+        secondary: "rgb(var(--color-secondary-rgb) / <alpha-value>)",
+        background: "rgb(var(--bg-page-rgb) / <alpha-value>)",
+        page: "rgb(var(--bg-page-rgb) / <alpha-value>)",
+        surface: "rgb(var(--bg-surface-rgb) / <alpha-value>)",
+        subtle: "rgb(var(--bg-subtle-rgb) / <alpha-value>)",
+        foreground: {
+          DEFAULT: "rgb(var(--text-primary-rgb) / <alpha-value>)",
+          secondary: "rgb(var(--text-secondary-rgb) / <alpha-value>)",
+          muted: "rgb(var(--text-muted-rgb) / <alpha-value>)",
+        },
+        accent: {
+          DEFAULT: "rgb(var(--accent-primary-rgb) / <alpha-value>)",
+          soft: "var(--accent-soft)",
+        },
+      },
+      borderColor: {
+        subtle: "var(--border-subtle)",
+        faint: "var(--border-light)",
+      },
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        card: "var(--shadow-card)",
+        "card-hover": "var(--shadow-hover)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

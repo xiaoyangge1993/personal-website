@@ -11,6 +11,7 @@ export const en = {
       studio: "Studio",
     },
     toggle_particles: "Toggle particles animation",
+    toggle_theme: "Toggle color theme",
   },
   hero: {
     role: "Frontend Engineer",

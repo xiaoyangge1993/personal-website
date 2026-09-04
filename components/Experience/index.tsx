@@ -60,7 +60,7 @@ const ExperienceCard = ({ exp }: any) => {
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-slate-700 cursor-pointer perspective-1000 relative overflow-hidden"
+      className="group bg-surface p-6 rounded-xl shadow-soft hover:shadow-card-hover transition-shadow border border-subtle cursor-pointer perspective-1000 relative overflow-hidden"
     >
       {/* Glow Effect Layer */}
       <div
@@ -68,7 +68,7 @@ const ExperienceCard = ({ exp }: any) => {
         style={{
           background: `radial-gradient(
             600px circle at var(--glow-x, 50%) var(--glow-y, 50%),
-            rgba(29, 245, 234, 0.15),
+            rgb(var(--accent-primary-rgb) / 0.15),
             transparent 40%
           )`,
         }}
@@ -77,15 +77,15 @@ const ExperienceCard = ({ exp }: any) => {
       <div style={{ transform: "translateZ(20px)" }} className="relative z-10">
         <div className="flex items-center gap-2 mb-2">
           <Briefcase size={18} className="text-primary" />
-          <span className="text-sm font-semibold text-slate-300">
+          <span className="text-sm font-semibold text-foreground-secondary">
             {exp.period}
           </span>
         </div>
-        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">
+        <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
           {exp.role}
         </h3>
-        <p className="text-white font-medium mb-2 opacity-80">{exp.company}</p>
-        <p className="text-slate-300 text-sm leading-relaxed">
+        <p className="text-foreground font-medium mb-2 opacity-80">{exp.company}</p>
+        <p className="text-foreground-secondary text-sm leading-relaxed">
           {exp.description}
         </p>
       </div>
@@ -100,7 +100,7 @@ export default function Experience() {
     <section id="experience" className="py-20 overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center text-slate-100 mb-32 font-artistic"
+          className="section-heading text-4xl md:text-5xl font-bold text-center text-foreground mb-32 font-artistic"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -122,7 +122,7 @@ export default function Experience() {
 
           {/* Right: Timeline */}
           <div className="w-full md:w-1/2 relative">
-            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-800" />
+            <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-surface" />
 
             <div className="space-y-12">
               {t.experience.jobs.map((exp, index) => (
@@ -135,7 +135,7 @@ export default function Experience() {
                   transition={{ delay: index * 0.2, duration: 0.5 }}
                 >
                   {/* Dot */}
-                  <div className="absolute left-[9px] top-1.5 w-3.5 h-3.5 bg-primary rounded-full border-4 border-white shadow-sm z-10" />
+                  <div className="absolute left-[9px] top-1.5 w-3.5 h-3.5 bg-primary rounded-full border-4 border-background shadow-sm z-10" />
 
                   {/* Content Card */}
                   <div className="perspective-1000">

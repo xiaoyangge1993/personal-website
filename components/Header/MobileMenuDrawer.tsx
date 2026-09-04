@@ -1,10 +1,11 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Github, Linkedin, Sparkles, Languages } from "lucide-react";
+import { Github, Linkedin, Sparkles, Languages, Sun, Moon } from "lucide-react";
 import clsx from "clsx";
 import { useParticles } from "@/contexts/ParticlesContext";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface MobileMenuDrawerProps {
   isOpen: boolean;
@@ -19,6 +20,7 @@ export default function MobileMenuDrawer({
 }: MobileMenuDrawerProps) {
   const { particlesEnabled, toggleParticles } = useParticles();
   const { t, locale, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <AnimatePresence>
@@ -30,7 +32,7 @@ export default function MobileMenuDrawer({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 h-[100vh] bg-slate-900 z-[9999] md:hidden flex flex-col p-8 pt-24"
+            className="fixed inset-0 h-[100vh] bg-background z-[9999] md:hidden flex flex-col p-8 pt-24"
           >
             {/* Vertical Navigation */}
             <nav className="flex flex-col space-y-6 mb-auto">
@@ -38,7 +40,7 @@ export default function MobileMenuDrawer({
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-2xl font-bold text-slate-300 hover:text-primary transition-colors"
+                  className="text-2xl font-bold text-foreground-secondary hover:text-primary transition-colors"
                   onClick={onClose}
                 >
                   {item.name}
@@ -47,18 +49,26 @@ export default function MobileMenuDrawer({
             </nav>
 
             {/* Bottom Utilities */}
-            <div className="flex items-center justify-between border-t border-slate-800 pt-8">
+            <div className="flex items-center justify-between border-t border-subtle pt-8">
               {/* Language Toggle */}
               <button
                 onClick={toggleLanguage}
-                className="text-slate-300 hover:text-primary transition-colors flex items-center gap-2"
+                className="text-foreground-secondary hover:text-primary transition-colors flex items-center gap-2"
                 aria-label="Toggle Language"
               >
                 <Languages size={24} />
                 <span className="text-sm font-medium uppercase">{locale}</span>
               </button>
 
-              <div className="w-px h-6 bg-slate-700" />
+              <button
+                onClick={toggleTheme}
+                className="text-foreground-secondary hover:text-primary transition-colors"
+                aria-label={t.header.toggle_theme}
+              >
+                {theme === "dark" ? <Sun size={24} /> : <Moon size={24} />}
+              </button>
+
+              <div className="w-px h-6 bg-foreground/15" />
 
               {/* Particles Toggle */}
               <div className="flex items-center gap-2">
@@ -66,7 +76,7 @@ export default function MobileMenuDrawer({
                   size={24}
                   className={clsx(
                     "transition-colors",
-                    particlesEnabled ? "text-primary" : "text-slate-500"
+                    particlesEnabled ? "text-primary" : "text-foreground-muted"
                   )}
                 />
                 <button
@@ -75,8 +85,8 @@ export default function MobileMenuDrawer({
                     toggleParticles();
                   }}
                   className={clsx(
-                    "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-slate-900",
-                    particlesEnabled ? "bg-primary" : "bg-slate-700"
+                    "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background",
+                    particlesEnabled ? "bg-primary" : "bg-foreground/20"
                   )}
                   aria-label={t.header.toggle_particles}
                 >
@@ -89,7 +99,7 @@ export default function MobileMenuDrawer({
                 </button>
               </div>
 
-              <div className="w-px h-6 bg-slate-700" />
+              <div className="w-px h-6 bg-foreground/15" />
 
               {/* Social Icons */}
               <div className="flex gap-4">
@@ -97,15 +107,15 @@ export default function MobileMenuDrawer({
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-300 hover:text-primary transition-colors"
-                >
-                  <Github size={24} />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-slate-300 hover:text-primary transition-colors"
+                    className="text-foreground-secondary hover:text-primary transition-colors"
+                  >
+                    <Github size={24} />
+                  </a>
+                  <a
+                    href="https://linkedin.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground-secondary hover:text-primary transition-colors"
                 >
                   <Linkedin size={24} />
                 </a>

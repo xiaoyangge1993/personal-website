@@ -18,7 +18,7 @@ export default function MobileMenuButton({
     >
       {/* Top Line */}
       <motion.span
-        className="w-6 h-0.5 bg-white rounded-full origin-center"
+        className="w-6 h-0.5 bg-foreground rounded-full origin-center"
         animate={
           isOpen
             ? { rotate: 45, y: 8 } // Rotate and move down to form X
@@ -29,14 +29,14 @@ export default function MobileMenuButton({
 
       {/* Middle Line */}
       <motion.span
-        className="w-6 h-0.5 bg-white rounded-full"
+        className="w-6 h-0.5 bg-foreground rounded-full"
         animate={isOpen ? { opacity: 0, x: 20 } : { opacity: 1, x: 0 }}
         transition={{ duration: 0.2 }}
       />
 
       {/* Bottom Line */}
       <motion.span
-        className="w-6 h-0.5 bg-white rounded-full origin-center"
+        className="w-6 h-0.5 bg-foreground rounded-full origin-center"
         animate={
           isOpen
             ? { rotate: -45, y: -8 } // Rotate and move up to form X
