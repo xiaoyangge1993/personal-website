@@ -2,10 +2,12 @@
 
 import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { RoundedBox, Float, ContactShadows, Html } from "@react-three/drei";
+import { RoundedBox, Float, ContactShadows, Text } from "@react-three/drei";
 import { Color } from "three";
 import { useIntro } from "@/contexts/IntroContext";
 import { useTheme, getAccentHex } from "@/contexts/ThemeContext";
+
+const LABEL_COLOR_IDLE = "#94a3b8";
 
 const Key = ({
   position,
@@ -17,13 +19,16 @@ const Key = ({
   accent = "#1df5ea",
 }: any) => {
   const mesh = useRef<any>(null);
+  const textRef = useRef<any>(null);
+  const textColor = useRef(new Color(LABEL_COLOR_IDLE));
+  const textColorTarget = useRef(new Color(LABEL_COLOR_IDLE));
   const [hovered, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
   // Combine internal active state (mouse click) with external forceActive (typing animation)
   const isPressed = active || forceActive;
 
-  useFrame((state) => {
+  useFrame(() => {
     if (mesh.current) {
       // Smoothly animate position based on active state (press effect)
       const targetY = isPressed ? -0.15 : 0;
@@ -38,6 +43,14 @@ const Key = ({
         hovered || isPressed ? accent : "#000000",
       );
       mesh.current.material.emissive.lerp(targetEmissive, 0.1);
+    }
+
+    if (textRef.current) {
+      textColorTarget.current.set(
+        hovered || isPressed ? accent : LABEL_COLOR_IDLE,
+      );
+      textColor.current.lerp(textColorTarget.current, 0.15);
+      textRef.current.color = `#${textColor.current.getHexString()}`;
     }
   });
 
@@ -62,31 +75,24 @@ const Key = ({
           clearcoatRoughness={0.05} // Smoother clearcoat for high gloss
           reflectivity={1}
         />
-      </RoundedBox>
-      {/* Move Html outside RoundedBox to prevent event interference */}
-      {label && (
-        <Html
-          position={[0, 0.5, 0]}
-          transform
-          rotation={[-Math.PI / 2, 0, 0]}
-          occlude={false}
-          zIndexRange={[0, 0]}
-          className="pointer-events-none"
-          style={{
-            pointerEvents: "none",
-            userSelect: "none",
-          }}
-        >
-          <div
-            className={`flex items-center justify-center text-xs font-bold transition-colors duration-200 ${
-              hovered || isPressed ? "text-primary" : "text-slate-400"
-            }`}
-            style={{ lineHeight: 1 }}
+        {label ? (
+          <Text
+            ref={textRef}
+            position={[0, 0.26, 0]}
+            rotation={[-Math.PI / 2, 0, 0]}
+            fontSize={0.32}
+            fontWeight={700}
+            color={LABEL_COLOR_IDLE}
+            anchorX="center"
+            anchorY="middle"
+            depthOffset={-1}
+            toneMapped={false}
+            raycast={() => {}}
           >
             {label}
-          </div>
-        </Html>
-      )}
+          </Text>
+        ) : null}
+      </RoundedBox>
     </group>
   );
 };
