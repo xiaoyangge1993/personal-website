@@ -103,7 +103,7 @@ export default function Hero() {
             href="#works"
             whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-[var(--cta-to)] text-white px-8 py-4 font-bold shadow-soft transition-all hover:brightness-110 hover:-translate-y-0.5 hover:shadow-card-hover rounded-[var(--radius-button)]"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-[var(--cta-to)] text-[var(--cta-fg)] px-8 py-4 font-bold shadow-cta transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-cta-hover rounded-[var(--radius-button)]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{

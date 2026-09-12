@@ -38,6 +38,8 @@ const config: Config = {
         soft: "var(--shadow-soft)",
         card: "var(--shadow-card)",
         "card-hover": "var(--shadow-hover)",
+        cta: "var(--cta-shadow)",
+        "cta-hover": "var(--cta-shadow-hover)",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

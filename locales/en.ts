@@ -20,7 +20,7 @@ export const en = {
     description:
       "I'm Kevin Xiao, a passionate developer crafting responsive, interactive, and user-friendly full-stack web applications.",
     cta: "View My Work",
-    tags: ["Full-Stack Development", "Clean Code", "Efficiency First"],
+    tags: ["FULL STACK", "DESIGN ENGINEERING", "CREATIVE CODING"],
   },
   about: {
     title: "About Me",

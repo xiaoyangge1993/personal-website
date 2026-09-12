@@ -46,6 +46,9 @@
   --shimmer-b: #0ea5e9;
   --shimmer-c: #ffffff;
   --cta-to: #06b6d4;
+  --cta-fg: #0f172a;
+  --cta-shadow: 0 8px 30px rgba(29, 245, 234, 0.28);
+  --cta-shadow-hover: 0 18px 50px rgba(29, 245, 234, 0.4);
   --radius-button: 9999px;
   --particle: #ffffff;
 }
@@ -90,10 +93,13 @@
   --scrollbar-thumb-hover: #8c8c86;
 
   --shimmer-a: #e56a4a;
-  --shimmer-b: #c45a3e;
-  --shimmer-c: #171717;
-  --cta-to: #e56a4a;
-  --radius-button: 10px;
+  --shimmer-b: #f4b84a;
+  --shimmer-c: #ffe566;
+  --cta-to: #e5542e;
+  --cta-fg: #ffffff;
+  --cta-shadow: 0 8px 30px rgba(229, 106, 74, 0.28);
+  --cta-shadow-hover: 0 18px 50px rgba(229, 106, 74, 0.4);
+  --radius-button: 9999px;
   --particle: #171717;
 }
 
