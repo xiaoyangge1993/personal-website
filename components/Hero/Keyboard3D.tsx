@@ -3,6 +3,7 @@
 import React, { useRef, useState, useEffect, useLayoutEffect, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
+  RoundedBox,
   Float,
   ContactShadows,
   Text,
@@ -240,6 +241,22 @@ const KeyboardModel = ({ accent }: { accent: string }) => {
         forceActive={activeKey === " "}
         accent={accent}
       />
+      <RoundedBox
+        args={[13.15, 0.6, 5.4]}
+        radius={0.16}
+        smoothness={4}
+        position={[0, -0.82, 0]}
+        receiveShadow
+        castShadow
+      >
+        <meshPhysicalMaterial
+          color="#10151d"
+          metalness={0.22}
+          roughness={0.62}
+          clearcoat={0.08}
+          clearcoatRoughness={0.6}
+        />
+      </RoundedBox>
     </group>
   );
 };
@@ -323,7 +340,7 @@ export default function Keyboard3D() {
         </Float>
 
         <ContactShadows
-          position={[0, -1.15, 0]}
+          position={[0, -1.35, 0]}
           opacity={0.28}
           scale={26}
           blur={2.6}
