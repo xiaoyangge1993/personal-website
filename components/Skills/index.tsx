@@ -12,7 +12,6 @@ import {
   SiVuedotjs,
 } from "react-icons/si";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useTheme, getAccentHex } from "@/contexts/ThemeContext";
 
 const skillColors = [
   "bg-yellow-500",
@@ -47,7 +46,6 @@ export default function Skills() {
   const [activeIndex, setActiveIndex] = useState(2); // Start in middle
   const [isMobile, setIsMobile] = useState(false);
   const { t } = useLanguage();
-  const { theme } = useTheme();
   const skills = t.skills.items;
 
   useEffect(() => {
@@ -124,8 +122,7 @@ export default function Skills() {
 
               const currentLevel = skillLevels[index];
               const currentColor = skillColors[index];
-              const currentHexColor =
-                theme === "light" ? getAccentHex() : skillHexColors[index];
+              const currentHexColor = skillHexColors[index];
               const Icon = skillIcons[index];
 
               return (
@@ -282,9 +279,7 @@ export default function Skills() {
                       width: "8px",
                       height: "8px",
                       backgroundColor: isActive
-                        ? theme === "light"
-                          ? getAccentHex()
-                          : skillHexColors[index]
+                        ? skillHexColors[index]
                         : "rgb(var(--text-muted-rgb))",
                       scale: isActive ? 1.8 : 1,
                     }}

@@ -50,7 +50,7 @@ export default function CooperationProcess() {
                           "absolute -top-8 z-20 flex items-center px-6 py-3 rounded-full font-bold text-lg shadow-lg transform transition-transform group-hover:scale-105",
                           isLeft
                             ? "-right-[20px] bg-amber-300 text-slate-900"
-                            : "-left-[20px] bg-blue-500 text-slate-900" // Right side cards (blue) but dark text
+                            : "-left-[20px] bg-blue-500 text-white dark:text-slate-900"
                         )}
                       >
                         {/* Little triangle pointer for bubble */}
@@ -73,10 +73,10 @@ export default function CooperationProcess() {
                           </>
                         ) : (
                           <>
-                            <span className="mr-2 font-black text-slate-900">
+                            <span className="mr-2 font-black text-white dark:text-slate-900">
                               {stepNumber}
                             </span>
-                            <div className="w-px h-3 bg-slate-900/30 mr-2" />
+                            <div className="w-px h-3 bg-white/30 dark:bg-slate-900/30 mr-2" />
                             {step.title}
                           </>
                         )}

@@ -8,7 +8,7 @@ export const zh = {
       works: "创意作品",
       articles: "最新文章",
       resources: "资源导航",
-      studio: "工作室",
+      studio: "项目合作",
     },
     toggle_particles: "切换粒子动画",
     toggle_theme: "切换外观主题",
@@ -332,7 +332,7 @@ export const zh = {
     ],
   },
   studio: {
-    title: "我的工作室",
+    title: "项目合作",
     subtitle: "专业 Web 开发服务",
     cooperation: {
       title: "合作说明",

@@ -74,7 +74,7 @@ export default function PaymentMode() {
         <div className="mt-16 flex justify-center">
           <Link href="/#about">
             <motion.button
-              className="relative group px-10 py-5 bg-surface rounded-[var(--radius-button)] text-foreground font-bold text-lg overflow-hidden shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_30px_rgba(245,158,11,0.5)] transition-shadow duration-300"
+              className="relative group inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-primary to-[var(--cta-to)] text-white font-bold text-lg rounded-[var(--radius-button)] shadow-cta hover:shadow-cta-hover hover:-translate-y-0.5 transition-[box-shadow,transform] duration-200"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -82,22 +82,10 @@ export default function PaymentMode() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {/* Animated Border Flow Effect */}
-              <div className="absolute inset-[-4px] rounded-[var(--radius-button)] overflow-hidden">
-                <div className="absolute inset-[-50%] w-[200%] h-[200%] bg-[conic-gradient(from_0deg,transparent_0_300deg,#f59e0b_360deg)] animate-spin-slow" />
-              </div>
-
-              {/* Inner Background */}
-              <div className="absolute inset-[2px] bg-surface rounded-[var(--radius-button)] z-10" />
-
-              {/* Button Content */}
-              <span className="relative z-20 flex items-center gap-2 text-foreground">
+              <span className="relative z-20 flex items-center gap-2 text-white">
                 {customize_btn}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-amber-400" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-white" />
               </span>
-
-              {/* Hover Glow */}
-              <div className="absolute inset-0 bg-amber-500/5 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.button>
           </Link>
         </div>

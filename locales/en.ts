@@ -8,7 +8,7 @@ export const en = {
       works: "Works",
       articles: "Articles",
       resources: "Resources",
-      studio: "Studio",
+      studio: "Project Cooperation",
     },
     toggle_particles: "Toggle particles animation",
     toggle_theme: "Toggle color theme",
@@ -358,7 +358,7 @@ export const en = {
     ],
   },
   studio: {
-    title: "My Studio",
+    title: "Project Cooperation",
     subtitle: "Professional Web Development Services",
     cooperation: {
       title: "Cooperation Guide",
